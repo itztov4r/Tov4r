@@ -118,6 +118,38 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;fl
 @media(max-width:860px){.setup,.ab{grid-template-columns:1fr}.mt,#glow{display:none}.hbg{inset:0;opacity:.55}nav a{padding:8px 8px;font-size:.68rem}.lg{display:none}section{padding:70px 5vw}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}#intro{display:none}.rv{opacity:1;transform:none}.sh i{transform:none}h1::before,h1::after{display:none}.kick::before{width:40px}}
 .g{position:relative}.g img{filter:saturate(.88) contrast(1.06) brightness(.95)}.g:hover img{filter:none}.g::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(120,8,16,.38));pointer-events:none}.g div{z-index:1}.sw img{filter:saturate(.9) contrast(1.05)}
+
+/* Responsive refresh 2026-11: iPhone, Android, tablets and small landscape screens */
+:where(img,video,iframe,svg){max-width:100%}
+:where(.hc,.games,.g,.g div,.setup,.sw,.ab,.cn,.cn2,.lks,.lk){min-width:0}
+@media(max-width:700px){
+ header{min-width:0;gap:10px;flex-wrap:wrap;padding-inline:12px}
+ nav{max-width:100%;width:100%;min-width:0;display:flex;flex-wrap:wrap;justify-content:center;gap:2px}
+ nav a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:9px 10px;font-size:.73rem}
+ .hero{min-height:calc(100svh - 74px);padding-block:30px 40px}
+ .hc{max-width:100%;width:100%}
+ .hc h1,h1{overflow-wrap:anywhere}
+ .cta{display:flex;flex-wrap:wrap;gap:12px}
+ .cta .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;max-width:100%}
+ .games,.cn,.cn2,.lks{grid-template-columns:minmax(0,1fr)}
+ .setup,.ab{grid-template-columns:minmax(0,1fr)}
+ .ab img{width:min(230px,70vw)}
+ .g img{aspect-ratio:16/10}
+ .lk{overflow-wrap:anywhere}
+ section{padding:62px 16px}
+ footer{padding:24px 16px;line-height:1.7}
+ .tov-music-dock{max-width:calc(100vw - 24px);width:min(440px,calc(100vw - 24px))}
+ .tov-controls{flex-wrap:wrap}
+}
+@media(max-width:390px){
+ nav a{font-size:.67rem;padding-inline:7px}
+ .hero h1{font-size:clamp(2.4rem,13vw,4.1rem)}
+ .hbg{opacity:.36}
+ .btn{max-width:100%}
+}
+@media(max-height:460px) and (orientation:landscape){.hero{min-height:0;padding-block:32px}section{padding-block:38px}}
+@media(hover:none){.g:hover{transform:none}.sw:hover img{transform:none}}
+
 </style>
 <style>
 /* TOV4R · bottom-center cinematic music player — isolated from portfolio styles */
