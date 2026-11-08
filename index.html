@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tov4r – Gaming Portfolio</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#090609">
+<meta property="og:title" content="TOV4R — Gaming Portfolio">
+<meta property="og:description" content="Gaming, setup et communauté TOV4R.">
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Permanent+Marker&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#070405;--p:rgba(16,8,10,.8);--ln:rgba(227,22,43,.16);--red:#e0141f;--tx:#f2eded;--mu:#a29596;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -150,6 +155,14 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;fl
 @media(max-height:460px) and (orientation:landscape){.hero{min-height:0;padding-block:32px}section{padding-block:38px}}
 @media(hover:none){.g:hover{transform:none}.sw:hover img{transform:none}}
 
+
+/* TOV4R visual identity — header logo */
+header .tov-brand{display:inline-flex;align-items:center;gap:10px;flex-shrink:0;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:.13em;line-height:1;text-transform:uppercase;text-shadow:0 0 18px rgba(224,20,31,.2);transition:filter .25s,transform .25s}
+header .tov-brand img{display:block;width:37px;height:37px;max-width:none;filter:drop-shadow(0 0 7px rgba(227,22,43,.35))}
+header .tov-brand .tov-brand-four{color:#ff4052}
+header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
+@media(max-width:700px){header .tov-brand{display:inline-flex;width:100%;justify-content:center;font-size:1.12rem}header .tov-brand img{height:33px;width:33px}}
+@media(min-width:701px) and (max-width:860px){header .tov-brand{display:inline-flex}}
 </style>
 <style>
 /* TOV4R · bottom-center cinematic music player — isolated from portfolio styles */
@@ -251,7 +264,7 @@ footer{position:relative;z-index:2;display:flex;justify-content:space-between;fl
 <div id="intro" aria-hidden="true"><span>Tov4r</span></div>
 <div id="glow"></div>
 <header>
- <a class="lg" href="#home">Tov4r</a>
+ <a class="lg tov-brand" href="#home" aria-label="TOV4R — Accueil"><img src="/favicon.svg?v=2" alt="" width="37" height="37"><span>TOV<span class="tov-brand-four">4</span>R</span></a>
  <nav><a href="#home" class="on">HOME</a><a href="#games">GAMES</a><a href="#setup">SETUP</a><a href="#about">ABOUT</a><a href="#connect">CONNECT</a></nav>
 </header>
 <main>
