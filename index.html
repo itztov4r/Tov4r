@@ -214,6 +214,19 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 @media(max-width:600px){#highlights .tov-clips-intro{flex-direction:column;align-items:start;gap:16px}#highlights .tov-clips-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#highlights .tov-clip-poster{aspect-ratio:1/1}#highlights .tov-clip-info{padding:12px 11px;min-height:70px}#highlights .tov-clip-info strong{font-size:.78rem}#highlights .tov-clip-info small{font-size:.65rem}#highlights .tov-clip-symbol{font-size:3.8rem}#highlights .tov-clip-play{width:44px;height:44px}#highlights .tov-clip-play svg{width:22px;height:22px}#highlights .tov-clip-index,#highlights .tov-clip-map{left:10px;font-size:.52rem}#highlights .tov-clips-profile{min-height:44px;justify-content:center}}
 @media(max-width:340px){#highlights .tov-clips-grid{grid-template-columns:1fr}#highlights .tov-clip-poster{aspect-ratio:16/10}}
 @media(prefers-reduced-motion:reduce){#highlights .tov-clip-card,#highlights .tov-clip-symbol,#highlights .tov-clip-play{transition:none}}
+
+/* Preview réelle de Medal, avec lecteur Medal de secours si l'URL CDN expire. */
+#highlights .tov-real-thumb{isolation:isolate;background:linear-gradient(135deg,#1e0b12,#07080e);overflow:hidden}
+#highlights .tov-real-thumb .tov-thumb,
+#highlights .tov-real-thumb .tov-medal-fallback{display:block;position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:cover;filter:brightness(.75) contrast(1.07);transition:transform .35s ease,filter .35s ease}
+#highlights .tov-real-thumb .tov-medal-fallback{z-index:0;pointer-events:none;filter:none}
+#highlights .tov-real-thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,transparent 45%,rgba(0,0,0,.55) 100%);pointer-events:none;z-index:1}
+#highlights .tov-clip-card:hover .tov-real-thumb .tov-thumb{transform:scale(1.055);filter:brightness(.93)}
+#highlights .tov-real-thumb .tov-clip-index,
+#highlights .tov-real-thumb .tov-clip-map,
+#highlights .tov-real-thumb .tov-clip-ornament{z-index:2}
+#highlights .tov-real-thumb .tov-clip-play{z-index:3}
+@media(prefers-reduced-motion:reduce){#highlights .tov-real-thumb .tov-thumb{transition:none}}
 </style>
 <style>
 /* TOV4R · bottom-center cinematic music player — isolated from portfolio styles */
@@ -355,40 +368,40 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
   <div class="tov-clips-intro rv"><p><span class="tov-clips-status"><span></span> CLIPPED ON MEDAL</span><br>Best moments from TOV4R on Counter-Strike 2. Discover the clips, then watch the full gameplay on Medal.</p><a class="tov-clips-profile" href="https://medal.tv/u/tov4r" target="_blank" rel="noopener noreferrer">MY MEDAL PROFILE <span aria-hidden="true">↗</span></a></div>
   <div class="tov-clips-grid rv">
   <a class="tov-clip-card tov-clip-1" href="https://medal.tv/clips/nMMeT2Agr7tMolF5v" target="_blank" rel="noopener noreferrer" aria-label="Watch Ace — Mirage on Medal">
-    <div class="tov-clip-poster">
+    <div class="tov-clip-poster tov-real-thumb" data-clip-embed="https://medal.tv/clip/nMMeT2Agr7tMolF5v">
       <span class="tov-clip-index">01 / FEATURED</span>
       <span class="tov-clip-ornament" aria-hidden="true">♠</span>
-      <span class="tov-clip-symbol" aria-hidden="true">ACE</span>
+      <img class="tov-thumb" src="https://cdn.medal.tv/ugcc/content-thumbnail/JqSZNI_GBbNAl40WRUV7Jw-0.jpg?auth=exp=1794202200~data=NzUwNDE1NTI1LG5NTWVUMkFncjd0TW9sRjV2LDFnaUxFY3VHbG4yLC0x~hmac=b4d96d3e408bc3fd0fe54824fdcd8ab5d320963c12bceef4e173f6be8a5f9899" alt="Aperçu Medal — Ace — Mirage" loading="lazy" decoding="async" referrerpolicy="no-referrer">
       <span class="tov-clip-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M8 5.5v13l10-6.5z"/></svg></span>
       <span class="tov-clip-map">MIRAGE</span>
     </div>
     <div class="tov-clip-info"><div><strong>Ace — Mirage</strong><small>The ace moment</small></div><span class="tov-clip-arrow" aria-hidden="true">↗</span></div>
   </a>
   <a class="tov-clip-card tov-clip-2" href="https://medal.tv/clips/nLQLmwReRVIpEPWlf" target="_blank" rel="noopener noreferrer" aria-label="Watch 2K — Mirage on Medal">
-    <div class="tov-clip-poster">
+    <div class="tov-clip-poster tov-real-thumb" data-clip-embed="https://medal.tv/clip/nLQLmwReRVIpEPWlf">
       <span class="tov-clip-index">02 / PRECISION</span>
       <span class="tov-clip-ornament" aria-hidden="true">✦</span>
-      <span class="tov-clip-symbol" aria-hidden="true">2K</span>
+      <img class="tov-thumb" src="https://cdn.medal.tv/ugcc/content-thumbnail/xl7gyLQoWBbazV9IOSQ1eg-0.jpg?auth=exp=1794202200~data=NzUwNDE1NTI1LG5MUUxtd1JlUlZJcEVQV2xmLDFnaUxFY3VHbG4yLC0x~hmac=22546fa472150b549b18a37edbdc3f9591d691cda282d48b562cb7cefb7ab657" alt="Aperçu Medal — 2K — Mirage" loading="lazy" decoding="async" referrerpolicy="no-referrer">
       <span class="tov-clip-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M8 5.5v13l10-6.5z"/></svg></span>
       <span class="tov-clip-map">MIRAGE</span>
     </div>
     <div class="tov-clip-info"><div><strong>2K — Mirage</strong><small>Double one-tap</small></div><span class="tov-clip-arrow" aria-hidden="true">↗</span></div>
   </a>
   <a class="tov-clip-card tov-clip-3" href="https://medal.tv/clips/nMIY5uWCzJd8uRgXH" target="_blank" rel="noopener noreferrer" aria-label="Watch Headshot — Mirage on Medal">
-    <div class="tov-clip-poster">
+    <div class="tov-clip-poster tov-real-thumb" data-clip-embed="https://medal.tv/clip/nMIY5uWCzJd8uRgXH">
       <span class="tov-clip-index">03 / MOMENT</span>
       <span class="tov-clip-ornament" aria-hidden="true">⌁</span>
-      <span class="tov-clip-symbol" aria-hidden="true">HS</span>
+      <img class="tov-thumb" src="https://cdn.medal.tv/ugcc/content-thumbnail/1efwQ8T3gOEquEMR6FWhJg-0.jpg?auth=exp=1794202200~data=NzUwNDE1NTI1LG5NSVk1dVdDekpkOHVSZ1hILDFnaUxFY3VHbG4yLC0x~hmac=7656774d01b9d0ee47c9bfb31594865cec5e58bf28b51c28a22720171408b938" alt="Aperçu Medal — Headshot — Mirage" loading="lazy" decoding="async" referrerpolicy="no-referrer">
       <span class="tov-clip-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M8 5.5v13l10-6.5z"/></svg></span>
       <span class="tov-clip-map">MIRAGE</span>
     </div>
     <div class="tov-clip-info"><div><strong>Headshot — Mirage</strong><small>Highlight clip</small></div><span class="tov-clip-arrow" aria-hidden="true">↗</span></div>
   </a>
   <a class="tov-clip-card tov-clip-4" href="https://medal.tv/clips/nG9AXx2FXuknOrP24" target="_blank" rel="noopener noreferrer" aria-label="Watch 3K — Dust II on Medal">
-    <div class="tov-clip-poster">
+    <div class="tov-clip-poster tov-real-thumb" data-clip-embed="https://medal.tv/clip/nG9AXx2FXuknOrP24">
       <span class="tov-clip-index">04 / HIGHLIGHT</span>
       <span class="tov-clip-ornament" aria-hidden="true">✧</span>
-      <span class="tov-clip-symbol" aria-hidden="true">3K</span>
+      <img class="tov-thumb" src="https://cdn.medal.tv/ugcc/content-thumbnail/SEL_5_crWYhgDSWwomx1uw-0.jpg?auth=exp=1794202200~data=NzUwNDE1NTI1LG5HOUFYeDJGWHVrbk9yUDI0LDFnaUxFY3VHbG4yLC0x~hmac=0cb73070c4c1f06380e76ad9b7666e615138c4d72232baed6f412f9403783b11" alt="Aperçu Medal — 3K — Dust II" loading="lazy" decoding="async" referrerpolicy="no-referrer">
       <span class="tov-clip-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M8 5.5v13l10-6.5z"/></svg></span>
       <span class="tov-clip-map">DUST II</span>
     </div>
@@ -574,6 +587,32 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
  audio.addEventListener('error',function(){status.textContent='AUDIO FILE UNAVAILABLE';});
  updateProgress();paint();
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',autoStart,{once:true});else autoStart();
+})();
+</script>
+
+<script>
+/* The CDN returns expiring image links. Load Medal's own embed preview on image failure. */
+(function(){
+  function addMedalFallback(img){
+    var wrap=img.closest('.tov-real-thumb');
+    if(!wrap||wrap.querySelector('.tov-medal-fallback'))return;
+    var u=wrap.getAttribute('data-clip-embed');
+    if(!u||!/^https:\/\/medal\.tv\/clip\/[A-Za-z0-9_-]+$/.test(u))return;
+    var frame=document.createElement('iframe');
+    frame.className='tov-medal-fallback';
+    frame.title='Medal gameplay preview';
+    frame.loading='lazy';
+    frame.tabIndex=-1;
+    frame.setAttribute('aria-hidden','true');
+    frame.setAttribute('allow','fullscreen');
+    frame.src=u+'?autoplay=0&muted=1&loop=0';
+    wrap.insertBefore(frame,img);
+    img.remove();
+  }
+  document.querySelectorAll('#highlights .tov-thumb').forEach(function(img){
+    img.addEventListener('error',function(){addMedalFallback(img)},{once:true});
+    if(img.complete&&img.naturalWidth===0)addMedalFallback(img);
+  });
 })();
 </script>
 </body>
