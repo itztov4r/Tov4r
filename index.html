@@ -265,6 +265,18 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 #player-profile .tov-player-xplay{align-self:flex-start;display:inline-flex;align-items:center;gap:9px;padding:11px 13px;border:1px solid #bd2c46;border-radius:8px;background:#d72f49;color:#fff;font:700 .71rem 'Chakra Petch',system-ui,sans-serif;letter-spacing:.07em;transition:background .2s,border-color .2s}
 #player-profile .tov-player-xplay:hover{background:#f24660;border-color:#ff6980}
 @media(max-width:480px){#player-profile .tov-xplay-stats{gap:8px}#player-profile .tov-xplay-stat{padding:12px 10px}#player-profile .tov-xplay-stat strong{font-size:1.5rem}#player-profile .tov-xplay-stat .tov-xplay-date{font-size:1.05rem}#player-profile .tov-player-linkset>a{width:100%;justify-content:center}}
+
+/* Real CS2 playtime on Steam — verified public profile snapshot */
+#player-profile .tov-steam-banner{display:flex;align-items:center;gap:13px;min-width:0;margin:2px 0 16px;padding:11px;background:linear-gradient(115deg,rgba(19,30,43,.8),rgba(13,12,20,.84));border:1px solid rgba(100,159,192,.29);border-radius:12px}
+#player-profile .tov-steam-avatar{width:60px;height:60px;max-width:none;flex:0 0 60px;object-fit:cover;border-radius:9px;border:1px solid rgba(141,195,226,.45);background:#111d2a}
+#player-profile .tov-steam-details{display:flex;flex-direction:column;min-width:0;flex:1}
+#player-profile .tov-steam-details>span{font:700 .62rem 'Chakra Petch',system-ui,sans-serif;letter-spacing:.07em;color:#9abed3}
+#player-profile .tov-steam-details strong{font:700 1.45rem 'Chakra Petch',system-ui,sans-serif;line-height:1.24;color:#fff}
+#player-profile .tov-steam-details strong em{font-style:normal;font-size:.65rem;color:#a8c2d0}
+#player-profile .tov-steam-details small{font:500 .56rem 'Chakra Petch',system-ui,sans-serif;color:#a2a8b5;letter-spacing:.02em}
+#player-profile .tov-steam-action{padding:10px 11px;flex:none;border-radius:8px;background:rgba(66,116,151,.17);border:1px solid rgba(109,168,199,.47);font:700 .69rem 'Chakra Petch',system-ui,sans-serif;letter-spacing:.03em;color:#d8ecf6;transition:background .2s}
+#player-profile .tov-steam-action:hover{background:rgba(69,136,173,.43)}
+@media(max-width:480px){#player-profile .tov-steam-banner{flex-wrap:wrap;gap:10px}#player-profile .tov-steam-avatar{width:52px;height:52px;flex-basis:52px}#player-profile .tov-steam-details strong{font-size:1.25rem}#player-profile .tov-steam-action{width:100%;text-align:center}}
 </style>
 <style>
 /* TOV4R · bottom-center cinematic music player — isolated from portfolio styles */
@@ -459,6 +471,11 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
       <div class="tov-xplay-stats" aria-label="XPLAY.GG public player statistics">
         <div class="tov-xplay-stat"><span class="tov-xplay-stat-label">XPLAY TIME</span><strong>57<span>h</span></strong><small>PUBLIC PROFILE · 09 NOV 2026</small></div>
         <div class="tov-xplay-stat"><span class="tov-xplay-stat-label">XPLAY MEMBER SINCE</span><strong class="tov-xplay-date">10.07.2026</strong><small>PLAYER NAME: FLIX</small></div>
+      </div>
+      <div class="tov-steam-banner">
+        <img class="tov-steam-avatar" src="https://avatars.fastly.steamstatic.com/6c27aecbe90df62373f5d5d5240119a6d13b30b3_full.jpg" alt="Steam profile avatar for Flix" width="70" height="70" loading="lazy" decoding="async">
+        <div class="tov-steam-details"><span>STEAM / COUNTER-STRIKE 2</span><strong>116 <em>HOURS</em></strong><small>ON RECORD · 09 NOV 2026</small></div>
+        <a class="tov-steam-action" href="https://steamcommunity.com/profiles/76561199844162267/" target="_blank" rel="noopener noreferrer" aria-label="Open Flix Steam profile">STEAM <span aria-hidden="true">↗</span></a>
       </div>
       <div class="tov-player-linkset">
       <a class="tov-player-xplay" href="https://xplay.gg/profile/1883896539" target="_blank" rel="noopener noreferrer">VIEW XPLAY PROFILE <span aria-hidden="true">↗</span></a>
