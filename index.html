@@ -373,6 +373,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
  .tov-music-dock{opacity:1;translate:0 0;filter:none}
 }
 </style>
+<link rel="stylesheet" href="assets/tov4r-pro.css?v=1">
 </head>
 <body>
 <div id="intro" aria-hidden="true"><span>Tov4r</span></div>
@@ -487,6 +488,50 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
       <div class="tov-player-mode"><span class="tov-player-mode-num">03 / ALSO</span><strong>COMPETITIVE</strong><p>CS2 matchmaking</p><span class="tov-player-mode-mark" aria-hidden="true">MM</span></div>
     </div>
   </div>
+<div class="tov-extras-nav rv" aria-label="CS2 extras"><a href="#cs2-settings">CS2 SETTINGS + CROSSHAIR ↗</a><a href="#cs2-loadout">MY LOADOUT ↗</a></div>
+</section>
+
+
+<section id="cs2-settings" aria-labelledby="tov-settings-title">
+ <div class="sh rv"><i></i><div><h2 id="tov-settings-title">CS2 SETTINGS</h2><span>PERSONAL CONFIG &amp; CROSSHAIR</span></div></div>
+ <div class="tov-pro-intro rv"><span class="tov-pro-chip">TOV4R / PLAYER CONFIG</span><p>Real values will appear when confirmed. Explore the visual demo below — it does not represent my actual settings.</p></div>
+ <div class="tov-settings-grid rv">
+  <div class="tov-pro-panel">
+   <div class="tov-pro-panel-head"><h3>MY SETTINGS</h3><span>VERIFIED VALUES ONLY</span></div>
+   <div class="tov-settings-values">
+    <div class="tov-setting-item"><span>MOUSE DPI</span><strong data-tov-setting="dpi">NOT SHARED</strong></div>
+    <div class="tov-setting-item"><span>IN-GAME SENS</span><strong data-tov-setting="sensitivity">NOT SHARED</strong></div>
+    <div class="tov-setting-item"><span>RESOLUTION</span><strong data-tov-setting="resolution">NOT SHARED</strong></div>
+    <div class="tov-setting-item"><span>MY CROSSHAIR</span><strong>AWAITING REAL CODE</strong></div>
+   </div>
+   <div class="tov-code-box"><div><span>CROSSHAIR SHARE CODE</span><code data-tov-setting="crosshairCode">NOT SHARED YET</code></div><button id="tov-copy-xhair" class="tov-pro-btn" type="button" disabled>COPY CODE</button></div>
+   <p class="tov-pro-note">The Copy button activates only when TOV4R publishes a confirmed code. No settings are invented.</p>
+  </div>
+  <div class="tov-pro-panel">
+   <div class="tov-pro-panel-head"><h3>CROSSHAIR LAB</h3><span>VISUAL DEMO</span></div>
+   <div class="tov-xhair-stage"><div class="tov-xhair-mark" id="tov-xhair-mark" role="img" aria-label="Illustrative crosshair preview"><span class="tov-xhair-arm up"></span><span class="tov-xhair-arm down"></span><span class="tov-xhair-arm left"></span><span class="tov-xhair-arm right"></span></div><span class="tov-xhair-label">PREVIEW ONLY · NOT TOV4R SETTINGS</span></div>
+   <div class="tov-xhair-inputs">
+    <label><span>LENGTH <output id="tov-demo-length">8</output></span><input type="range" data-tov-demo="length" min="2" max="16" value="8" aria-label="Demo line length"></label>
+    <label><span>GAP <output id="tov-demo-gap">6</output></span><input type="range" data-tov-demo="gap" min="2" max="12" value="6" aria-label="Demo gap"></label>
+    <label><span>THICKNESS <output id="tov-demo-thick">2</output></span><input type="range" data-tov-demo="thick" min="1" max="5" value="2" aria-label="Demo thickness"></label>
+    <label><span>COLOR <output id="tov-demo-color">GREEN</output></span><select data-tov-demo="color" aria-label="Demo color"><option value="#4bf5b6">GREEN</option><option value="#ff5e75">RED</option><option value="#f3d574">YELLOW</option><option value="#ffffff">WHITE</option></select></label>
+   </div>
+   <p class="tov-pro-note">Decorative preview only; these are not the owner's crosshair values, and the lab does not export a game configuration.</p>
+  </div>
+ </div>
+</section>
+
+
+<section id="cs2-loadout" aria-labelledby="tov-loadout-title">
+ <div class="sh rv"><i></i><div><h2 id="tov-loadout-title">CS2 LOADOUT</h2><span>MY IN-GAME COSMETIC STYLE</span></div></div>
+ <div class="tov-pro-intro rv"><span class="tov-pro-chip">PLAYER COLLECTION</span><p>Cosmetic favorites and player identity. Exact choices will appear here once confirmed.</p></div>
+ <div class="tov-loadout-grid rv">
+  <article class="tov-loadout-slot"><div class="tov-loadout-top"><span>01 / STYLE</span><span>AGENT</span></div><div class="tov-loadout-art" aria-hidden="true">AG</div><h3>FAVORITE AGENT</h3><strong data-tov-collection="agent">NOT SHARED YET</strong><details><summary>VIEW SLOT</summary><p>The owner's preferred character will be shown when shared.</p></details></article>
+  <article class="tov-loadout-slot"><div class="tov-loadout-top"><span>02 / STYLE</span><span>GLOVES</span></div><div class="tov-loadout-art" aria-hidden="true">GL</div><h3>GLOVES</h3><strong data-tov-collection="gloves">NOT SHARED YET</strong><details><summary>VIEW SLOT</summary><p>Confirmed cosmetic preferences can appear in this slot.</p></details></article>
+  <article class="tov-loadout-slot"><div class="tov-loadout-top"><span>03 / SOUND</span><span>MUSIC</span></div><div class="tov-loadout-art" aria-hidden="true">MK</div><h3>MUSIC KIT</h3><strong data-tov-collection="musicKit">NOT SHARED YET</strong><details><summary>VIEW SLOT</summary><p>Chosen game music will be displayed after confirmation.</p></details></article>
+  <article class="tov-loadout-slot"><div class="tov-loadout-top"><span>04 / PROFILE</span><span>BADGE</span></div><div class="tov-loadout-art" aria-hidden="true">BD</div><h3>PLAYER BADGE</h3><strong data-tov-collection="badge">NOT SHARED YET</strong><details><summary>VIEW SLOT</summary><p>Space for a confirmed player badge.</p></details></article>
+ </div>
+ <p class="tov-loadout-foot">TOV4R // COSMETIC COLLECTION // VERIFIED PLAYER PICKS ONLY</p>
 </section>
 
 <section id="setup">
@@ -693,5 +738,16 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
   });
 })();
 </script>
+
+<dialog id="tov-medal-modal" class="tov-medal-modal" aria-labelledby="tov-medal-name">
+ <div class="tov-medal-inner">
+  <div class="tov-medal-toolbar"><span>TOV4R / VIDEO PLAYER</span><button type="button" class="tov-medal-close" data-tov-close aria-label="Close video player">×</button></div>
+  <h2 id="tov-medal-name">CS2 HIGHLIGHTS</h2>
+  <div class="tov-medal-player"><iframe id="tov-medal-iframe" title="Medal gaming clip" allow="autoplay; fullscreen; picture-in-picture" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="tov-medal-bottom"><p>If Medal blocks embedded playback, open the original clip there.</p><a id="tov-medal-direct" href="https://medal.tv/u/tov4r" target="_blank" rel="noopener noreferrer">OPEN ORIGINAL ON MEDAL ↗</a></div>
+ </div>
+</dialog>
+<script src="assets/tov4r-player-data.js?v=1" defer></script>
+<script src="assets/tov4r-pro.js?v=1" defer></script>
 </body>
 </html>
