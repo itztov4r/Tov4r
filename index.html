@@ -227,6 +227,31 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 #highlights .tov-real-thumb .tov-clip-ornament{z-index:2}
 #highlights .tov-real-thumb .tov-clip-play{z-index:3}
 @media(prefers-reduced-motion:reduce){#highlights .tov-real-thumb .tov-thumb{transition:none}}
+
+/* CS2 player identity and real, user-supplied playing modes */
+#player-profile{position:relative;background:radial-gradient(ellipse at 12% 85%,rgba(169,15,43,.13),transparent 44%),#090709;border-top:1px solid rgba(229,49,67,.15)}
+#player-profile .tov-player-shell{max-width:1250px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.65fr);gap:20px}
+#player-profile .tov-player-identity,#player-profile .tov-player-mode{position:relative;min-width:0;overflow:hidden;border:1px solid rgba(229,49,67,.2);background:linear-gradient(130deg,rgba(29,12,20,.96),rgba(11,9,14,.97));border-radius:16px}
+#player-profile .tov-player-identity{display:flex;flex-direction:column;min-height:274px;padding:clamp(20px,3.5vw,36px);justify-content:space-between}
+#player-profile .tov-player-identity::after{content:"";position:absolute;top:-55px;right:-35px;width:185px;height:185px;background:radial-gradient(circle,rgba(219,36,56,.12),transparent 68%);pointer-events:none}
+#player-profile .tov-player-tag{font:700 .65rem 'Chakra Petch',system-ui,sans-serif;letter-spacing:.18em;color:#f35c72}
+#player-profile .tov-player-nameplate h3{font:700 clamp(3rem,7vw,5rem)/1.07 'Chakra Petch',system-ui,sans-serif;letter-spacing:.07em;margin:14px 0 6px;text-shadow:0 5px 25px rgba(245,41,69,.12)}
+#player-profile .tov-player-nameplate h3 span{color:#ee364e}
+#player-profile .tov-player-nameplate p{margin:0;color:#b8a9b2;font-size:.89rem}
+#player-profile .tov-player-label{display:flex;gap:10px;align-items:center;margin:18px 0 14px;font:600 .67rem 'Chakra Petch',system-ui,sans-serif;letter-spacing:.09em;color:#d9c3c8}
+#player-profile .tov-player-pulse{flex:none;width:7px;height:7px;border-radius:50%;background:#fd465f;box-shadow:0 0 12px rgba(253,70,95,.7)}
+#player-profile .tov-player-medal{align-self:flex-start;display:inline-flex;align-items:center;gap:13px;padding:11px 13px;border:1px solid #be2c46;border-radius:8px;background:rgba(227,22,43,.11);font:700 .71rem 'Chakra Petch',system-ui,sans-serif;letter-spacing:.07em;transition:background .2s,border-color .2s}
+#player-profile .tov-player-medal:hover{background:#b9223b;border-color:#ff566f}
+#player-profile .tov-player-modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+#player-profile .tov-player-mode{padding:24px 18px;display:flex;flex-direction:column;min-height:274px;justify-content:flex-end;isolation:isolate;transition:border-color .25s,transform .25s}
+#player-profile .tov-player-mode:hover{border-color:#ee354e;transform:translateY(-4px)}
+#player-profile .tov-player-mode-num{position:absolute;top:18px;left:18px;color:#eb4a5f;letter-spacing:.13em;font:700 .62rem 'Chakra Petch',system-ui,sans-serif}
+#player-profile .tov-player-mode-mark{position:absolute;top:42px;right:10px;font:700 clamp(3rem,5.8vw,6rem)/1 'Chakra Petch',system-ui,sans-serif;letter-spacing:-.12em;color:rgba(239,53,82,.16);transform:rotate(-11deg);z-index:-1;pointer-events:none}
+#player-profile .tov-player-mode strong{font:700 clamp(.95rem,1.65vw,1.18rem) 'Chakra Petch',system-ui,sans-serif;color:#f1e7eb;letter-spacing:.035em;overflow-wrap:anywhere}
+#player-profile .tov-player-mode p{font-size:.78rem;color:#aa9aa3;line-height:1.45;margin:7px 0 0}
+@media(max-width:1000px){#player-profile .tov-player-shell{grid-template-columns:1fr}#player-profile .tov-player-identity{min-height:240px}#player-profile .tov-player-mode{min-height:180px}}
+@media(max-width:600px){#player-profile .tov-player-modes{grid-template-columns:1fr}#player-profile .tov-player-identity{padding:23px;min-height:230px}#player-profile .tov-player-mode{min-height:122px;padding:48px 22px 22px}#player-profile .tov-player-mode-mark{top:12px;font-size:4rem}#player-profile .tov-player-mode-num{top:16px}#player-profile .tov-player-nameplate h3{font-size:3.6rem}#player-profile .tov-player-label{font-size:.62rem}}
+@media(prefers-reduced-motion:reduce){#player-profile .tov-player-mode,#player-profile .tov-player-medal{transition:none}}
 </style>
 <style>
 /* TOV4R · bottom-center cinematic music player — isolated from portfolio styles */
@@ -409,6 +434,23 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
   </a>
   </div>
   <p class="tov-clips-foot">TOV4R // COUNTER-STRIKE 2 // SELECTED CLIPS</p>
+</section>
+
+
+<section id="player-profile" class="tov-player-profile" aria-labelledby="player-profile-title">
+  <div class="sh rv"><i></i><div><h2 id="player-profile-title">CS2 PLAYER PROFILE</h2><span>HOW TOV4R PLAYS</span></div></div>
+  <div class="tov-player-shell rv">
+    <div class="tov-player-identity">
+      <div class="tov-player-nameplate"><span class="tov-player-tag">COUNTER-STRIKE 2 // PLAYER</span><h3>TOV<span>4</span>R</h3><p>Practice. Compete. Play with friends.</p></div>
+      <div class="tov-player-label"><span class="tov-player-pulse" aria-hidden="true"></span> MOST PLAYED: XPLAY.GG &amp; FRIEND MATCHES</div>
+      <a class="tov-player-medal" href="https://medal.tv/u/tov4r" target="_blank" rel="noopener noreferrer">WATCH MY MEDAL CLIPS <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="tov-player-modes" aria-label="CS2 game modes">
+      <div class="tov-player-mode"><span class="tov-player-mode-num">01 / MAIN</span><strong>XPLAY.GG</strong><p>Community matches &amp; practice</p><span class="tov-player-mode-mark" aria-hidden="true">X</span></div>
+      <div class="tov-player-mode"><span class="tov-player-mode-num">02 / MAIN</span><strong>WITH FRIENDS</strong><p>Private and friendly matches</p><span class="tov-player-mode-mark" aria-hidden="true">VS</span></div>
+      <div class="tov-player-mode"><span class="tov-player-mode-num">03 / ALSO</span><strong>COMPETITIVE</strong><p>CS2 matchmaking</p><span class="tov-player-mode-mark" aria-hidden="true">MM</span></div>
+    </div>
+  </div>
 </section>
 
 <section id="setup">
