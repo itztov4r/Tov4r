@@ -83,6 +83,35 @@ check('CS2 settings remain explicitly unverified',pdata.includes('dpi:"800 · CO
 const allSources=html+read('assets/tov4r-v3.js');
 check('existing Medal clips retained',['nMMeT2Agr7tMolF5v','nLQLmwReRVIpEPWlf','nMIY5uWCzJd8uRgXH','nG9AXx2FXuknOrP24'].every(id=>allSources.includes(id)));
 check('live analytics not invented',/provider:"none"/.test(read('assets/tov4r-analytics-config.js')));
+// V5: public clip config, five UI modules, privacy and QR integrity.
+const v5js=read('assets/tov4r-v5.js');
+const v3js=read('assets/tov4r-v3.js');
+const clipText=read('assets/tov4r-clips.js');
+const sandbox={window:{}};
+try{vm.runInNewContext(clipText,sandbox,{timeout:1000});}
+catch(e){console.error('Invalid public clip config:',e.message);}
+const clipCfg=sandbox.window.TOV4R_PUBLIC_CLIPS;
+check('V5 published clips are source-backed',!!clipCfg&&Array.isArray(clipCfg.clips)&&clipCfg.clips.length>=4&&
+  clipCfg.clips.every(c=>/^[A-Za-z0-9_-]{10,}$/.test(c.id)&&typeof c.title==='string'&&c.title.length>0));
+check('V5 public library preserves four verified Medal clips',!!clipCfg&&['nMMeT2Agr7tMolF5v','nLQLmwReRVIpEPWlf','nMIY5uWCzJd8uRgXH','nG9AXx2FXuknOrP24']
+  .every(id=>clipCfg.clips.some(c=>c.id===id)));
+check('V5 feature sections all exist',['clip-manager','progress-tracker','setup-gallery','share-profile','analytics-dashboard'].every(id=>idSet.has(id)));
+check('V5 clip data loads before weekly video',html.indexOf('src="assets/tov4r-clips.js?v=1"')<
+  html.indexOf('src="assets/tov4r-v3.js?v=3"')&&html.indexOf('src="assets/tov4r-v3.js?v=3"')<
+  html.indexOf('src="assets/tov4r-v5.js?v=1"'));
+check('V5 clip management supports local draft and file export',v5js.includes('tov4r-clip-draft-v5')&&
+  v5js.includes("tov4r-clips.js")&&v5js.includes('canonicalClip'));
+check('V5 progress tracker starts without fake stats',v5js.includes('tov4r-progress-v5')&&
+  html.includes('NO ENTRIES YET')&&html.includes('NOT CONNECTED'));
+check('V5 QR is local and has 25 compact data rows',(() => {
+  const m=v5js.match(/var qrRows=\[([\s\S]*?)\];/);
+  return !!m&&(m[1].match(/'[0-9a-f]{8}'/g)||[]).length===25&&
+    v5js.includes("SITE='https://tov4r.xyz/'")&&!v5js.includes('qrserver.com');
+})());
+check('V5 public config is network first for offline clients',sw.includes("tov4r-shell-v6")&&
+  sw.includes("url.pathname==='/assets/tov4r-clips.js'")&&sw.includes("cache:'no-cache'"));
+check('V5 avoids untrusted HTML insertion and eval',!v5js.includes('.innerHTML')&&!/\beval\s*\(/.test(v5js));
+
 console.log('\n'+successes.length+' passed; '+failures.length+' failed');
 if(failures.length){
  console.error('Failed checks:',failures.join('; '));
