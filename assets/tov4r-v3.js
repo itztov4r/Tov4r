@@ -40,6 +40,19 @@
     {id:'nMIY5uWCzJd8uRgXH',title:'HEADSHOT — MIRAGE',label:'MIRAGE / LINKED MEDAL CLIP',poster:'clip-headshot.svg'},
     {id:'nG9AXx2FXuknOrP24',title:'3K — DUST II',label:'DUST II / LINKED MEDAL CLIP',poster:'clip-3k.svg'}
   ];
+  // Optional public Clip Manager configuration. Defaults preserve the original four clips.
+  var cfg=window.TOV4R_PUBLIC_CLIPS||{},allowedPosters=['clip-ace.svg','clip-2k.svg','clip-headshot.svg','clip-3k.svg'];
+  if(Array.isArray(cfg.clips)){
+    var seen=new Set();
+    var managed=cfg.clips.filter(function(c){
+      if(!c||!(/^[A-Za-z0-9_-]{10,}$/.test(c.id||''))||seen.has(c.id)||typeof c.title!=='string'||!c.title.trim())return false;
+      seen.add(c.id);return true;
+    }).slice(0,40).map(function(c){
+      return {id:c.id,title:c.title.trim().slice(0,70),label:((typeof c.map==='string'&&c.map.trim())?c.map.trim().slice(0,45):'MAP NOT PROVIDED').toUpperCase()+' / LINKED MEDAL CLIP',
+        poster:allowedPosters.includes(c.poster)?c.poster:'clip-ace.svg'};
+    });
+    if(managed.length)clips=managed;
+  }
   function weeklyIndex(date){
     var monday=Date.UTC(date.getUTCFullYear(),date.getUTCMonth(),date.getUTCDate());
     var day=(date.getUTCDay()+6)%7;
@@ -49,6 +62,10 @@
     return ((weeks%clips.length)+clips.length)%clips.length;
   }
   var chosen=clips[weeklyIndex(new Date())];
+  if(typeof cfg.featuredId==='string'){
+    var pinned=clips.find(function(c){return c.id===cfg.featuredId;});
+    if(pinned)chosen=pinned;
+  }
   var title=get('tov-weekly-clip-title'),caption=get('tov-weekly-clip-map'),
       original=get('tov-weekly-original'),player=get('tov-weekly-player'),
       frame=get('tov-weekly-iframe'),play=get('tov-weekly-play'),
