@@ -91,3 +91,12 @@
 #highlights .tov-native-feature p a{color:#ff788d;text-decoration:underline;text-underline-offset:3px}
 #highlights .tov-native-feature summary:focus-visible{outline:2px solid #ff7188;outline-offset:-3px}
 @media(max-width:570px){#highlights .tov-native-feature summary{padding:14px;gap:8px}#highlights .tov-native-feature summary>small{width:100%;margin:0}#highlights .tov-native-screen{margin:10px auto}}
+
+/* The TOV4R Signature preset is a concept, not personal account data */
+#cs2-settings .tov-setting-item strong[data-tov-setting],#cs2-loadout .tov-loadout-slot strong[data-tov-collection]{color:#ffe2e8}
+#cs2-settings .tov-pro-chip,#cs2-loadout .tov-pro-chip{background:linear-gradient(135deg,rgba(215,36,68,.2),rgba(15,8,18,.7));box-shadow:0 0 24px rgba(216,24,68,.11)}
+#cs2-settings .tov-xhair-mark{--xh-color:#ff5e75;--xh-length:6px;--xh-gap:4px}
+#cs2-loadout .tov-loadout-art{background:radial-gradient(ellipse at 50% 50%,rgba(242,52,86,.09),transparent 70%);letter-spacing:-.07em}
+#cs2-loadout .tov-loadout-slot:nth-child(2) .tov-loadout-art{color:rgba(255,137,156,.25)}
+#cs2-loadout .tov-loadout-slot:nth-child(3) .tov-loadout-art{color:rgba(255,64,90,.24)}
+#cs2-settings .tov-pro-intro strong,#cs2-loadout .tov-pro-intro strong{font-weight:700;color:#ffd7de}

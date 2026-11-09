@@ -16,3 +16,7 @@ To customize confirmed public data, edit `assets/tov4r-player-data.js` and repla
 3. Visit `/#cs2-loadout` and confirm all cosmetic slots are labeled as awaiting values.
 4. Visit `/#highlights`, click a Medal card, close with Escape, and verify playback stops.
 5. Test narrow/mobile viewport and keyboard navigation. If Medal disallows iframe playback, use the direct external link.
+
+## TOV4R Signature V1 (concept, not owner facts)
+
+A creative starter design was chosen without needing more inputs: 800 DPI, 1.20 sensitivity and 1280×960 4:3 as **sample numbers only**. The red-line crosshair preview uses length 6, gap 4, thickness 2 and crimson color. The real copyable share code stays unset. A graphic moodboard displays Shadow CT Style, Graphite × Crimson palette, the website's Level Up music, and an original TOV4R / 04 emblem. **None of these represent verified personal settings, ownership, or official CS2 inventory items.**
