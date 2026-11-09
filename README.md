@@ -132,3 +132,21 @@ Photos use image sizing parameters on images.unsplash.com, lazy loading and a fa
 Privacy and honesty: references do not imply the pictured setup belongs to TOV4R. Existing CS2 demo settings, player data and Medal links are preserved. Site visitor counts remain unconnected until an authentic Umami Website ID is committed.
 
 Regression: original setup photo, CS2 controls, soundtrack, QR, featured clip, setup gallery and PWA remain. Cache version was incremented and CI checks licensing labels, gallery sources and fallbacks.
+
+## Mobile photographic polish · 9 November 2026
+
+This release responds to owner-supplied iPhone screenshots showing overlapping Medal poster labels and a soundtrack dock covering page content.
+
+- Four existing Medal highlight cards now show real licensed Unsplash RGB gaming desk and keyboard photography instead of abstract SVG posters. These are illustrative mood photos, not actual video frames. The original Medal video URLs are unchanged.
+- Remove conflicting ARTWORK / VIDEO OPENS ON PLAY CSS pseudo-labels and decorative square frames; restore full-width 16:9 posters and legible overlay controls.
+- Add real photo backdrops to CS2 profile, community mode cards, Crosshair Studio visual demo, loadout theme cards, achievement/idea cards and the Discord community hub. No ownership, rank, match history or real game inventory is implied.
+- On iPhone/narrow screens the original soundtrack becomes a compact one-line player. The MORE/LESS control reveals seek and volume controls, with pause/play and mute preserved.
+- External photo URLs use images.unsplash.com and HTML images include local fallback pictures where appropriate; CSS backgrounds retain local solid-color fallback if offline.
+- GitHub Pages PWA shell cache bumped to v8; original images, settings, music file, and links are preserved.
+
+Attribution and licensed photo sources:
+- https://unsplash.com/license
+- https://unsplash.com/photos/black-flat-screen-computer-monitor-turned-on-near-black-computer-keyboard-B10AxHKLvnQ
+- Other photo sources documented in the V5 photo-first refresh section above.
+
+iPhone QA: check /#highlights for correctly filled posters and one unobstructed play button, then inspect photo-rich CS2, Loadout, Achievements and Discord. MORE expands the audio progress controls. Safari bottom-toolbar behavior varies by device.
