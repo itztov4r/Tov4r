@@ -1,0 +1,94 @@
+
+/* TOV4R · bottom-center cinematic music player — isolated from portfolio styles */
+.tov-music-dock {
+  --dock-red:#f13b4b;--dock-muted:#a88a92;
+  position:fixed; z-index:10000;
+  left:50%;bottom:max(18px,env(safe-area-inset-bottom));
+  transform:translateX(-50%);width:min(548px,calc(100vw - 28px));
+  color:#faf1f2;background:linear-gradient(115deg,rgba(28,11,18,.97) 0%,rgba(12,9,15,.97) 50%,rgba(22,10,16,.98) 100%);
+  padding:13px 17px 11px; border:1px solid rgba(244,72,88,.43);border-radius:20px;
+  box-shadow:0 16px 55px rgba(0,0,0,.72),0 0 44px rgba(212,21,50,.1),inset 0 1px 0 rgba(255,255,255,.085);
+  -webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);
+  font:12px 'Chakra Petch',system-ui,sans-serif;
+  isolation:isolate; animation:tov-dock-enter .72s cubic-bezier(.2,.8,.2,1) both;
+}
+.tov-music-dock * {box-sizing:border-box}
+.tov-music-dock::before {content:'';position:absolute;inset:-2px;border-radius:22px;z-index:-1;pointer-events:none;
+ background:radial-gradient(ellipse at 18% 110%,rgba(255,44,66,.3),transparent 54%);opacity:.5;transition:opacity .45s}
+.tov-music-dock[data-playing='true']::before{opacity:1;animation:tov-glow 2.6s ease-in-out infinite alternate}
+.tov-music-dock::after{content:'';position:absolute;top:0;left:17%;height:1px;width:48%;pointer-events:none;
+ background:linear-gradient(90deg,transparent,rgba(255,100,116,.7),transparent);animation:tov-top-sheen 5s ease-in-out infinite alternate}
+@keyframes tov-dock-enter{from{opacity:0;translate:0 38px;filter:blur(7px)}to{opacity:1;translate:0 0;filter:blur(0)}}
+@keyframes tov-glow{from{opacity:.38}to{opacity:1}}
+@keyframes tov-top-sheen{from{left:3%;opacity:.22}to{left:49%;opacity:1}}
+.tov-music-head{display:flex;align-items:center;gap:13px;min-width:0}
+.tov-cover{position:relative;display:grid;place-items:center;flex:0 0 52px;width:52px;height:52px;border-radius:14px;overflow:hidden;
+ background:radial-gradient(circle at 22% 20%,rgba(251,76,94,.4),transparent 48%),linear-gradient(145deg,#32121b,#0b070a 70%);
+ box-shadow:0 0 22px rgba(241,36,61,.12),inset 0 0 0 1px rgba(239,65,83,.35)}
+.tov-cover::before,.tov-cover::after {content:'';position:absolute;border:1px solid rgba(242,72,93,.26);border-radius:50%;width:77px;height:77px}
+.tov-cover::after {width:46px;height:46px;border-style:dashed;opacity:.7}
+.tov-disc{position:relative;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;z-index:1;
+ background:repeating-radial-gradient(circle,#151016 0 3px,#2b1420 4px 5px,#170d12 6px 7px);border:1px solid rgba(250,96,107,.55);
+ box-shadow:0 0 12px rgba(242,62,84,.32)}
+.tov-disc span{position:relative;display:grid;place-items:center;width:17px;height:17px;border-radius:50%;background:#e02a3d;color:#fff;
+ font-size:9px;font-weight:800;letter-spacing:-.04em}
+.tov-music-dock[data-playing='true'] .tov-disc{animation:tov-vinyl-spin 3.4s linear infinite}
+@keyframes tov-vinyl-spin{to{transform:rotate(360deg)}}
+.tov-meta{flex:1;min-width:0;line-height:1.2}
+.tov-tag{display:flex;gap:7px;align-items:center;color:var(--dock-red);font-size:9px;font-weight:700;letter-spacing:.2em;white-space:nowrap}
+.tov-live-dot{width:6px;height:6px;border-radius:50%;background:#ff4c60;box-shadow:0 0 10px #ff3f54;flex-shrink:0}
+.tov-music-dock[data-playing='true'] .tov-live-dot{animation:tov-blink 1.35s ease-in-out infinite alternate}
+@keyframes tov-blink{to{opacity:.34;box-shadow:0 0 3px #ff3f54}}
+.tov-meta strong{display:block;margin-top:4px;font-size:15px;font-weight:700;letter-spacing:.07em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tov-meta strong em{font-style:normal;color:#dd9da8;font-weight:500}
+.tov-meta-bottom{display:flex;align-items:center;gap:9px;margin-top:5px;min-width:0}
+.tov-music-dock .tov-eq{height:12px;display:flex;gap:2px;align-items:center;flex:0 0 auto}
+.tov-music-dock .tov-eq b{height:6px;width:2px;border-radius:4px;background:var(--dock-red);transform-origin:center;
+ animation:tov-bars .65s ease-in-out infinite alternate;animation-play-state:paused}
+.tov-music-dock .tov-eq b:nth-child(2){height:11px;animation-delay:-.18s}
+.tov-music-dock .tov-eq b:nth-child(3){height:8px;animation-delay:-.39s}
+.tov-music-dock .tov-eq b:nth-child(4){height:11px;animation-delay:-.12s}
+.tov-music-dock .tov-eq b:nth-child(5){height:5px;animation-delay:-.51s}
+.tov-music-dock[data-playing='true'] .tov-eq b{animation-play-state:running}
+@keyframes tov-bars{from{transform:scaleY(.3)}to{transform:scaleY(1.05)}}
+.tov-meta small{display:block;color:#b6a3aa;font-size:9px;letter-spacing:.09em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tov-controls{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.tov-music-dock button{appearance:none;cursor:pointer;border:1px solid rgba(255,255,255,.12);color:#fff;display:grid;place-items:center;
+ height:36px;width:36px;border-radius:11px;background:rgba(255,255,255,.04);transition:transform .2s,background .2s,border-color .2s}
+.tov-music-dock button:hover{transform:translateY(-2px);background:rgba(245,49,76,.18);border-color:rgba(245,49,76,.6)}
+.tov-music-dock button:active{transform:scale(.94)}
+.tov-music-dock .tov-play-button{height:43px;width:43px;border-radius:13px;background:linear-gradient(145deg,#f44456,#b60e28);
+ border-color:#fa5867;box-shadow:0 7px 20px rgba(215,20,47,.25)}
+.tov-music-dock .tov-play-button:hover{background:linear-gradient(145deg,#ff5869,#c51730);box-shadow:0 7px 25px rgba(245,40,69,.48)}
+.tov-music-dock svg{height:18px;width:18px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.tov-music-dock .tov-play-button svg{height:21px;width:21px}
+.tov-music-dock :is(button,input):focus-visible{outline:2px solid #ff7785;outline-offset:3px}
+.tov-bottom-bar{margin-top:11px;display:flex;align-items:center;gap:9px}
+.tov-time{color:#bca5ac;font-size:10px;font-variant-numeric:tabular-nums;letter-spacing:.04em;flex-shrink:0}
+.tov-music-dock input[type=range]{-webkit-appearance:none;appearance:none;border:0;border-radius:10px;cursor:pointer;margin:0;background:linear-gradient(to right,#f43f57 0 var(--level,0%),rgba(255,255,255,.16) var(--level,0%) 100%);
+ height:4px;outline:none}
+.tov-music-dock input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:10px;height:10px;border-radius:50%;background:#ff6576;border:2px solid #ffe1e6;box-shadow:0 0 7px rgba(255,55,88,.5)}
+.tov-music-dock input[type=range]::-moz-range-thumb{width:8px;height:8px;border-radius:50%;background:#ff6576;border:2px solid #ffe1e6}
+.tov-progress{flex:1;min-width:0}
+.tov-bottom-divider{height:14px;width:1px;background:rgba(255,255,255,.13);margin:0 2px}
+.tov-volume-wrap{display:flex;align-items:center;gap:7px;color:#bba2a9}
+.tov-volume-wrap svg{height:13px;width:13px}
+.tov-music-dock .tov-volume{width:62px;--level:18%}
+@media(max-width:480px){
+ .tov-music-dock{bottom:max(12px,env(safe-area-inset-bottom));padding:10px 12px 10px;width:calc(100vw - 24px);border-radius:17px}
+ .tov-cover{width:46px;height:46px;flex-basis:46px;border-radius:12px}
+ .tov-music-head{gap:10px}
+ .tov-meta strong{font-size:12px}
+ .tov-tag{font-size:8px;letter-spacing:.13em}
+ .tov-meta small{font-size:8px}
+ .tov-music-dock button{height:32px;width:32px}
+ .tov-music-dock .tov-play-button{height:38px;width:38px}
+ .tov-controls{gap:5px}
+ .tov-bottom-bar{margin-top:9px;gap:7px}
+ .tov-volume-wrap,.tov-bottom-divider{display:none}
+}
+@media(max-width:355px){.tov-cover{display:none}.tov-meta strong{font-size:12px}}
+@media(prefers-reduced-motion:reduce){
+ .tov-music-dock,.tov-music-dock::before,.tov-music-dock::after,.tov-music-dock .tov-disc,.tov-music-dock .tov-live-dot,.tov-music-dock .tov-eq b{animation:none!important}
+ .tov-music-dock{opacity:1;translate:0 0;filter:none}
+}
