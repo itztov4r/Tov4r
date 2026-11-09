@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Tov4r – Gaming Portfolio</title>
+<title>TOV4R — CS2 Gaming Portfolio · Crosshair Studio & Highlights</title>
+<meta name="description" content="Explore TOV4R's CS2 highlights, Crosshair Studio, PC setup, Discord 1729 community, and clip showcase.">
+<link rel="canonical" href="https://tov4r.xyz/">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
 <link rel="shortcut icon" href="/favicon.ico">
 <meta name="theme-color" content="#090609">
@@ -375,6 +377,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 </style>
 <link rel="stylesheet" href="assets/tov4r-pro.css?v=2">
 <link rel="stylesheet" href="assets/tov4r-hub.css?v=1">
+<link rel="stylesheet" href="assets/tov4r-v2.css?v=1">
 </head>
 <body>
 <a class="tov-skip" href="#player-profile">Skip to CS2 Dashboard</a>
@@ -383,7 +386,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 <div id="glow"></div>
 <header>
  <a class="lg tov-brand" href="#home" aria-label="TOV4R — Accueil"><img src="/favicon.svg?v=2" alt="" width="37" height="37"><span>TOV<span class="tov-brand-four">4</span>R</span></a>
- <nav><a href="#home" class="on">HOME</a><a href="#games">GAMES</a><a href="#highlights">HIGHLIGHTS</a><a href="#player-profile">CS2 HUB</a><a href="#cs2-loadout">LOADOUT</a><a href="#setup">SETUP</a><a href="#about">ABOUT</a><a href="#connect">CONNECT</a></nav>
+ <nav><a href="#home" class="on">HOME</a><a href="#games">GAMES</a><a href="#highlights">HIGHLIGHTS</a><a href="#player-profile">CS2 HUB</a><a href="#cs2-loadout">LOADOUT</a><a href="#crosshair-studio">CROSSHAIR</a><a href="#setup">SETUP</a><a href="#achievements">PLAYS</a><a href="#discord-hub">1729</a><a href="#about">ABOUT</a><a href="#connect">CONNECT</a></nav>
 </header>
 <main>
 <div class="hero" id="home">
@@ -405,6 +408,13 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
  <span>PLAY <b>•</b> IMPROVE <b>•</b> REPEAT <b>•</b></span><span>BETTER GEAR <b>•</b> BIGGER DREAMS <b>•</b></span><span>PLAY <b>•</b> IMPROVE <b>•</b> REPEAT <b>•</b></span><span>BETTER GEAR <b>•</b> BIGGER DREAMS <b>•</b></span>
  <span>PLAY <b>•</b> IMPROVE <b>•</b> REPEAT <b>•</b></span><span>BETTER GEAR <b>•</b> BIGGER DREAMS <b>•</b></span><span>PLAY <b>•</b> IMPROVE <b>•</b> REPEAT <b>•</b></span><span>BETTER GEAR <b>•</b> BIGGER DREAMS <b>•</b></span>
 </div></div>
+<div class="tov-v2-rail" aria-label="TOV4R quick access">
+  <a href="#crosshair-studio">CROSSHAIR STUDIO <span aria-hidden="true">✚</span></a>
+  <a href="#highlights">MEDAL HIGHLIGHTS <span aria-hidden="true">▷</span></a>
+  <a href="#achievements">CLIP SHOWCASE <span aria-hidden="true">✦</span></a>
+  <a href="#discord-hub">COMMUNITY 1729 <span aria-hidden="true">↗</span></a>
+  <button id="tov-visual-mode" type="button" aria-pressed="false" title="Switch visual mode">◆ REDLINE MODE</button>
+</div>
 
 <section id="games">
  <div class="sh rv"><i></i><div><h2>MY GAMES</h2><span>THE GAMES I PLAY</span></div></div>
@@ -540,9 +550,9 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
    <div class="tov-code-box"><div><span>PERSONAL CROSSHAIR CODE</span><code data-tov-setting="crosshairCode">NOT PROVIDED</code></div><button id="tov-copy-xhair" class="tov-pro-btn" type="button" disabled>COPY CODE</button></div>
    <p class="tov-pro-note">800 DPI / 1.20 sens / 1280 × 960 are <b>sample starting points I chose</b>, not a claim about the player’s real game. The import-code button stays disabled until an authentic code is supplied.</p>
   </div>
-  <div class="tov-pro-panel">
-   <div class="tov-pro-panel-head"><h3>CRIMSON CROSSHAIR LAB</h3><span>RED × BLACK / LIVE DEMO</span></div>
-   <div class="tov-xhair-stage"><div class="tov-xhair-mark" id="tov-xhair-mark" role="img" aria-label="Illustrative crosshair preview"><span class="tov-xhair-arm up"></span><span class="tov-xhair-arm down"></span><span class="tov-xhair-arm left"></span><span class="tov-xhair-arm right"></span></div><span class="tov-xhair-label">REDLINE V1 · VISUAL DEMO ONLY</span></div>
+  <div class="tov-pro-panel tov-studio-panel" id="crosshair-studio">
+   <div class="tov-pro-panel-head"><h3>CROSSHAIR STUDIO V2</h3><span>RED × BLACK / LIVE DEMO</span></div>
+   <div class="tov-xhair-stage"><div class="tov-xhair-mark" id="tov-xhair-mark" role="img" aria-label="Illustrative crosshair preview"><span class="tov-xhair-dot" id="tov-xhair-dot" hidden></span><span class="tov-xhair-arm up"></span><span class="tov-xhair-arm down"></span><span class="tov-xhair-arm left"></span><span class="tov-xhair-arm right"></span></div><span class="tov-xhair-label">REDLINE V1 · VISUAL DEMO ONLY</span></div>
    <div class="tov-xhair-inputs">
     <label><span>LENGTH <output id="tov-demo-length">6</output></span><input type="range" data-tov-demo="length" min="2" max="16" value="6" aria-label="Demo line length"></label>
     <label><span>GAP <output id="tov-demo-gap">4</output></span><input type="range" data-tov-demo="gap" min="2" max="12" value="4" aria-label="Demo gap"></label>
@@ -550,6 +560,26 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
     <label><span>COLOR <output id="tov-demo-color">RED</output></span><select data-tov-demo="color" aria-label="Demo color"><option value="#ff5e75" selected>RED</option><option value="#4bf5b6">GREEN</option><option value="#f3d574">YELLOW</option><option value="#ffffff">WHITE</option></select></label>
    </div>
    <p class="tov-pro-note">Try the red-line style and customize the preview freely. It is a visual concept; the lab does not generate a real CS2 share code.</p>
+   <div class="tov-studio-tools" aria-label="Crosshair Studio controls">
+     <h4>LIVE PRESETS &amp; YOUR LOCAL WORKSPACE</h4>
+     <p>Pick a preset or fine-tune the sliders above. All presets are illustrative — none claim to be your real CS2 settings.</p>
+     <div class="tov-preset-row" role="group" aria-label="Crosshair demo presets">
+       <button type="button" data-studio-preset="redline" aria-pressed="true">REDLINE V1</button>
+       <button type="button" data-studio-preset="focus" aria-pressed="false">FOCUS GREEN</button>
+       <button type="button" data-studio-preset="micro" aria-pressed="false">MICRO WHITE</button>
+       <button type="button" data-studio-preset="bright" aria-pressed="false">BRIGHT GOLD</button>
+     </div>
+     <div class="tov-studio-options">
+       <label><input id="tov-studio-dot" type="checkbox"> CENTER DOT</label>
+       <label><input id="tov-studio-outline" type="checkbox"> DARK OUTLINE</label>
+     </div>
+     <div class="tov-studio-actions">
+       <button type="button" id="tov-studio-save">SAVE DEMO LOCALLY</button>
+       <button type="button" id="tov-studio-copy">COPY DEMO VALUES</button>
+       <button type="button" id="tov-studio-reset">RESET TO REDLINE</button>
+     </div>
+     <p id="tov-studio-status" class="tov-studio-result" role="status" aria-live="polite">Visual preview only · no official CS2 share code or account changes.</p>
+   </div>
   </div>
  </div>
 </section>
@@ -610,6 +640,47 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
      <div><small>INTEGRATED GRAPHICS</small><strong>INTEL UHD GRAPHICS 630</strong></div>
    </div>
  </details>
+</section>
+
+<section id="achievements" class="tov-v2-section" aria-labelledby="tov-achievements-title">
+ <div class="sh rv"><i></i><div><h2 id="tov-achievements-title">PLAYS &amp; ACHIEVEMENTS</h2><span>ACTUAL CLIP LINKS · FUTURE IDEAS KEPT SEPARATE</span></div></div>
+ <p class="tov-v2-lead rv">A showcase of clips already linked on this portfolio. These are not verified tournament titles, official CS2 badges, ranks or match statistics.</p>
+ <div class="tov-achievement-controls rv" role="group" aria-label="Showcase filter">
+  <button class="tov-achievement-filter" type="button" data-achievements-filter="all" aria-pressed="true">ALL</button>
+  <button class="tov-achievement-filter" type="button" data-achievements-filter="clip" aria-pressed="false">LINKED CLIPS</button>
+  <button class="tov-achievement-filter" type="button" data-achievements-filter="goal" aria-pressed="false">FUTURE IDEAS</button>
+ </div>
+ <div class="tov-achievement-grid rv">
+  <article class="tov-achievement-card" data-tov-achievement-kind="clip"><small>01 / LINKED MEDAL CLIP</small><h3>ACE — MIRAGE</h3><p>Already part of the site's Medal highlight gallery.</p><a href="https://medal.tv/clips/nMMeT2Agr7tMolF5v" target="_blank" rel="noopener noreferrer">WATCH THE CLIP ↗</a></article>
+  <article class="tov-achievement-card" data-tov-achievement-kind="clip"><small>02 / LINKED MEDAL CLIP</small><h3>2K — MIRAGE</h3><p>Watch the original clip directly on Medal.</p><a href="https://medal.tv/clips/nLQLmwReRVIpEPWlf" target="_blank" rel="noopener noreferrer">WATCH THE CLIP ↗</a></article>
+  <article class="tov-achievement-card" data-tov-achievement-kind="clip"><small>03 / LINKED MEDAL CLIP</small><h3>HEADSHOT — MIRAGE</h3><p>A selected Counter-Strike 2 highlight from the existing gallery.</p><a href="https://medal.tv/clips/nMIY5uWCzJd8uRgXH" target="_blank" rel="noopener noreferrer">WATCH THE CLIP ↗</a></article>
+  <article class="tov-achievement-card" data-tov-achievement-kind="clip"><small>04 / LINKED MEDAL CLIP</small><h3>3K — DUST II</h3><p>View this linked play without claiming any official achievement.</p><a href="https://medal.tv/clips/nG9AXx2FXuknOrP24" target="_blank" rel="noopener noreferrer">WATCH THE CLIP ↗</a></article>
+  <article class="tov-achievement-card" data-tov-achievement-kind="goal"><small>IDEA / NOT COMPLETED</small><h3>NEXT HIGHLIGHT MONTAGE</h3><p>A possible future edit combining selected moments. No release date is announced.</p><a href="#highlights">BROWSE EXISTING CLIPS ↑</a></article>
+  <article class="tov-achievement-card" data-tov-achievement-kind="goal"><small>IDEA / NOT SCHEDULED</small><h3>COMMUNITY PLAY SESSION</h3><p>A possible idea for the future, not a published tournament or confirmed event.</p><a href="#discord-hub">SEE THE COMMUNITY ↑</a></article>
+ </div>
+ <p class="tov-achievements-note rv" id="tov-achievement-count" role="status" aria-live="polite">6 of 6 cards shown · clips and ideas are separate</p>
+</section>
+
+<section id="discord-hub" class="tov-v2-section" aria-labelledby="tov-discord-title">
+ <div class="sh rv"><i></i><div><h2 id="tov-discord-title">DISCORD COMMUNITY HUB</h2><span>1729 // CONNECT WITH THE COMMUNITY</span></div></div>
+ <p class="tov-v2-lead rv">An easy gateway to the existing 1729 Discord community. Server member counts, channel names and future events are not shown unless verified.</p>
+ <div class="tov-discord-layout">
+  <div class="tov-discord-main rv">
+   <span class="tov-v2-pill">TOV4R / COMMUNITY</span>
+   <h3>1729</h3>
+   <p>The community is on Discord. Open the invite to see the latest available channels, members and announcements there.</p>
+   <div class="tov-discord-buttons">
+    <a href="https://discord.gg/ScxyVUb7m" target="_blank" rel="noopener noreferrer">↗ JOIN DISCORD 1729</a>
+    <button type="button" id="tov-discord-copy">⧉ COPY INVITE</button>
+   </div>
+   <span id="tov-discord-status" role="status" aria-live="polite">Discord may require you to sign in to join.</span>
+  </div>
+  <div class="tov-discord-side rv">
+   <article class="tov-discord-card"><small>01 / CONNECT</small><h3>COMMUNITY CHAT</h3><p>Use Discord to discover the community's actual channels and conversations.</p></article>
+   <article class="tov-discord-card"><small>02 / TEAM UP</small><h3>PLAY WITH OTHERS</h3><p>Looking for gaming conversations or friends to play with? Start from the Discord invite.</p></article>
+   <article class="tov-discord-card"><small>03 / NO MADE-UP STATUS</small><h3>ANNOUNCEMENTS</h3><p>No scheduled events are asserted here. Check Discord itself for current announcements.</p></article>
+  </div>
+ </div>
 </section>
 
 <section id="about">
@@ -813,5 +884,6 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 <script src="assets/tov4r-player-data.js?v=1" defer></script>
 <script src="assets/tov4r-pro.js?v=2" defer></script>
 <script src="assets/tov4r-hub.js?v=1" defer></script>
+<script src="assets/tov4r-v2.js?v=1" defer></script>
 </body>
 </html>
