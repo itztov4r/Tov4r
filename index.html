@@ -374,13 +374,16 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 }
 </style>
 <link rel="stylesheet" href="assets/tov4r-pro.css?v=2">
+<link rel="stylesheet" href="assets/tov4r-hub.css?v=1">
 </head>
 <body>
+<a class="tov-skip" href="#player-profile">Skip to CS2 Dashboard</a>
+<div class="tov-page-progress" aria-hidden="true"><span></span></div>
 <div id="intro" aria-hidden="true"><span>Tov4r</span></div>
 <div id="glow"></div>
 <header>
  <a class="lg tov-brand" href="#home" aria-label="TOV4R — Accueil"><img src="/favicon.svg?v=2" alt="" width="37" height="37"><span>TOV<span class="tov-brand-four">4</span>R</span></a>
- <nav><a href="#home" class="on">HOME</a><a href="#games">GAMES</a><a href="#highlights">HIGHLIGHTS</a><a href="#setup">SETUP</a><a href="#about">ABOUT</a><a href="#connect">CONNECT</a></nav>
+ <nav><a href="#home" class="on">HOME</a><a href="#games">GAMES</a><a href="#highlights">HIGHLIGHTS</a><a href="#player-profile">CS2 HUB</a><a href="#cs2-loadout">LOADOUT</a><a href="#setup">SETUP</a><a href="#about">ABOUT</a><a href="#connect">CONNECT</a></nav>
 </header>
 <main>
 <div class="hero" id="home">
@@ -393,7 +396,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
   <h1 id="t" data-t="TOV4R">TOV<b>4</b>R</h1>
   <div class="sub">MORE THAN <em>JUST A GAME</em></div>
   <p>Je suis Tov4r, un gamer passionné par la performance, les jeux et la technologie. Bienvenue sur mon portfolio Gaming !</p>
-  <div class="cta"><a class="btn r" href="#highlights">WATCH MY HIGHLIGHTS</a><a class="btn" href="#games">VOIR MES JEUX</a></div>
+  <div class="cta"><a class="btn r" href="#highlights">WATCH MY HIGHLIGHTS</a><a class="btn" href="#games">VOIR MES JEUX</a><a class="btn" href="#player-profile">CS2 DASHBOARD</a></div>
  </div>
  <div class="mt">BETTER<br>GEAR<br>BIGGER<br>DREAMS</div>
  <div class="scr"><i></i>SCROLL</div>
@@ -417,6 +420,15 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 <section id="highlights" class="tov-clips-section" aria-labelledby="tov-clips-title">
   <div class="sh rv"><i></i><div><h2 id="tov-clips-title">CS2 HIGHLIGHTS</h2><span>THE PLAYS · THE MOMENTS · THE GRIND</span></div></div>
   <div class="tov-clips-intro rv"><p><span class="tov-clips-status"><span></span> CLIPPED ON MEDAL</span><br>Best moments from TOV4R on Counter-Strike 2. Discover the clips, then watch the full gameplay on Medal.</p><a class="tov-clips-profile" href="https://medal.tv/u/tov4r" target="_blank" rel="noopener noreferrer">MY MEDAL PROFILE <span aria-hidden="true">↗</span></a></div>
+  <div class="tov-clip-controls rv" aria-label="Browse Medal highlights">
+    <div class="tov-clip-filters" role="group" aria-label="Filter by map">
+      <button type="button" class="tov-clip-filter" data-tov-filter="all" aria-pressed="true">ALL CLIPS</button>
+      <button type="button" class="tov-clip-filter" data-tov-filter="mirage" aria-pressed="false">MIRAGE</button>
+      <button type="button" class="tov-clip-filter" data-tov-filter="dust" aria-pressed="false">DUST II</button>
+    </div>
+    <input id="tov-clip-search" type="search" autocomplete="off" maxlength="60" placeholder="Search your clips..." aria-label="Search Medal highlight titles">
+  </div>
+  <p id="tov-clip-count" role="status" aria-live="polite">4 / 4 CLIPS SHOWN</p>
   <div class="tov-clips-grid rv">
   <article class="tov-clip-card tov-clip-1">
     <div class="tov-clip-poster tov-real-thumb" data-clip-embed="https://medal.tv/clip/nMMeT2Agr7tMolF5v">
@@ -479,7 +491,13 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 
 
 <section id="player-profile" class="tov-player-profile" aria-labelledby="player-profile-title">
-  <div class="sh rv"><i></i><div><h2 id="player-profile-title">CS2 PLAYER PROFILE</h2><span>HOW TOV4R PLAYS</span></div></div>
+  <div class="sh rv"><i></i><div><h2 id="player-profile-title">CS2 PLAYER DASHBOARD</h2><span>YOUR GAME · YOUR LINKS · YOUR HIGHLIGHTS</span></div></div>
+  <div class="tov-dashboard-links rv" aria-label="Public player profiles">
+    <a class="tov-dashboard-link" href="https://steamcommunity.com/profiles/76561199844162267/" target="_blank" rel="noopener noreferrer"><small>PLAYER PROFILE / 01</small><strong>STEAM ↗</strong><span>Open the original CS2-connected Steam profile</span></a>
+    <a class="tov-dashboard-link" href="https://xplay.gg/profile/1883896539" target="_blank" rel="noopener noreferrer"><small>COMPETITIVE / 02</small><strong>XPLAY.GG ↗</strong><span>See account information from the source</span></a>
+    <a class="tov-dashboard-link" href="https://medal.tv/u/tov4r" target="_blank" rel="noopener noreferrer"><small>HIGHLIGHTS / 03</small><strong>MEDAL.TV ↗</strong><span>Discover more clips on the official player page</span></a>
+  </div>
+  <p class="tov-dashboard-note rv">External links show the source profiles. Figures below are dated snapshots, not live API statistics.</p>
   <div class="tov-player-shell rv">
     <div class="tov-player-identity">
       <div class="tov-player-nameplate"><span class="tov-player-tag">COUNTER-STRIKE 2 // PLAYER</span><h3>TOV<span>4</span>R</h3><p>Practice. Compete. Play with friends.</p></div>
@@ -547,6 +565,27 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
   <article class="tov-loadout-slot"><div class="tov-loadout-top"><span>04 / PROFILE</span><span>BADGE</span></div><div class="tov-loadout-art" aria-hidden="true">BD</div><h3>PLAYER EMBLEM</h3><strong data-tov-collection="badge">TOV4R / 04 · CONCEPT</strong><details><summary>VIEW SLOT</summary><p>An original TOV4R / 04 graphic concept, not a game badge.</p></details></article>
  </div>
  <p class="tov-loadout-foot">TOV4R // CONCEPT SHOWCASE ONLY // NO CLAIMED GAME INVENTORY</p>
+ <div class="tov-loadout-customizer rv" aria-labelledby="tov-loadout-editor-title">
+   <h3 id="tov-loadout-editor-title">BUILD YOUR OWN DISPLAY</h3>
+   <p>Add your own slot labels. This is a personal, local-only showcase — not a Steam inventory import or a claim that you own these CS2 items.</p>
+   <div class="tov-loadout-editor">
+     <label>AGENT <input type="text" maxlength="60" data-hub-slot="agent" placeholder="Your agent name (optional)" autocomplete="off"></label>
+     <label>GLOVES <input type="text" maxlength="60" data-hub-slot="gloves" placeholder="Your glove name (optional)" autocomplete="off"></label>
+     <label>MUSIC KIT <input type="text" maxlength="60" data-hub-slot="musicKit" placeholder="Your music kit (optional)" autocomplete="off"></label>
+     <label>BADGE <input type="text" maxlength="60" data-hub-slot="badge" placeholder="Your badge name (optional)" autocomplete="off"></label>
+   </div>
+   <div class="tov-loadout-actions">
+     <button type="button" id="tov-save-loadout">SAVE ON THIS DEVICE</button>
+     <button type="button" id="tov-reset-loadout">RESET</button>
+     <span id="tov-loadout-feedback" role="status" aria-live="polite">Your labels stay in this browser only.</span>
+   </div>
+   <div class="tov-loadout-preview" aria-label="Your personalized loadout preview">
+     <div><small>AGENT</small><strong data-hub-preview="agent">NOT SET</strong></div>
+     <div><small>GLOVES</small><strong data-hub-preview="gloves">NOT SET</strong></div>
+     <div><small>MUSIC KIT</small><strong data-hub-preview="musicKit">NOT SET</strong></div>
+     <div><small>BADGE</small><strong data-hub-preview="badge">NOT SET</strong></div>
+   </div>
+ </div>
 </section>
 
 <section id="setup">
@@ -563,6 +602,14 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
    <div class="nt">NOT THE BEST, BUT IT GETS THE JOB DONE.</div>
   </div>
  </div>
+ <details class="tov-hardware-more rv">
+   <summary>MORE VERIFIED HARDWARE DETAILS +</summary>
+   <div class="tov-hardware-grid">
+     <div><small>DEVICE TYPE</small><strong>MSI GAMING LAPTOP</strong></div>
+     <div><small>DEDICATED GPU MEMORY</small><strong>4 GB VRAM</strong></div>
+     <div><small>INTEGRATED GRAPHICS</small><strong>INTEL UHD GRAPHICS 630</strong></div>
+   </div>
+ </details>
 </section>
 
 <section id="about">
@@ -579,6 +626,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 </section>
 <div class="fin"><img loading="lazy" decoding="async" src="assets/media/footer-banner.jpg" alt="TOV4R – Play, Share, Grow"></div>
 </main>
+<button type="button" id="tov-back-top" class="tov-back-top" aria-label="Back to top" title="Back to top">↑</button>
 <footer><span>TOV4R / GAMING PORTFOLIO / 2026</span><span>MADE WITH <b>&#9829;</b> FOR GAMERS</span></footer>
 <script>
 (function(){
@@ -764,5 +812,6 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 </dialog>
 <script src="assets/tov4r-player-data.js?v=1" defer></script>
 <script src="assets/tov4r-pro.js?v=2" defer></script>
+<script src="assets/tov4r-hub.js?v=1" defer></script>
 </body>
 </html>
