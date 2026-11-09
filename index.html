@@ -40,6 +40,7 @@
 <link rel="stylesheet" href="assets/tov4r-v3.css?v=1">
 <link rel="stylesheet" href="assets/tov4r-visuals.css?v=1">
 <link rel="stylesheet" href="assets/tov4r-v4.css?v=1">
+<link rel="stylesheet" href="assets/tov4r-v5.css?v=1">
 </head>
 <body>
 <a class="tov-skip" href="#featured-clip">Skip to content</a>
@@ -49,7 +50,7 @@
 <header class="tov-header-v3" data-menu-open="false">
  <a class="lg tov-brand" href="#home" aria-label="TOV4R — Accueil"><img src="/favicon.svg?v=2" alt="" width="37" height="37"><span>TOV<span class="tov-brand-four">4</span>R</span></a>
  <button type="button" id="tov-menu-toggle" class="tov-menu-toggle" aria-controls="tov-main-nav" aria-expanded="false"><span class="tov-menu-icon" aria-hidden="true">☰</span><span class="tov-menu-label">MENU</span></button>
- <nav id="tov-main-nav" aria-label="Main navigation"><a href="#home" class="on">HOME</a><a href="#featured-clip">FEATURED</a><a href="#games">GAMES</a><a href="#visual-board">VISUALS</a><a href="#highlights">HIGHLIGHTS</a><a href="#player-profile">CS2 HUB</a><a href="#cs2-loadout">LOADOUT</a><a href="#crosshair-studio">CROSSHAIR</a><a href="#setup">SETUP</a><a href="#achievements">PLAYS</a><a href="#journey">JOURNEY</a><a href="#discord-hub">1729</a><a href="#about">ABOUT</a><a href="#connect">CONNECT</a></nav>
+ <nav id="tov-main-nav" aria-label="Main navigation"><a href="#home" class="on">HOME</a><a href="#featured-clip">FEATURED</a><a href="#games">GAMES</a><a href="#visual-board">VISUALS</a><a href="#highlights">HIGHLIGHTS</a><a href="#clip-manager">CLIPS+</a><a href="#player-profile">CS2 HUB</a><a href="#cs2-loadout">LOADOUT</a><a href="#crosshair-studio">CROSSHAIR</a><a href="#setup">SETUP</a><a href="#setup-gallery">GALLERY</a><a href="#achievements">PLAYS</a><a href="#journey">JOURNEY</a><a href="#progress-tracker">PROGRESS</a><a href="#discord-hub">1729</a><a href="#about">ABOUT</a><a href="#connect">CONNECT</a><a href="#share-profile">SHARE</a><a href="#analytics-dashboard">ANALYTICS</a></nav>
 </header>
 <main>
 <div class="hero" id="home">
@@ -227,6 +228,33 @@
 </section>
 
 
+<section id="clip-manager" class="tov-v5-section" aria-labelledby="tov-clip-manager-title">
+  <div class="sh rv"><i></i><div><h2 id="tov-clip-manager-title">TOV4R CLIP MANAGER</h2><span>PUBLIC MEDAL COLLECTION · LOCAL DRAFT WORKSPACE</span></div></div>
+  <p class="tov-v5-lead rv">Discover published Medal links. Build a private clip draft on this device, pick a featured video, then export a GitHub-ready file. No fake admin login or hidden backend.</p>
+  <div class="tov-v5-shell rv">
+    <div class="tov-v5-topline"><strong class="tov-v5-kicker">PUBLISHED MEDAL COLLECTION</strong><a href="https://medal.tv/u/tov4r" target="_blank" rel="noopener noreferrer">OPEN MEDAL PROFILE ↗</a></div>
+    <div class="tov-v5-list" id="tov-public-clip-list"><p>For existing clips, use the Highlights section above.</p></div>
+    <details class="tov-v5-details" id="tov-clip-workspace">
+      <summary>CLIP MANAGER — EDIT A PRIVATE DRAFT +</summary>
+      <div class="tov-v5-workspace">
+        <p class="tov-v5-disclaimer">Changes here are visible only in this browser. They cannot update the live site until you export <code>tov4r-clips.js</code> and commit it to <code>assets/tov4r-clips.js</code> on GitHub. This editor does not verify that you own any clip.</p>
+        <form id="tov-clip-form" class="tov-v5-grid" autocomplete="off">
+          <label class="tov-v5-field">MEDAL CLIP URL <input type="url" id="tov-clip-url" placeholder="https://medal.tv/clips/..." required maxlength="260"></label>
+          <label class="tov-v5-field">CLIP TITLE <input type="text" id="tov-clip-title" maxlength="70" placeholder="Your actual clip title" required></label>
+          <label class="tov-v5-field">MAP / LABEL <input type="text" id="tov-clip-map" maxlength="45" placeholder="Optional map name"></label>
+          <label class="tov-v5-field">ILLUSTRATIVE POSTER <select id="tov-clip-poster"><option value="clip-ace.svg">REDLINE / CRIMSON</option><option value="clip-2k.svg">REDLINE / ORANGE</option><option value="clip-headshot.svg">REDLINE / PINK</option><option value="clip-3k.svg">REDLINE / GOLD</option></select></label>
+          <div class="tov-v5-actions"><button type="submit" class="tov-v5-btn">+ ADD TO DRAFT</button></div>
+        </form>
+        <div id="tov-clip-draft-list" class="tov-v5-draft-list" aria-label="Local clip draft list"></div>
+        <label class="tov-v5-field" for="tov-clip-featured" style="margin-top:15px">FEATURED CLIP ON THE PUBLISHED SITE <select id="tov-clip-featured"><option value="">WEEKLY ROTATION (default)</option></select></label>
+        <div class="tov-v5-actions"><button type="button" id="tov-clip-save" class="tov-v5-btn">SAVE LOCAL DRAFT</button><button type="button" id="tov-clip-export" class="tov-v5-btn">EXPORT FOR GITHUB</button><button type="button" id="tov-clip-copy" class="tov-v5-btn alt">COPY CONFIG</button><button type="button" id="tov-clip-reset" class="tov-v5-btn alt">RESET DRAFT</button></div>
+        <label class="tov-v5-field" for="tov-clip-export-text">EXPORTED SOURCE (AVAILABLE AFTER EXPORT)<textarea id="tov-clip-export-text" hidden readonly spellcheck="false" aria-label="Exported configuration source"></textarea></label>
+        <p id="tov-clip-manager-status" class="tov-v5-status" role="status" aria-live="polite">Public clips are read from the repository. Drafts stay local.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
 <section id="player-profile" class="tov-player-profile" aria-labelledby="player-profile-title">
   <div class="sh rv"><i></i><div><h2 id="player-profile-title">CS2 PLAYER DASHBOARD</h2><span>YOUR GAME · YOUR LINKS · YOUR HIGHLIGHTS</span></div></div>
   <div class="tov-premium-strip rv" aria-label="TOV4R gaming design artwork"><img src="assets/media/tov4r-premium-art.svg" alt="TOV4R original abstract red and black gaming emblem" width="1440" height="810" loading="lazy" decoding="async"><span>TOV4R // REDLINE VISUAL IDENTITY</span></div>
@@ -370,6 +398,24 @@
  </details>
 </section>
 
+<section id="setup-gallery" class="tov-v5-section" aria-labelledby="tov-setup-gallery-title">
+  <div class="sh rv"><i></i><div><h2 id="tov-setup-gallery-title">GAMING SETUP GALLERY</h2><span>EXISTING WEBSITE IMAGE · ARTWORK LABELED CLEARLY</span></div></div>
+  <p class="tov-v5-lead rv">An expanded look at the site's existing setup image, alongside original illustrative artwork. No new hardware photos or purchases are claimed.</p>
+  <div class="tov-v5-shell rv">
+    <div class="tov-v5-setup-grid">
+      <button class="tov-v5-setup-tile" type="button" data-v5-gallery-src="assets/media/pc-setup.jpg" data-v5-gallery-alt="Existing gaming setup image already on TOV4R.xyz" data-v5-gallery-caption="Existing website setup image; hardware information is listed in My PC Setup above."><img src="assets/media/pc-setup.jpg" alt="Existing TOV4R PC setup image" loading="lazy" decoding="async"><strong>EXISTING SETUP IMAGE</strong><small>Already published on this website · view larger</small></button>
+      <button class="tov-v5-setup-tile" type="button" data-v5-gallery-src="assets/media/tov4r-premium-art.svg" data-v5-gallery-alt="Original red-and-black TOV4R abstract gaming artwork" data-v5-gallery-caption="Original visual concept, not an image of real equipment."><img src="assets/media/tov4r-premium-art.svg" width="1440" height="810" alt="Original TOV4R redline visual concept" loading="lazy" decoding="async"><strong>REDLINE ARTWORK</strong><small>Original illustration · not a real device</small></button>
+      <button class="tov-v5-setup-tile" type="button" data-v5-gallery-src="assets/media/tov4r-crosshair-art.svg" data-v5-gallery-alt="Original TOV4R crosshair-themed gaming artwork" data-v5-gallery-caption="Crosshair Studio visual concept. It is not a gameplay screenshot or a verified CS2 configuration."><img src="assets/media/tov4r-crosshair-art.svg" width="1440" height="810" alt="Original TOV4R crosshair design illustration" loading="lazy" decoding="async"><strong>CROSSHAIR VISUAL</strong><small>Original illustration · not a match screenshot</small></button>
+    </div>
+    <p class="tov-v5-banner-note">The hardware specs remain exactly as displayed in My PC Setup. No new personal setup photographs were invented.</p>
+  </div>
+  <dialog id="tov-v5-setup-dialog" aria-label="Expanded setup gallery image">
+    <button type="button" class="tov-v5-btn alt" id="tov-v5-gallery-close">✕ CLOSE</button>
+    <img id="tov-v5-gallery-image" alt="Selected gallery image">
+    <p id="tov-v5-gallery-caption"></p>
+  </dialog>
+</section>
+
 <section id="journey" class="tov-journey" aria-labelledby="tov-journey-title">
   <div class="sh rv"><i></i><div><h2 id="tov-journey-title">MY GAMING JOURNEY</h2><span>KNOWN MILESTONES · NO INVENTED GAME HISTORY</span></div></div>
   <p class="tov-journey-lead rv">A timeline built from information already shown in this portfolio. Unverified dates and match statistics are intentionally left out.</p>
@@ -380,6 +426,32 @@
     <li class="tov-future"><small>FUTURE IDEA · NOT A COMPLETED MILESTONE</small><h3>MORE CLIPS &amp; COMMUNITY MOMENTS</h3><p>Room for new confirmed highlights and dates when you choose to share them. Nothing here represents an already scheduled event.</p><a href="#discord-hub">VISIT COMMUNITY ↑</a></li>
   </ol>
   <p class="tov-journey-note">Last-mile dates are shown only where they come from the existing linked portfolio or its GitHub updates. No ranks, trophies or match wins are made up.</p>
+</section>
+
+<section id="progress-tracker" class="tov-v5-section" aria-labelledby="tov-progress-title">
+  <div class="sh rv"><i></i><div><h2 id="tov-progress-title">CS2 PROGRESS TRACKER</h2><span>YOUR MANUAL GAME LOG · NOT LIVE STEAM/XPLAY STATS</span></div></div>
+  <p class="tov-v5-lead rv">Enter matches you personally want to track. Everything starts empty and stays in your own browser. This is not automatic Steam/XPLAY verification.</p>
+  <div class="tov-v5-shell rv">
+    <p class="tov-v5-disclaimer">Only user-entered matches appear below. Win/loss counts and K/D are calculated from those entries and must never be described as official competitive statistics.</p>
+    <div class="tov-v5-progress-summary" style="margin-top:16px" aria-label="Manual progress summary">
+      <div class="tov-v5-metric"><small>MANUAL MATCH LOG</small><strong id="tov-progress-entries">NO ENTRIES YET</strong></div>
+      <div class="tov-v5-metric"><small>WIN / LOSS ENTRIES</small><strong id="tov-progress-wl">—</strong></div>
+      <div class="tov-v5-metric"><small>K/D FROM ENTERED VALUES</small><strong id="tov-progress-kd">—</strong></div>
+    </div>
+    <form id="tov-progress-form" class="tov-v5-grid" autocomplete="off">
+      <label class="tov-v5-field">MATCH DATE <input id="tov-progress-date" type="date" required></label>
+      <label class="tov-v5-field">MAP (OPTIONAL) <input id="tov-progress-map" type="text" placeholder="Map played" maxlength="40"></label>
+      <label class="tov-v5-field">RESULT <select id="tov-progress-result"><option value="not recorded">NOT RECORDED</option><option value="win">WIN (MANUAL)</option><option value="loss">LOSS (MANUAL)</option><option value="draw">DRAW (MANUAL)</option></select></label>
+      <div class="tov-v5-grid">
+        <label class="tov-v5-field">KILLS (OPTIONAL) <input id="tov-progress-kills" type="number" min="0" max="120" step="1" placeholder="—"></label>
+        <label class="tov-v5-field">DEATHS (OPTIONAL) <input id="tov-progress-deaths" type="number" min="0" max="120" step="1" placeholder="—"></label>
+      </div>
+      <div class="tov-v5-actions"><button type="submit" class="tov-v5-btn">SAVE MANUAL ENTRY</button></div>
+    </form>
+    <div class="tov-v5-actions"><button type="button" id="tov-progress-export" class="tov-v5-btn alt">EXPORT MY LOG (JSON)</button><button type="button" id="tov-progress-clear" class="tov-v5-btn alt">CLEAR LOCAL LOG</button></div>
+    <div class="tov-v5-progress-list" id="tov-progress-list" aria-label="Manual CS2 log entries"></div>
+    <p id="tov-progress-status" class="tov-v5-status" role="status" aria-live="polite">There is no verified match history loaded.</p>
+  </div>
 </section>
 
 <section id="achievements" class="tov-v2-section" aria-labelledby="tov-achievements-title">
@@ -432,10 +504,54 @@
  </div>
 </section>
 
+<section id="share-profile" class="tov-v5-section" aria-labelledby="tov-share-title">
+  <div class="sh rv"><i></i><div><h2 id="tov-share-title">SHARE TOV4R PROFILE</h2><span>ONE LINK · ORIGINAL REDLINE QR CODE</span></div></div>
+  <p class="tov-v5-lead rv">Share the public gaming portfolio with a scannable QR code and a direct link. The QR is generated on the page and works without contacting a third-party QR provider.</p>
+  <div class="tov-v5-shell tov-v5-profile-grid rv">
+    <div class="tov-v5-profile-card">
+      <small class="tov-v5-kicker">TOV4R GAMING PORTFOLIO</small><h3>TOV4R</h3>
+      <p>CS2 highlights · Crosshair Studio · Gaming Setup · Community</p>
+      <div class="tov-v5-profile-links">
+        <a href="https://tov4r.xyz/">tov4r.xyz ↗</a>
+        <a href="https://medal.tv/u/tov4r" target="_blank" rel="noopener noreferrer">MEDAL ↗</a>
+        <a href="https://steamcommunity.com/profiles/76561199844162267/" target="_blank" rel="noopener noreferrer">STEAM ↗</a>
+      </div>
+      <div class="tov-v5-actions"><button type="button" class="tov-v5-btn" id="tov-profile-copy">COPY WEBSITE LINK</button><button type="button" class="tov-v5-btn alt" id="tov-profile-share">SHARE PROFILE</button></div>
+      <p class="tov-v5-status" id="tov-profile-status" role="status" aria-live="polite">Official site link: https://tov4r.xyz/</p>
+    </div>
+    <a id="tov-v5-qr" class="tov-v5-qr" href="https://tov4r.xyz/" aria-label="Scan or open TOV4R.xyz QR code"><span style="color:#151015;font:700 .8rem sans-serif">TOV4R.xyz QR</span></a>
+  </div>
+</section>
+
 <section id="connect">
  <div class="sh rv"><i></i><div><h2>CONNECT</h2><span>LET'S STAY IN TOUCH</span></div></div>
  <div class="games rv social-grid" aria-label="Réseaux sociaux TOV4R"><a class="g" href="https://discord.gg/ScxyVUb7m" target="_blank" rel="noopener noreferrer"><img loading="lazy" decoding="async" src="assets/media/discord-card.jpg" alt="Communauté Discord 1729" style="object-position:50% 50%"><div><h3>1729</h3><small>DISCORD / COMMUNITY</small></div></a><a class="g" href="https://www.tiktok.com/@flixtop1" target="_blank" rel="noopener noreferrer"><img loading="lazy" decoding="async" src="assets/media/tiktok-card.jpg" alt="TikTok itz.flixx" style="object-position:50% 50%"><div><h3>itz.flixx</h3><small>TIKTOK / FOLLOW ME</small></div></a><a class="g" href="https://steamcommunity.com/profiles/76561199844162267/" target="_blank" rel="noopener noreferrer"><img loading="lazy" decoding="async" src="assets/media/steam-card.jpg" alt="Steam Flix" style="object-position:50% 50%"><div><h3>Flix</h3><small>STEAM / ADD ME</small></div></a><a class="g" href="https://www.instagram.com/itz.flixx/" target="_blank" rel="noopener noreferrer" aria-label="Instagram @itz.flixx"><img loading="lazy" decoding="async" src="images/instagram-itz-flixx.webp" alt="Photo de profil Instagram de @itz.flixx" width="400" height="400" style="object-position:center 20%"><div><h3>@itz.flixx</h3><small>INSTAGRAM / FOLLOW ME</small></div></a></div>
 </section>
+<section id="analytics-dashboard" class="tov-v5-section" aria-labelledby="tov-analytics-title">
+  <div class="sh rv"><i></i><div><h2 id="tov-analytics-title">REAL WEBSITE ANALYTICS</h2><span>UMAMI CONNECTION · NO FICTIONAL VISITOR COUNTS</span></div></div>
+  <p class="tov-v5-lead rv">Real visitor statistics require your own analytics account. This panel shows actual configuration status and opens the real dashboard — it never generates imaginary visits.</p>
+  <div class="tov-v5-shell rv">
+    <div class="tov-v5-analytics-grid">
+      <div class="tov-v5-metric"><small>UMAMI CONNECTION</small><strong id="tov-analytics-state">NOT CONNECTED</strong></div>
+      <div class="tov-v5-metric"><small>REAL TRAFFIC METRICS</small><strong id="tov-analytics-data">NO REAL DATA HERE</strong></div>
+      <div class="tov-v5-metric"><small>PRIVACY / TRACKING</small><strong id="tov-analytics-privacy">TRACKING DISABLED</strong></div>
+    </div>
+    <p class="tov-v5-banner-note">Website visits and device statistics appear in your authenticated Umami dashboard after you connect a genuine Website ID. This static site cannot securely fetch private dashboard statistics without authentication, so none are invented here.</p>
+    <div class="tov-v5-actions"><a class="tov-v5-btn" href="https://cloud.umami.is/" target="_blank" rel="noopener noreferrer">OPEN REAL UMAMI DASHBOARD ↗</a><a class="tov-v5-btn alt" href="https://search.google.com/search-console/" target="_blank" rel="noopener noreferrer">GOOGLE SEARCH CONSOLE ↗</a><a class="tov-v5-btn alt" href="/sitemap.xml" target="_blank" rel="noopener noreferrer">VIEW SITEMAP ↗</a></div>
+    <details class="tov-v5-details">
+      <summary>HOW TO CONNECT YOUR REAL ANALYTICS +</summary>
+      <div class="tov-v5-workspace">
+        <p class="tov-v5-disclaimer">Create a website for tov4r.xyz in your own Umami account. Copy the public Website ID here to generate a configuration snippet. You must commit the snippet in <code>assets/tov4r-analytics-config.js</code>. Never paste a private API token or password.</p>
+        <form id="tov-analytics-form" class="tov-v5-grid" autocomplete="off">
+          <label class="tov-v5-field">PUBLIC UMAMI WEBSITE ID (UUID) <input type="text" id="tov-analytics-id" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" maxlength="36" required></label>
+          <div class="tov-v5-actions"><button class="tov-v5-btn" type="submit">COPY CONFIGURATION</button></div>
+        </form>
+        <p id="tov-analytics-status" class="tov-v5-status" role="status" aria-live="polite">Tracking remains disabled until the repository configuration is actually updated.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
 <div class="fin"><img loading="lazy" decoding="async" src="assets/media/footer-banner.jpg" alt="TOV4R – Play, Share, Grow"></div>
 </main>
 <button type="button" id="tov-back-top" class="tov-back-top" aria-label="Back to top" title="Back to top">↑</button>
@@ -603,7 +719,9 @@
 <script src="assets/tov4r-hub.js?v=1" defer></script>
 <script src="assets/tov4r-v2.js?v=1" defer></script>
 <script src="assets/tov4r-analytics-config.js" defer></script>
-<script src="assets/tov4r-v3.js?v=2" defer></script>
+<script src="assets/tov4r-clips.js?v=1" defer></script>
+<script src="assets/tov4r-v3.js?v=3" defer></script>
 <script src="assets/tov4r-visuals.js?v=1" defer></script>
+<script src="assets/tov4r-v5.js?v=1" defer></script>
 </body>
 </html>

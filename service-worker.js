@@ -1,15 +1,15 @@
 /* TOV4R PWA V3 — static local-shell caching, no third-party requests. */
 'use strict';
-const VERSION='tov4r-shell-v5-20261109-1';
+const VERSION='tov4r-shell-v6-20261109-1';
 const ESSENTIALS=[
   '/', '/index.html', '/favicon.svg', '/manifest.webmanifest',
   '/icons/tov4r-192.png', '/icons/tov4r-512.png',
   '/assets/tov4r-core.css?v=4', '/assets/tov4r-music.css?v=4',
   '/assets/tov4r-pro.css?v=2', '/assets/tov4r-hub.css?v=1',
-  '/assets/tov4r-v2.css?v=1', '/assets/tov4r-v3.css?v=1', '/assets/tov4r-visuals.css?v=1', '/assets/tov4r-v4.css?v=1',
+  '/assets/tov4r-v2.css?v=1', '/assets/tov4r-v3.css?v=1', '/assets/tov4r-visuals.css?v=1', '/assets/tov4r-v4.css?v=1', '/assets/tov4r-v5.css?v=1',
   '/assets/tov4r-player-data.js?v=1', '/assets/tov4r-pro.js?v=2',
   '/assets/tov4r-hub.js?v=1', '/assets/tov4r-v2.js?v=1',
-  '/assets/tov4r-v3.js?v=2', '/assets/tov4r-visuals.js?v=1', '/assets/tov4r-analytics-config.js',
+  '/assets/tov4r-clips.js?v=1', '/assets/tov4r-v3.js?v=3', '/assets/tov4r-visuals.js?v=1', '/assets/tov4r-v5.js?v=1', '/assets/tov4r-analytics-config.js',
   '/assets/media/clip-ace.svg', '/assets/media/clip-2k.svg', '/assets/media/clip-headshot.svg', '/assets/media/clip-3k.svg',
   '/assets/media/hero-visual.jpg', '/assets/media/hero-overlay.jpg', '/assets/media/bg-ambient.jpg',
   '/assets/media/tov4r-premium-art.svg', '/assets/media/tov4r-discord-art.svg', '/assets/media/tov4r-crosshair-art.svg', '/assets/media/tov4r-achievements-art.svg',
@@ -29,6 +29,15 @@ self.addEventListener('fetch',event=>{
   if(req.method!=='GET'||url.origin!==self.location.origin)return;
   // Never cache music streaming, requests with byte ranges, or any third-party content.
   if(req.headers.has('range')||/\.(?:mp3|mp4|wav|m4a)$/i.test(url.pathname))return;
+  // Read public site configuration from the network first, so owner-edited
+  // clip/analytics config is not indefinitely stale after GitHub publishing.
+  if(url.pathname==='/assets/tov4r-clips.js'||url.pathname==='/assets/tov4r-analytics-config.js'){
+    event.respondWith(fetch(req,{cache:'no-cache'}).then(res=>{
+      if(res.ok){const copy=res.clone();event.waitUntil(caches.open(VERSION).then(c=>c.put(req,copy)));}
+      return res;
+    }).catch(()=>caches.match(req).then(cached=>cached||Response.error())));
+    return;
+  }
   if(req.mode==='navigate'){
     event.respondWith(fetch(req).then(res=>{
       if(res.ok){const clone=res.clone();event.waitUntil(caches.open(VERSION).then(c=>c.put('/index.html',clone)));}

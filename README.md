@@ -74,3 +74,35 @@ Built with static HTML, CSS and JavaScript for GitHub Pages.
 4. The four game cards should no longer jump to the top when clicked.
 5. Check `/#setup` still shows the original personal hardware details/image and `/#cs2-settings` retains the same example DPI/sensitivity/resolution/crosshair state.
 6. Verify the new service worker has a bumped cache version and mobile installation still works.
+
+
+## TOV4R V5 · Clips, progress, sharing, gallery and analytics
+
+**Clip Manager / #clip-manager:** The public clip library is driven by \`assets/tov4r-clips.js\`. It initially contains exactly the four already-linked Medal clips and preserves the previous Highlights gallery. The on-page *local draft workspace* lets any visitor prepare their own unpublished draft. It does **not** authenticate as an admin or publish directly. To publish your own changes:
+
+1. Open Clip Manager → "Edit a private draft". Add real Medal clip URLs, enter truthful clip titles/map names and optionally choose a featured video, or leave the default weekly rotation.
+2. Save locally (optional), then press **Export for GitHub**. A new \`tov4r-clips.js\` file downloads. You can also use Copy Config.
+3. In your own GitHub repo, replace **\`assets/tov4r-clips.js\`** with that exported content, commit to \`main\` and let GitHub Pages deploy.
+4. Public site reads the committed version; the PWA tries **network-first** for this configuration so publishing later changes does not leave the old clip list permanently cached.
+
+Clips must be valid \`https://medal.tv/clips/<clip-id>\` or their official Counter-Strike 2 canonical Medal URLs. The editor accepts up to 40 entries and uses locally hosted illustrated artwork; it never invents wins, game statistics or dates. The original four featured clip links remain as a safe default, and the older Medal gallery keeps its existing player.
+
+**CS2 Progress Tracker / #progress-tracker:** Starts with **zero entries**. Date, map, outcome, and optional kills/deaths are entered manually and stored only in that browser's \`localStorage\`. Counts/ratio are computed only from entries and are **not verified Steam/XPLAY statistics**. Export a local JSON backup or clear your data if you wish. No server, public scoreboard, accounts, or user tracking.
+
+**Share Profile / #share-profile:** Real offline-generated QR code for \`https://tov4r.xyz/\`, Copy Link and browser-native Share (fallback to clipboard). No third-party QR requests.
+
+**Gaming Setup Gallery / #setup-gallery:** Reuses existing TOV4R \`pc-setup.jpg\` and previously committed TOV4R original illustration assets. A native dialog enlarges images. Illustrations are labeled *concept artwork*, not photographs or owned hardware.
+
+**Real Analytics Dashboard / #analytics-dashboard:** Status-only until a **real Umami site** is connected. The panel links to \`https://cloud.umami.is/\`, the official Google Search Console and this site's sitemap. It **does not show fabricated visits** or require sensitive account tokens in the repository. Set up your own Umami Website ID and commit a valid \`window.TOV4R_ANALYTICS={provider:"umami",websiteId:"YOUR_PUBLIC_UUID"};\` in \`assets/tov4r-analytics-config.js\`. Visitors' data, where available, is viewed in your authenticated Umami dashboard, not fetched with exposed API keys. Browser DNT / GPC support from V3 remains active.
+
+### V5 regression and privacy checklist
+
+- All old site sections, TOV4R artwork and personal setup photo, CS2 sample settings and crosshair, game cards, music dock, four Medal clips, and interactive loadout must remain intact.
+- Test local clip draft add/remove/pin, exported JS content and the published featured selection. Loading a new public clip configuration must not cause unsafe HTML injection.
+- Verify first use of CS2 Progress Tracker says **NO ENTRIES YET** and logging/clearing/export works on your own device; no stats are fabricated.
+- Scan the QR with a camera; it must open exactly \`https://tov4r.xyz/\`.
+- Open and close setup artwork dialog; verify the personal photo is unchanged.
+- Analytics should say **NOT CONNECTED** until a real public Umami Website ID is committed. No private tokens or fake dashboard traffic.
+- Check desktop and mobile navigation and PWA service-worker version, including network-first updates of public clip/analytics configuration.
+
+GitHub CI runs \`node scripts/verify-site.cjs\` on PRs and \`main\`.
