@@ -36,15 +36,15 @@
   background-size:cover!important;background-position:center!important;
   border:1px solid rgba(255,255,255,.24);box-shadow:0 14px 34px rgba(0,0,0,.24)
 }
-#player-profile .tov-dashboard-link:nth-child(1){background-image:linear-gradient(0deg,rgba(5,6,11,.93),rgba(5,6,11,.3)),url("https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?auto=format&fit=crop&w=1300&q=76")!important}
-#player-profile .tov-dashboard-link:nth-child(2){background-image:linear-gradient(0deg,rgba(5,6,11,.93),rgba(5,6,11,.27)),url("https://images.unsplash.com/photo-1703031971880-482e4814c6a3?auto=format&fit=crop&w=1300&q=76")!important}
-#player-profile .tov-dashboard-link:nth-child(3){background-image:linear-gradient(0deg,rgba(5,6,11,.93),rgba(5,6,11,.25)),url("https://images.unsplash.com/photo-1733945761533-727f49908d70?auto=format&fit=crop&w=1300&q=76")!important}
+#player-profile .tov-dashboard-link:nth-child(1){background-image:linear-gradient(0deg,rgba(5,6,11,.93),rgba(5,6,11,.3)),url("https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
+#player-profile .tov-dashboard-link:nth-child(2){background-image:linear-gradient(0deg,rgba(5,6,11,.93),rgba(5,6,11,.27)),url("https://images.unsplash.com/photo-1703031971880-482e4814c6a3?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
+#player-profile .tov-dashboard-link:nth-child(3){background-image:linear-gradient(0deg,rgba(5,6,11,.93),rgba(5,6,11,.25)),url("https://images.unsplash.com/photo-1733945761533-727f49908d70?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
 #player-profile .tov-dashboard-link :is(small,strong,span){position:relative;z-index:1;color:#fff;text-shadow:0 2px 12px #000}
 #player-profile .tov-dashboard-link small{color:#ffb3c3}
 #player-profile .tov-player-mode{position:relative;overflow:hidden;min-height:180px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover!important;background-position:center!important;border-color:rgba(255,255,255,.24)}
-#player-profile .tov-player-mode:nth-child(1){background-image:linear-gradient(0deg,rgba(7,6,12,.96),rgba(7,6,12,.42)),url("https://images.unsplash.com/photo-1636489948870-058e57b5f7d9?auto=format&fit=crop&w=1300&q=76")!important}
-#player-profile .tov-player-mode:nth-child(2){background-image:linear-gradient(0deg,rgba(7,6,12,.96),rgba(7,6,12,.4)),url("https://images.unsplash.com/photo-1687583326917-530d867c8b2b?auto=format&fit=crop&w=1300&q=76")!important}
-#player-profile .tov-player-mode:nth-child(3){background-image:linear-gradient(0deg,rgba(7,6,12,.96),rgba(7,6,12,.4)),url("https://images.unsplash.com/photo-1636489951222-2af65c1d9ae3?auto=format&fit=crop&w=1300&q=76")!important}
+#player-profile .tov-player-mode:nth-child(1){background-image:linear-gradient(0deg,rgba(7,6,12,.96),rgba(7,6,12,.42)),url("https://images.unsplash.com/photo-1636489948870-058e57b5f7d9?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
+#player-profile .tov-player-mode:nth-child(2){background-image:linear-gradient(0deg,rgba(7,6,12,.96),rgba(7,6,12,.4)),url("https://images.unsplash.com/photo-1687583326917-530d867c8b2b?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
+#player-profile .tov-player-mode:nth-child(3){background-image:linear-gradient(0deg,rgba(7,6,12,.96),rgba(7,6,12,.4)),url("https://images.unsplash.com/photo-1636489951222-2af65c1d9ae3?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
 #player-profile .tov-player-mode :is(strong,p,span){position:relative;z-index:1;color:#fff;text-shadow:0 2px 9px #000}
 #player-profile .tov-player-mode-num{color:#ffbdca!important}
 #player-profile .tov-player-mode-mark{opacity:.35!important}
@@ -59,10 +59,10 @@
   margin:13px 0 17px;border-radius:9px;background-size:cover!important;
   background-position:center!important;border:1px solid rgba(255,255,255,.12)
 }
-#cs2-loadout .tov-loadout-slot:nth-child(1) .tov-loadout-art{background-image:linear-gradient(0deg,rgba(0,0,0,.24),transparent),url("https://images.unsplash.com/photo-1703031971880-482e4814c6a3?auto=format&fit=crop&w=1300&q=76")!important}
-#cs2-loadout .tov-loadout-slot:nth-child(2) .tov-loadout-art{background-image:linear-gradient(0deg,rgba(0,0,0,.24),transparent),url("https://images.unsplash.com/photo-1636489948870-058e57b5f7d9?auto=format&fit=crop&w=1300&q=76")!important}
-#cs2-loadout .tov-loadout-slot:nth-child(3) .tov-loadout-art{background-image:linear-gradient(0deg,rgba(0,0,0,.24),transparent),url("https://images.unsplash.com/photo-1687583326917-530d867c8b2b?auto=format&fit=crop&w=1300&q=76")!important}
-#cs2-loadout .tov-loadout-slot:nth-child(4) .tov-loadout-art{background-image:linear-gradient(0deg,rgba(0,0,0,.24),transparent),url("https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?auto=format&fit=crop&w=1300&q=76")!important}
+#cs2-loadout .tov-loadout-slot:nth-child(1) .tov-loadout-art{background-image:linear-gradient(0deg,rgba(0,0,0,.24),transparent),url("https://images.unsplash.com/photo-1703031971880-482e4814c6a3?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
+#cs2-loadout .tov-loadout-slot:nth-child(2) .tov-loadout-art{background-image:linear-gradient(0deg,rgba(0,0,0,.24),transparent),url("https://images.unsplash.com/photo-1636489948870-058e57b5f7d9?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
+#cs2-loadout .tov-loadout-slot:nth-child(3) .tov-loadout-art{background-image:linear-gradient(0deg,rgba(0,0,0,.24),transparent),url("https://images.unsplash.com/photo-1687583326917-530d867c8b2b?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
+#cs2-loadout .tov-loadout-slot:nth-child(4) .tov-loadout-art{background-image:linear-gradient(0deg,rgba(0,0,0,.24),transparent),url("https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
 #cs2-loadout .tov-loadout-slot :is(h3,strong){position:relative;z-index:1}
 #achievements .tov-art-banner img{opacity:.87;filter:saturate(.9) contrast(1.07);object-position:center}
 #achievements .tov-art-banner:after{background:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.16))}
@@ -70,17 +70,17 @@
   background-size:cover!important;background-position:center!important;
   border:1px solid rgba(255,255,255,.2);min-height:230px;justify-content:flex-end
 }
-#achievements .tov-achievement-card:nth-child(1){background-image:linear-gradient(0deg,rgba(8,7,14,.98),rgba(8,7,14,.35)),url("https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?auto=format&fit=crop&w=1300&q=76")!important}
-#achievements .tov-achievement-card:nth-child(2){background-image:linear-gradient(0deg,rgba(8,7,14,.98),rgba(8,7,14,.36)),url("https://images.unsplash.com/photo-1703031971880-482e4814c6a3?auto=format&fit=crop&w=1300&q=76")!important}
-#achievements .tov-achievement-card:nth-child(3){background-image:linear-gradient(0deg,rgba(8,7,14,.98),rgba(8,7,14,.38)),url("https://images.unsplash.com/photo-1733945761533-727f49908d70?auto=format&fit=crop&w=1300&q=76")!important}
-#achievements .tov-achievement-card:nth-child(4){background-image:linear-gradient(0deg,rgba(8,7,14,.98),rgba(8,7,14,.4)),url("https://images.unsplash.com/photo-1636489948870-058e57b5f7d9?auto=format&fit=crop&w=1300&q=76")!important}
-#achievements .tov-achievement-card:nth-child(5){background-image:linear-gradient(0deg,rgba(8,7,14,.98),rgba(8,7,14,.36)),url("https://images.unsplash.com/photo-1687583326917-530d867c8b2b?auto=format&fit=crop&w=1300&q=76")!important}
-#achievements .tov-achievement-card:nth-child(6){background-image:linear-gradient(0deg,rgba(8,7,14,.98),rgba(8,7,14,.35)),url("https://images.unsplash.com/photo-1636489951222-2af65c1d9ae3?auto=format&fit=crop&w=1300&q=76")!important}
+#achievements .tov-achievement-card:nth-child(1){background-image:linear-gradient(0deg,rgba(8,7,14,.98),rgba(8,7,14,.35)),url("https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
+#achievements .tov-achievement-card:nth-child(2){background-image:linear-gradient(0deg,rgba(8,7,14,.98),rgba(8,7,14,.36)),url("https://images.unsplash.com/photo-1703031971880-482e4814c6a3?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
+#achievements .tov-achievement-card:nth-child(3){background-image:linear-gradient(0deg,rgba(8,7,14,.98),rgba(8,7,14,.38)),url("https://images.unsplash.com/photo-1733945761533-727f49908d70?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
+#achievements .tov-achievement-card:nth-child(4){background-image:linear-gradient(0deg,rgba(8,7,14,.98),rgba(8,7,14,.4)),url("https://images.unsplash.com/photo-1636489948870-058e57b5f7d9?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
+#achievements .tov-achievement-card:nth-child(5){background-image:linear-gradient(0deg,rgba(8,7,14,.98),rgba(8,7,14,.36)),url("https://images.unsplash.com/photo-1687583326917-530d867c8b2b?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
+#achievements .tov-achievement-card:nth-child(6){background-image:linear-gradient(0deg,rgba(8,7,14,.98),rgba(8,7,14,.35)),url("https://images.unsplash.com/photo-1636489951222-2af65c1d9ae3?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
 #achievements .tov-achievement-card :is(small,h3,p,a){position:relative;z-index:2;color:#fff;text-shadow:0 2px 11px #000}
 #achievements .tov-achievement-card small{color:#ffb0c0}
 #achievements .tov-achievement-card:before{opacity:.1}
 #discord-hub .tov-discord-main{
-  min-height:390px;background-image:linear-gradient(0deg,rgba(5,5,10,.94),rgba(5,5,10,.30)),url("https://images.unsplash.com/photo-1733945761533-727f49908d70?auto=format&fit=crop&w=1300&q=76")!important;
+  min-height:390px;background-image:linear-gradient(0deg,rgba(5,5,10,.94),rgba(5,5,10,.30)),url("https://images.unsplash.com/photo-1733945761533-727f49908d70?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important;
   background-size:cover!important;background-position:center!important
 }
 #discord-hub .tov-discord-main:before{background:linear-gradient(0deg,rgba(0,0,0,.55),transparent 65%)}
@@ -90,9 +90,9 @@
   border:1px solid rgba(255,255,255,.16);
   display:flex;flex-direction:column;justify-content:flex-end;
 }
-#discord-hub .tov-discord-card:nth-child(1){background-image:linear-gradient(0deg,rgba(5,5,10,.95),rgba(5,5,10,.42)),url("https://images.unsplash.com/photo-1703031971880-482e4814c6a3?auto=format&fit=crop&w=1300&q=76")!important}
-#discord-hub .tov-discord-card:nth-child(2){background-image:linear-gradient(0deg,rgba(5,5,10,.95),rgba(5,5,10,.42)),url("https://images.unsplash.com/photo-1636489951222-2af65c1d9ae3?auto=format&fit=crop&w=1300&q=76")!important}
-#discord-hub .tov-discord-card:nth-child(3){background-image:linear-gradient(0deg,rgba(5,5,10,.95),rgba(5,5,10,.42)),url("https://images.unsplash.com/photo-1696710257827-75e2e5954059?auto=format&fit=crop&w=1300&q=76")!important}
+#discord-hub .tov-discord-card:nth-child(1){background-image:linear-gradient(0deg,rgba(5,5,10,.95),rgba(5,5,10,.42)),url("https://images.unsplash.com/photo-1703031971880-482e4814c6a3?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
+#discord-hub .tov-discord-card:nth-child(2){background-image:linear-gradient(0deg,rgba(5,5,10,.95),rgba(5,5,10,.42)),url("https://images.unsplash.com/photo-1636489951222-2af65c1d9ae3?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
+#discord-hub .tov-discord-card:nth-child(3){background-image:linear-gradient(0deg,rgba(5,5,10,.95),rgba(5,5,10,.42)),url("https://images.unsplash.com/photo-1696710257827-75e2e5954059?auto=format&fit=crop&w=1300&q=76"),url(media/pc-setup.jpg)!important}
 #discord-hub .tov-discord-card :is(small,h3,p){color:#fff;text-shadow:0 2px 8px #000}
 #discord-hub .tov-discord-card small{color:#ffb9c9}
 .tov-dock-expand{display:none!important}
@@ -146,3 +146,6 @@
   #highlights .tov-real-thumb .tov-thumb{transition:none!important}
   #tov-music-dock{animation:none!important}
 }
+
+/* Real local gaming-desk photo remains visible when external background services are blocked. */
+.tov-v5-profile-card{background-image:linear-gradient(90deg,rgba(6,7,11,.91),rgba(6,7,11,.54)),url("https://images.unsplash.com/photo-1703031971880-482e4814c6a3?auto=format&fit=crop&w=1300&q=74"),url(media/pc-setup.jpg)!important;background-size:cover!important;background-position:center!important}
