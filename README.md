@@ -49,3 +49,28 @@ A responsive red/black gaming portfolio showcasing existing CS2/Medal video link
 8. Check keyboard navigation, reduced-motion preference, and offline cached-shell behavior.
 
 Built with static HTML, CSS and JavaScript for GitHub Pages.
+
+## Redline visual refresh (November 2026)
+
+- Four **original locally hosted SVG illustrations** replace the signed/expiring Medal thumbnail images. Original Medal clip URLs, controls, playback and clip titles remain unchanged. These posters are deliberately marked *illustrations*, not gameplay captures.
+- The weekly highlighted video now switches its illustration to match the selected existing Medal clip (Monday UTC rotation).
+- Added the **Redline Visual Board** with two licensed Unsplash gaming-atmosphere photographs and a TOV4R original graphic, including links to the original photo sources. These are moodboard images **not** the owner's real setup or inventory. If a remote photo is blocked, a local SVG appears.
+- Replaced four empty `href="#"` game-card links with descriptive, non-clickable cards. Site sections, navigation, personal hardware image and settings preserved.
+- Visual consistency: crimson gradients, improved contrast, refined image cards, mobile gallery layout, reduced-motion accommodations, local poster cache.
+
+### Artwork / photo credits
+
+- TOV4R poster artwork: original SVGs in `assets/media/clip-*.svg`.
+- Unsplash atmospheric setup photo: https://unsplash.com/photos/a-desktop-computer-sitting-on-top-of-a-wooden-desk-wvqOnlLZn2o
+- Unsplash red-lit desktop photo by **Luca Hooijer**: https://unsplash.com/photos/a-desktop-computer-sitting-on-top-of-a-wooden-desk-Eogh68FBB7c
+- License for the photos: https://unsplash.com/license (free commercial/personal reuse; credit appreciated). Pinterest inspiration is not automatically licensed for republication.
+- Photos are loaded lazily from images.unsplash.com; offline fallback uses original local art. Online video clips remain hosted on Medal.
+
+### Visual refresh QA
+
+1. Open `/#visual-board` on desktop and phone to inspect all three mood cards and credit links.
+2. Check four `/#highlights` cards: original posters are visible; the PLAY HERE buttons open their existing Medal clips.
+3. Confirm that the featured clip rotates among the same original four and shows the matching illustrated poster.
+4. The four game cards should no longer jump to the top when clicked.
+5. Check `/#setup` still shows the original personal hardware details/image and `/#cs2-settings` retains the same example DPI/sensitivity/resolution/crosshair state.
+6. Verify the new service worker has a bumped cache version and mobile installation still works.

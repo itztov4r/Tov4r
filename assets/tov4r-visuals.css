@@ -1,0 +1,65 @@
+/* TOV4R · Redline visual polish 2026-11
+   Licensed Unsplash moodboard photography + locally hosted, original SVG clip artwork.
+   No changes to authentic gameplay videos, personal images or CS2 settings. */
+:root{--visual-hot:#f04469;--visual-pink:#ffb8ca;--visual-bg:#0c0910;--visual-edge:rgba(251,92,128,.28)}
+.tov-visual-board{position:relative;isolation:isolate;padding:clamp(72px,8vw,115px) 5vw;background:radial-gradient(ellipse at 9% 18%,rgba(187,23,58,.14),transparent 58%),linear-gradient(#0b0a10,#130b13 50%,#09090f);border-top:1px solid var(--visual-edge)}
+.tov-visual-board::before{content:"";pointer-events:none;position:absolute;inset:0;z-index:-1;opacity:.24;background-image:linear-gradient(to right,rgba(255,103,147,.09) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,103,147,.09) 1px,transparent 1px);background-size:84px 84px;mask-image:linear-gradient(to bottom,transparent,black 30%,black 72%,transparent)}
+.tov-visual-board>.sh{max-width:1240px;margin-inline:auto}
+.tov-visual-intro{max-width:1240px;margin:0 auto 23px;color:#cdbcc7;line-height:1.7;font-size:.94rem}
+.tov-visual-intro strong{color:#ffe2e8;font-weight:600}
+.tov-visual-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);grid-template-rows:repeat(2,minmax(245px,1fr));gap:18px}
+.tov-visual-card{min-width:0;position:relative;margin:0;display:flex;flex-direction:column;overflow:hidden;background:#110c14;border:1px solid var(--visual-edge);border-radius:18px;box-shadow:0 16px 42px rgba(0,0,0,.18),inset 0 1px rgba(255,255,255,.065);transition:transform .24s,border-color .24s}
+.tov-visual-card:hover{transform:translateY(-3px);border-color:rgba(250,112,147,.7)}
+.tov-visual-primary{grid-row:1/3}
+.tov-visual-image{position:relative;min-height:155px;flex:1;overflow:hidden;background:#0c0910 url(media/tov4r-premium-art.svg) center/cover no-repeat}
+.tov-visual-card img{display:block;width:100%;height:100%;min-height:170px;object-fit:cover;object-position:center;filter:contrast(1.14) saturate(.87);transition:transform .7s,filter .7s}
+.tov-visual-card:hover img{transform:scale(1.04);filter:contrast(1.1) saturate(1.01)}
+.tov-visual-primary .tov-visual-image img{min-height:320px}
+.tov-visual-image::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,rgba(19,6,13,.54),transparent 60%),linear-gradient(90deg,rgba(110,11,37,.09),transparent)}
+.tov-visual-index{position:absolute;top:17px;left:17px;z-index:1;padding:8px 11px;background:rgba(19,7,17,.79);border:1px solid rgba(255,112,145,.45);border-radius:8px;backdrop-filter:blur(5px);color:#ffb1c2;font:700 .66rem 'Chakra Petch',sans-serif;letter-spacing:.08em}
+.tov-visual-card figcaption{padding:18px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 16px;background:linear-gradient(110deg,#20101a,#0e0a11)}
+.tov-visual-card figcaption strong{width:100%;color:#f8e6ec;font:700 clamp(.95rem,1.7vw,1.12rem) 'Chakra Petch',sans-serif;letter-spacing:.07em}
+.tov-visual-card figcaption span{font-size:.78rem;color:#c6b2be}
+.tov-visual-card figcaption a{font:700 .65rem 'Chakra Petch',sans-serif;letter-spacing:.05em;text-decoration:underline;text-underline-offset:3px;color:#ffa8bc;margin-left:auto}
+.tov-visual-card figcaption a:hover{color:white}
+.tov-visual-license{max-width:1240px;margin:21px auto 0;color:#a99aa9;font-size:.75rem;line-height:1.65}
+.tov-visual-license a{color:#f4aabc;text-decoration:underline;text-underline-offset:3px}
+body.tov-stealth .tov-visual-board{border-color:var(--v2-edge)}
+/* Standardize the existing game photos with the same cinematic crimson treatment.
+   The cards are content, not fake navigation links. */
+#games .tov-game-card{position:relative;cursor:default;border:1px solid rgba(246,81,115,.32);background:linear-gradient(#200d1b,#0a080e);box-shadow:0 15px 38px rgba(0,0,0,.22)}
+#games .tov-game-card:hover{transform:translateY(-5px);box-shadow:0 22px 48px rgba(133,17,48,.22);border-color:rgba(248,116,148,.7)}
+#games .tov-game-card img{filter:saturate(.73) contrast(1.13) brightness(.84);object-fit:cover}
+#games .tov-game-card:hover img{filter:saturate(.97) contrast(1.06) brightness(.98)}
+#games .tov-game-card::after{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,#eb304f,#7e182e,transparent);pointer-events:none}
+#games .tov-game-card>div{border-top:1px solid rgba(246,91,121,.15);background:linear-gradient(90deg,rgba(29,12,22,.95),rgba(13,11,17,.96))}
+#games .tov-game-card h3{color:#fff;letter-spacing:.09em}
+#games .tov-game-card small{color:#eaabbc}
+/* All four Medal preview posters are original local SVGs, never expiring CDN links.
+   Keep the original Medal playback controls and user clips unchanged. */
+#highlights .tov-clip-card{border-color:rgba(247,81,116,.26);background:linear-gradient(160deg,#1b0e19,#0d0b12)}
+#highlights .tov-real-thumb{position:relative;overflow:hidden;isolation:isolate;background:linear-gradient(145deg,#1d0d1a,#09090e)}
+#highlights .tov-real-thumb .tov-thumb{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.96) contrast(1.08)}
+#highlights .tov-real-thumb .tov-clip-play{z-index:4;filter:drop-shadow(0 0 12px rgba(238,51,84,.48))}
+#highlights .tov-real-thumb .tov-clip-index,#highlights .tov-real-thumb .tov-clip-map{z-index:5}
+#highlights .tov-real-thumb::after{content:"ARTWORK / VIDEO OPENS ON PLAY";position:absolute;bottom:11px;right:10px;max-width:65%;padding:6px 7px;background:rgba(9,7,13,.8);border:1px solid rgba(249,107,145,.24);border-radius:5px;color:#ffd8e3;font:700 .54rem 'Chakra Petch',sans-serif;letter-spacing:.03em;z-index:3;pointer-events:none}
+.tov-featured-poster>img#tov-weekly-poster{filter:saturate(.93) contrast(1.05);object-position:center}
+.tov-featured-poster::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;border:1px solid rgba(255,115,145,.16);box-shadow:inset 0 0 45px rgba(121,20,48,.2);border-radius:inherit}
+@media(max-width:930px){
+.tov-visual-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto}
+.tov-visual-primary{grid-column:1/3;grid-row:auto}
+.tov-visual-primary .tov-visual-image img{max-height:420px}
+.tov-visual-card .tov-visual-image{min-height:230px}
+}
+@media(max-width:620px){
+.tov-visual-board{padding:58px 16px}
+.tov-visual-grid{grid-template-columns:1fr;gap:14px}
+.tov-visual-primary{grid-column:1}
+.tov-visual-card .tov-visual-image{min-height:195px}
+.tov-visual-primary .tov-visual-image img{min-height:220px;max-height:280px}
+.tov-visual-card figcaption{padding:15px}
+.tov-visual-card figcaption a{margin-left:0;width:100%}
+#highlights .tov-real-thumb::after{font-size:.47rem;bottom:6px;right:6px}
+#games .tov-game-card:hover{transform:none}
+}
+@media(prefers-reduced-motion:reduce){.tov-visual-card,.tov-visual-card img,#games .tov-game-card,#games .tov-game-card img{transition:none!important;transform:none!important}}

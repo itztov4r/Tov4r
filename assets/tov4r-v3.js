@@ -35,10 +35,10 @@
 
   // Weekly editorial rotation among four EXISTING Medal clips; no match statistics.
   var clips=[
-    {id:'nMMeT2Agr7tMolF5v',title:'ACE — MIRAGE',label:'MIRAGE / LINKED MEDAL CLIP'},
-    {id:'nLQLmwReRVIpEPWlf',title:'2K — MIRAGE',label:'MIRAGE / LINKED MEDAL CLIP'},
-    {id:'nMIY5uWCzJd8uRgXH',title:'HEADSHOT — MIRAGE',label:'MIRAGE / LINKED MEDAL CLIP'},
-    {id:'nG9AXx2FXuknOrP24',title:'3K — DUST II',label:'DUST II / LINKED MEDAL CLIP'}
+    {id:'nMMeT2Agr7tMolF5v',title:'ACE — MIRAGE',label:'MIRAGE / LINKED MEDAL CLIP',poster:'clip-ace.svg'},
+    {id:'nLQLmwReRVIpEPWlf',title:'2K — MIRAGE',label:'MIRAGE / LINKED MEDAL CLIP',poster:'clip-2k.svg'},
+    {id:'nMIY5uWCzJd8uRgXH',title:'HEADSHOT — MIRAGE',label:'MIRAGE / LINKED MEDAL CLIP',poster:'clip-headshot.svg'},
+    {id:'nG9AXx2FXuknOrP24',title:'3K — DUST II',label:'DUST II / LINKED MEDAL CLIP',poster:'clip-3k.svg'}
   ];
   function weeklyIndex(date){
     var monday=Date.UTC(date.getUTCFullYear(),date.getUTCMonth(),date.getUTCDate());
@@ -57,6 +57,11 @@
   var originalUrl='https://medal.tv/clips/'+chosen.id;
   if(title)title.textContent=chosen.title;
   if(caption)caption.textContent=chosen.label;
+  var weeklyPoster=get('tov-weekly-poster');
+  if(weeklyPoster){
+    weeklyPoster.src='assets/media/'+chosen.poster;
+    weeklyPoster.alt='Original TOV4R illustration for '+chosen.title+', not a screenshot from the game';
+  }
   if(original)original.href=originalUrl;
   function stopPlayback(){
     if(frame)frame.src='about:blank';

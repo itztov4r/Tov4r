@@ -15,6 +15,8 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
 <link rel="shortcut icon" href="/favicon.ico">
 <meta name="theme-color" content="#090609">
+<link rel="preload" as="image" href="/assets/media/hero-visual.jpg" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta property="og:title" content="TOV4R — Gaming Portfolio">
 <meta property="og:description" content="Original TOV4R gaming portfolio: linked Medal clips, CS2 visual presets, hardware, community and gaming journey.">
 <meta property="og:type" content="website">
@@ -396,6 +398,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 <link rel="stylesheet" href="assets/tov4r-hub.css?v=1">
 <link rel="stylesheet" href="assets/tov4r-v2.css?v=1">
 <link rel="stylesheet" href="assets/tov4r-v3.css?v=1">
+<link rel="stylesheet" href="assets/tov4r-visuals.css?v=1">
 </head>
 <body>
 <a class="tov-skip" href="#player-profile">Skip to CS2 Dashboard</a>
@@ -405,7 +408,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 <header class="tov-header-v3" data-menu-open="false">
  <a class="lg tov-brand" href="#home" aria-label="TOV4R — Accueil"><img src="/favicon.svg?v=2" alt="" width="37" height="37"><span>TOV<span class="tov-brand-four">4</span>R</span></a>
  <button type="button" id="tov-menu-toggle" class="tov-menu-toggle" aria-controls="tov-main-nav" aria-expanded="false"><span class="tov-menu-icon" aria-hidden="true">☰</span><span class="tov-menu-label">MENU</span></button>
- <nav id="tov-main-nav" aria-label="Main navigation"><a href="#home" class="on">HOME</a><a href="#featured-clip">FEATURED</a><a href="#games">GAMES</a><a href="#highlights">HIGHLIGHTS</a><a href="#player-profile">CS2 HUB</a><a href="#cs2-loadout">LOADOUT</a><a href="#crosshair-studio">CROSSHAIR</a><a href="#setup">SETUP</a><a href="#achievements">PLAYS</a><a href="#journey">JOURNEY</a><a href="#discord-hub">1729</a><a href="#about">ABOUT</a><a href="#connect">CONNECT</a></nav>
+ <nav id="tov-main-nav" aria-label="Main navigation"><a href="#home" class="on">HOME</a><a href="#featured-clip">FEATURED</a><a href="#games">GAMES</a><a href="#visual-board">VISUALS</a><a href="#highlights">HIGHLIGHTS</a><a href="#player-profile">CS2 HUB</a><a href="#cs2-loadout">LOADOUT</a><a href="#crosshair-studio">CROSSHAIR</a><a href="#setup">SETUP</a><a href="#achievements">PLAYS</a><a href="#journey">JOURNEY</a><a href="#discord-hub">1729</a><a href="#about">ABOUT</a><a href="#connect">CONNECT</a></nav>
 </header>
 <main>
 <div class="hero" id="home">
@@ -447,7 +450,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
   <div class="sh rv"><i></i><div><h2 id="tov-featured-title">FEATURED CLIP OF THE WEEK</h2><span>CURATED WEEKLY ROTATION · EXISTING MEDAL CLIPS</span></div></div>
   <div class="tov-featured-grid rv">
     <div class="tov-featured-poster">
-      <img src="assets/media/tov4r-premium-art.svg" width="1440" height="810" loading="lazy" decoding="async" alt="Original TOV4R red and black gaming artwork; not a gameplay screenshot">
+      <img id="tov-weekly-poster" src="assets/media/clip-ace.svg" width="1200" height="675" loading="lazy" decoding="async" alt="Original TOV4R illustration for the weekly Medal video; not a gameplay screenshot">
       <div class="tov-featured-over"><div><span>CURATED MEDAL SPOTLIGHT</span><br><strong id="tov-weekly-clip-map">MIRAGE / LINKED MEDAL CLIP</strong></div><div class="tov-featured-icon" aria-hidden="true">▶</div></div>
     </div>
     <div class="tov-featured-body">
@@ -472,11 +475,41 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 <section id="games">
  <div class="sh rv"><i></i><div><h2>MY GAMES</h2><span>THE GAMES I PLAY</span></div></div>
  <div class="games rv">
-  <a class="g" href="#"><img loading="lazy" decoding="async" src="assets/media/game-card-1.jpg" alt="GTA V / FiveM" style="object-position:50% 40%"><div><h3>GTA V / FiveM</h3><small>OPEN WORLD / RP</small></div></a>
-  <a class="g" href="#"><img loading="lazy" decoding="async" src="assets/media/game-card-2.jpg" alt="VALORANT" style="object-position:62% 40%"><div><h3>VALORANT</h3><small>TACTICAL FPS</small></div></a>
-  <a class="g" href="#"><img loading="lazy" decoding="async" src="assets/media/game-card-3.jpg" alt="CS2" style="object-position:65% 50%"><div><h3>CS2</h3><small>COMPETITIVE FPS</small></div></a>
-  <a class="g" href="#"><img loading="lazy" decoding="async" src="assets/media/game-card-4.jpg" alt="MINECRAFT" style="object-position:30% 60%"><div><h3>MINECRAFT</h3><small>SANDBOX / SURVIVAL</small></div></a>
+  <article class="g tov-game-card"><img loading="lazy" decoding="async" src="assets/media/game-card-1.jpg" alt="GTA V / FiveM" style="object-position:50% 40%"><div><h3>GTA V / FiveM</h3><small>OPEN WORLD / RP</small></div></article>
+  <article class="g tov-game-card"><img loading="lazy" decoding="async" src="assets/media/game-card-2.jpg" alt="VALORANT" style="object-position:62% 40%"><div><h3>VALORANT</h3><small>TACTICAL FPS</small></div></article>
+  <article class="g tov-game-card"><img loading="lazy" decoding="async" src="assets/media/game-card-3.jpg" alt="CS2" style="object-position:65% 50%"><div><h3>CS2</h3><small>COMPETITIVE FPS</small></div></article>
+  <article class="g tov-game-card"><img loading="lazy" decoding="async" src="assets/media/game-card-4.jpg" alt="MINECRAFT" style="object-position:30% 60%"><div><h3>MINECRAFT</h3><small>SANDBOX / SURVIVAL</small></div></article>
  </div>
+</section>
+
+
+<section id="visual-board" class="tov-visual-board" aria-labelledby="tov-visual-board-title">
+  <div class="sh rv"><i></i><div><h2 id="tov-visual-board-title">REDLINE VISUAL BOARD</h2><span>GAMING ATMOSPHERE · TOV4R STYLE</span></div></div>
+  <p class="tov-visual-intro rv">A black-and-crimson inspiration board to match the site identity. These are illustrative gaming-space photos and original artwork, <strong>not photos of my personal setup</strong>.</p>
+  <div class="tov-visual-grid rv">
+    <figure class="tov-visual-card tov-visual-primary">
+      <div class="tov-visual-image">
+        <img src="https://images.unsplash.com/photo-1703031971880-482e4814c6a3?auto=format&amp;fit=crop&amp;w=1200&amp;q=78" data-visual-fallback="assets/media/tov4r-premium-art.svg" width="1200" height="800" loading="lazy" decoding="async" alt="Atmospheric red-lit gaming workspace photograph, illustrative rather than my own setup">
+        <span class="tov-visual-index">01 / AMBIENT</span>
+      </div>
+      <figcaption><strong>CRIMSON ATMOSPHERE</strong><span>Red light / Dark hardware</span><a href="https://unsplash.com/photos/a-desktop-computer-sitting-on-top-of-a-wooden-desk-wvqOnlLZn2o" target="_blank" rel="noopener noreferrer">PHOTO SOURCE · UNSPLASH ↗</a></figcaption>
+    </figure>
+    <figure class="tov-visual-card">
+      <div class="tov-visual-image">
+        <img src="https://images.unsplash.com/photo-1733945761533-727f49908d70?auto=format&amp;fit=crop&amp;w=940&amp;q=77" data-visual-fallback="assets/media/tov4r-discord-art.svg" width="940" height="800" loading="lazy" decoding="async" alt="Warm red-lit desktop and keyboard photographed by Luca Hooijer; visual inspiration only">
+        <span class="tov-visual-index">02 / STATION</span>
+      </div>
+      <figcaption><strong>DESK LIGHTS</strong><span>Visual inspiration / Not owned gear</span><a href="https://unsplash.com/photos/a-desktop-computer-sitting-on-top-of-a-wooden-desk-Eogh68FBB7c" target="_blank" rel="noopener noreferrer">PHOTO · LUCA HOOIJER ↗</a></figcaption>
+    </figure>
+    <figure class="tov-visual-card">
+      <div class="tov-visual-image">
+        <img src="assets/media/tov4r-premium-art.svg" width="1440" height="810" loading="lazy" decoding="async" alt="Original black and red TOV4R abstract emblem artwork">
+        <span class="tov-visual-index">03 / ORIGINAL</span>
+      </div>
+      <figcaption><strong>REDLINE IDENTITY</strong><span>Original TOV4R visual system</span><a href="#player-profile">EXPLORE CS2 DASHBOARD ↗</a></figcaption>
+    </figure>
+  </div>
+  <p class="tov-visual-license">Photo inspiration: <a href="https://unsplash.com/license" target="_blank" rel="noopener noreferrer">Unsplash License</a>. All four Medal clip graphics are original illustrations; use the PLAY controls to see the actual videos.</p>
 </section>
 
 
@@ -497,7 +530,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
     <div class="tov-clip-poster tov-real-thumb" data-clip-embed="https://medal.tv/clip/nMMeT2Agr7tMolF5v">
       <span class="tov-clip-index">01 / FEATURED</span>
       <span class="tov-clip-ornament" aria-hidden="true">♠</span>
-      <img class="tov-thumb" src="https://cdn.medal.tv/ugcc/content-thumbnail/JqSZNI_GBbNAl40WRUV7Jw-0.jpg?auth=exp=1794202200~data=NzUwNDE1NTI1LG5NTWVUMkFncjd0TW9sRjV2LDFnaUxFY3VHbG4yLC0x~hmac=b4d96d3e408bc3fd0fe54824fdcd8ab5d320963c12bceef4e173f6be8a5f9899" alt="Aperçu Medal — Ace — Mirage" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <img class="tov-thumb" src="assets/media/clip-ace.svg" alt="Original TOV4R graphic for Ace — Mirage — illustrative poster, not gameplay footage" width="1200" height="675" loading="lazy" decoding="async">
       <span class="tov-clip-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M8 5.5v13l10-6.5z"/></svg></span>
       <span class="tov-clip-map">MIRAGE</span>
     </div>
@@ -509,7 +542,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
     <div class="tov-clip-poster tov-real-thumb" data-clip-embed="https://medal.tv/clip/nLQLmwReRVIpEPWlf">
       <span class="tov-clip-index">02 / PRECISION</span>
       <span class="tov-clip-ornament" aria-hidden="true">✦</span>
-      <img class="tov-thumb" src="https://cdn.medal.tv/ugcc/content-thumbnail/xl7gyLQoWBbazV9IOSQ1eg-0.jpg?auth=exp=1794202200~data=NzUwNDE1NTI1LG5MUUxtd1JlUlZJcEVQV2xmLDFnaUxFY3VHbG4yLC0x~hmac=22546fa472150b549b18a37edbdc3f9591d691cda282d48b562cb7cefb7ab657" alt="Aperçu Medal — 2K — Mirage" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <img class="tov-thumb" src="assets/media/clip-2k.svg" alt="Original TOV4R graphic for 2K — Mirage — illustrative poster, not gameplay footage" width="1200" height="675" loading="lazy" decoding="async">
       <span class="tov-clip-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M8 5.5v13l10-6.5z"/></svg></span>
       <span class="tov-clip-map">MIRAGE</span>
     </div>
@@ -521,7 +554,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
     <div class="tov-clip-poster tov-real-thumb" data-clip-embed="https://medal.tv/clip/nMIY5uWCzJd8uRgXH">
       <span class="tov-clip-index">03 / MOMENT</span>
       <span class="tov-clip-ornament" aria-hidden="true">⌁</span>
-      <img class="tov-thumb" src="https://cdn.medal.tv/ugcc/content-thumbnail/1efwQ8T3gOEquEMR6FWhJg-0.jpg?auth=exp=1794202200~data=NzUwNDE1NTI1LG5NSVk1dVdDekpkOHVSZ1hILDFnaUxFY3VHbG4yLC0x~hmac=7656774d01b9d0ee47c9bfb31594865cec5e58bf28b51c28a22720171408b938" alt="Aperçu Medal — Headshot — Mirage" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <img class="tov-thumb" src="assets/media/clip-headshot.svg" alt="Original TOV4R graphic for Headshot — Mirage — illustrative poster, not gameplay footage" width="1200" height="675" loading="lazy" decoding="async">
       <span class="tov-clip-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M8 5.5v13l10-6.5z"/></svg></span>
       <span class="tov-clip-map">MIRAGE</span>
     </div>
@@ -533,7 +566,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
     <div class="tov-clip-poster tov-real-thumb" data-clip-embed="https://medal.tv/clip/nG9AXx2FXuknOrP24">
       <span class="tov-clip-index">04 / HIGHLIGHT</span>
       <span class="tov-clip-ornament" aria-hidden="true">✧</span>
-      <img class="tov-thumb" src="https://cdn.medal.tv/ugcc/content-thumbnail/SEL_5_crWYhgDSWwomx1uw-0.jpg?auth=exp=1794202200~data=NzUwNDE1NTI1LG5HOUFYeDJGWHVrbk9yUDI0LDFnaUxFY3VHbG4yLC0x~hmac=0cb73070c4c1f06380e76ad9b7666e615138c4d72232baed6f412f9403783b11" alt="Aperçu Medal — 3K — Dust II" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+      <img class="tov-thumb" src="assets/media/clip-3k.svg" alt="Original TOV4R graphic for 3K — Dust II — illustrative poster, not gameplay footage" width="1200" height="675" loading="lazy" decoding="async">
       <span class="tov-clip-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M8 5.5v13l10-6.5z"/></svg></span>
       <span class="tov-clip-map">DUST II</span>
     </div>
@@ -914,31 +947,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 })();
 </script>
 
-<script>
-/* The CDN returns expiring image links. Load Medal's own embed preview on image failure. */
-(function(){
-  function addMedalFallback(img){
-    var wrap=img.closest('.tov-real-thumb');
-    if(!wrap||wrap.querySelector('.tov-medal-fallback'))return;
-    var u=wrap.getAttribute('data-clip-embed');
-    if(!u||!/^https:\/\/medal\.tv\/clip\/[A-Za-z0-9_-]+$/.test(u))return;
-    var frame=document.createElement('iframe');
-    frame.className='tov-medal-fallback';
-    frame.title='Medal gameplay preview';
-    frame.loading='lazy';
-    frame.tabIndex=-1;
-    frame.setAttribute('aria-hidden','true');
-    frame.setAttribute('allow','fullscreen');
-    frame.src=u+'?autoplay=0&muted=1&loop=0';
-    wrap.insertBefore(frame,img);
-    img.remove();
-  }
-  document.querySelectorAll('#highlights .tov-thumb').forEach(function(img){
-    img.addEventListener('error',function(){addMedalFallback(img)},{once:true});
-    if(img.complete&&img.naturalWidth===0)addMedalFallback(img);
-  });
-})();
-</script>
+
 
 <dialog id="tov-medal-modal" class="tov-medal-modal" aria-labelledby="tov-medal-name">
  <div class="tov-medal-inner">
@@ -953,6 +962,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 <script src="assets/tov4r-hub.js?v=1" defer></script>
 <script src="assets/tov4r-v2.js?v=1" defer></script>
 <script src="assets/tov4r-analytics-config.js" defer></script>
-<script src="assets/tov4r-v3.js?v=1" defer></script>
+<script src="assets/tov4r-v3.js?v=2" defer></script>
+<script src="assets/tov4r-visuals.js?v=1" defer></script>
 </body>
 </html>
