@@ -19,6 +19,14 @@
    function render(){inputs.forEach(function(input){var key=input.getAttribute('data-tov-demo');if(!props[key])return;mark.style.setProperty(props[key],key==='color'?input.value:input.value+'px');var output=document.getElementById('tov-demo-'+key);if(output)output.textContent=key==='color'?input.options[input.selectedIndex].text:input.value;});}
    inputs.forEach(function(input){input.addEventListener('input',render);});render();
  }
+ var feature=document.querySelector('#highlights .tov-native-feature');
+ if(feature){
+   var featureFrame=feature.querySelector('iframe[data-medal-src]');
+   if(featureFrame){
+     feature.addEventListener('toggle',function(){featureFrame.src=feature.open?featureFrame.getAttribute('data-medal-src'):'about:blank';});
+     if(feature.open)featureFrame.src=featureFrame.getAttribute('data-medal-src');
+   }
+ }
  var dlg=document.getElementById('tov-medal-modal'),frame=document.getElementById('tov-medal-iframe'),title=document.getElementById('tov-medal-name'),external=document.getElementById('tov-medal-direct'),music=document.getElementById('tov-bg-track'),resume=false;
  if(dlg&&frame&&title&&external&&typeof dlg.showModal==='function'){
    document.querySelectorAll('#highlights .tov-clip-video-btn').forEach(function(card){
@@ -32,6 +40,7 @@
        title.textContent=clipTitle?clipTitle.textContent:'TOV4R HIGHLIGHT';
        external.href=href;frame.title='Medal video '+title.textContent;
        resume=!!music&&!music.paused;if(resume)music.pause();
+       if(feature&&feature.open)feature.open=false;
        dlg.showModal();frame.src='https://medal.tv/clip/'+match[1]+'?autoplay=1&muted=0&loop=0&cta=0';
        var close=dlg.querySelector('[data-tov-close]');if(close)close.focus();
      });
