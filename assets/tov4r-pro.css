@@ -77,3 +77,17 @@
 #highlights .tov-clip-medal-link{background:#1c131d;color:#f3b4c2;border:1px solid #8e4057}
 #highlights .tov-clip-medal-link:hover{background:#402032}
 @media(max-width:580px){#highlights .tov-clip-actions{flex-direction:column;padding:0 9px 12px;gap:6px}#highlights .tov-clip-video-btn,#highlights .tov-clip-medal-link{min-height:38px;font-size:.62rem}}
+
+/* Native HTML fallback to keep an actual Medal video player on the page even without JS */
+#highlights .tov-native-feature{max-width:1220px;margin:25px auto 8px;border:1px solid rgba(243,58,87,.34);border-radius:15px;overflow:hidden;background:linear-gradient(145deg,#1c0f18,#09080d)}
+#highlights .tov-native-feature summary{display:flex;align-items:center;gap:13px;flex-wrap:wrap;cursor:pointer;min-height:65px;padding:18px 20px;font:700 clamp(.78rem,2.2vw,1.02rem) 'Chakra Petch',system-ui,sans-serif;letter-spacing:.055em;list-style:none;color:#fce8ed}
+#highlights .tov-native-feature summary::-webkit-details-marker{display:none}
+#highlights .tov-native-feature summary>span{color:#ff647b;font-size:1.3rem}
+#highlights .tov-native-feature summary>small{margin-left:auto;color:#ff6a83;font:700 .63rem 'Chakra Petch',system-ui,sans-serif;letter-spacing:.09em}
+#highlights .tov-native-feature[open] summary{border-bottom:1px solid rgba(244,54,85,.24)}
+#highlights .tov-native-screen{width:min(100%,1000px);aspect-ratio:16/9;margin:16px auto;border:1px solid rgba(255,255,255,.08);border-radius:9px;overflow:hidden;background:#000}
+#highlights .tov-native-screen iframe{display:block;width:100%;height:100%;border:0}
+#highlights .tov-native-feature p{padding:3px 20px 17px;color:#a99ba5;text-align:center;font-size:.77rem}
+#highlights .tov-native-feature p a{color:#ff788d;text-decoration:underline;text-underline-offset:3px}
+#highlights .tov-native-feature summary:focus-visible{outline:2px solid #ff7188;outline-offset:-3px}
+@media(max-width:570px){#highlights .tov-native-feature summary{padding:14px;gap:8px}#highlights .tov-native-feature summary>small{width:100%;margin:0}#highlights .tov-native-screen{margin:10px auto}}
