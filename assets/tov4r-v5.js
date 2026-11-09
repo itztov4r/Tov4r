@@ -73,7 +73,7 @@
       var image=create('img');
       image.src='https://images.unsplash.com/'+publishedPhotoIds[index%publishedPhotoIds.length]+'?auto=format&fit=crop&w=850&q=77';
       image.alt='Real gaming atmosphere photo; not an actual frame from '+c.title;
-      image.setAttribute('data-photo-fallback','assets/media/game-card-3.jpg');
+      image.setAttribute('data-photo-fallback','assets/media/pc-setup.jpg');
       image.width=850;image.height=530;image.loading='lazy';image.decoding='async';
       var body=create('div');
       body.appendChild(create('strong',null,c.title));

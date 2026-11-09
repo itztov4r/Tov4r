@@ -98,7 +98,7 @@ check('V5 public library preserves four verified Medal clips',!!clipCfg&&['nMMeT
 check('V5 feature sections all exist',['clip-manager','progress-tracker','setup-gallery','share-profile','analytics-dashboard'].every(id=>idSet.has(id)));
 check('V5 clip data loads before weekly video',html.indexOf('src="assets/tov4r-clips.js?v=1"')<
   html.indexOf('src="assets/tov4r-v3.js?v=3"')&&html.indexOf('src="assets/tov4r-v3.js?v=3"')<
-  html.indexOf('src="assets/tov4r-v5.js?v=2"'));
+  html.indexOf('src="assets/tov4r-v5.js?v=3"'));
 check('V5 clip management supports local draft and file export',v5js.includes('tov4r-clip-draft-v5')&&
   v5js.includes("tov4r-clips.js")&&v5js.includes('canonicalClip'));
 check('V5 progress tracker starts without fake stats',v5js.includes('tov4r-progress-v5')&&
@@ -108,7 +108,7 @@ check('V5 QR is local and has 25 compact data rows',(() => {
   return !!m&&(m[1].match(/'[0-9a-f]{8}'/g)||[]).length===25&&
     v5js.includes("SITE='https://tov4r.xyz/'")&&!v5js.includes('qrserver.com');
 })());
-check('V5 public config is network first for offline clients',sw.includes("tov4r-shell-v8")&&
+check('V5 public config is network first for offline clients',sw.includes("tov4r-shell-v9")&&
   sw.includes("url.pathname==='/assets/tov4r-clips.js'")&&sw.includes("cache:'no-cache'"));
 check('V5 avoids untrusted HTML insertion and eval',!v5js.includes('.innerHTML')&&!/\beval\s*\(/.test(v5js));
 
@@ -135,14 +135,14 @@ check('V5 source covers real mood photos and preserves Media IDs',
 check('PWA refresh caches new photo CSS and JS',
   sw.includes("'/assets/tov4r-photo-refresh.css?v=1'") &&
   sw.includes("'/assets/tov4r-photo-refresh.js?v=1'") &&
-  sw.includes("'/assets/tov4r-v5.js?v=2'"));
+  sw.includes("'/assets/tov4r-v5.js?v=3'"));
 
 // iPhone screenshot fixes: photo-based site sections, live Medal URLs and compact soundtrack.
 const photoV6css=read('assets/tov4r-mobile-photo-v6.css');
 const photoV6js=read('assets/tov4r-mobile-photo-v6.js');
 check('all original Medal card posters are full-frame real photos',
   (html.match(/class="tov-thumb" src="https:\/\/images\.unsplash\.com\//g)||[]).length===4&&
-  html.includes('data-photo-fallback="assets/media/game-card-3.jpg"'));
+  html.includes('data-photo-fallback="assets/media/pc-setup.jpg"'));
 check('no duplicate ARTWORK caption overlay can appear in Highlights',
   photoV6css.includes('tov-real-thumb::after{content:none!important;display:none!important}')&&
   photoV6css.includes('tov-clip-ornament{display:none!important}'));
@@ -161,13 +161,20 @@ check('iPhone audio dock offers accessible compact expand/collapse',
 check('original audio element, mute, pause and seek remain',
   ['id="tov-bg-track"','id="tov-music-mute"','id="tov-music-toggle"','id="tov-progress"','id="tov-music-volume"'].every(v=>html.includes(v)));
 check('updated PWA precaches all screenshot fix modules',
-  sw.includes('tov4r-shell-v8')&&
-  sw.includes("'/assets/tov4r-mobile-photo-v6.css?v=1'")&&
+  sw.includes('tov4r-shell-v9')&&
+  sw.includes("'/assets/tov4r-mobile-photo-v6.css?v=2'")&&
   sw.includes("'/assets/tov4r-mobile-photo-v6.js?v=1'"));
 check('Unsplash photography is attributed as illustration',
   html.includes('Real gaming photography for visual atmosphere')&&
   html.includes('not actual video frames, game inventories or personal hardware')&&
   html.includes('https://unsplash.com/license'));
+
+check('Clip Manager and other remote photo fallbacks are actual local setup photography',
+  html.includes('data-photo-fallback="assets/media/pc-setup.jpg"')&&
+  !html.includes('data-photo-fallback="assets/media/game-card-3.jpg"')&&
+  v5js.includes("data-photo-fallback','assets/media/pc-setup.jpg"));
+check('All CSS gaming-photo backdrops have genuine local photo fallback',
+  (read('assets/tov4r-mobile-photo-v6.css').match(/url\(media\/pc-setup\.jpg\)!important/g)||[]).length>=20);
 
 console.log('\n'+successes.length+' passed; '+failures.length+' failed');
 if(failures.length){
