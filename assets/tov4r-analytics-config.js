@@ -1,6 +1,4 @@
-/* Privacy-first analytics is OFF until a real Umami Website ID is supplied.
- * Only insert your public website ID. Never put an API token or password here.
- * Optional: create a site at https://cloud.umami.is, copy its Website ID,
- * and set provider to 'umami'. Do Not Track/GPC are respected by v3.js.
- * No cross-visitor metrics are available while disabled. */
-window.TOV4R_ANALYTICS={provider:"none",websiteId:""};
+/* Public Umami Website ID (not a secret). One loader in tov4r-v3.js
+ * inserts the script only for browsers without DNT or GPC.
+ * Never add a duplicate tracking script to index.html. */
+window.TOV4R_ANALYTICS={provider:"umami",websiteId:"82bf1d8c-5872-4caa-ac02-0835474a8686"};

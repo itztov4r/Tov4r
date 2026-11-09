@@ -1,6 +1,6 @@
 /* TOV4R PWA V3 — static local-shell caching, no third-party requests. */
 'use strict';
-const VERSION='tov4r-shell-v9-20261109-2';
+const VERSION='tov4r-shell-v9-20261109-3';
 const ESSENTIALS=[
   '/', '/index.html', '/favicon.svg', '/manifest.webmanifest',
   '/icons/tov4r-192.png', '/icons/tov4r-512.png',
@@ -42,7 +42,12 @@ self.addEventListener('fetch',event=>{
     event.respondWith(fetch(req).then(res=>{
       if(res.ok){const clone=res.clone();event.waitUntil(caches.open(VERSION).then(c=>c.put('/index.html',clone)));}
       return res;
-    }).catch(()=>caches.match('/index.html').then(result=>result||Response.error())));
+    }).catch(()=>{
+      // Only the homepage may use the homepage offline fallback.
+      if(url.pathname==='/'||url.pathname==='/index.html')
+        return caches.match('/index.html').then(result=>result||Response.error());
+      return caches.match(req).then(result=>result||Response.error());
+    }));
     return;
   }
   event.respondWith(caches.match(req).then(cached=>{

@@ -82,7 +82,22 @@ const pdata=read('assets/tov4r-player-data.js');
 check('CS2 settings remain explicitly unverified',pdata.includes('dpi:"800 · CONCEPT"')&&pdata.includes('sensitivity:"1.20 · CONCEPT"')&&pdata.includes('resolution:"1280 × 960 · 4:3 IDEA"')&&pdata.includes('crosshairCode:null'));
 const allSources=html+read('assets/tov4r-v3.js');
 check('existing Medal clips retained',['nMMeT2Agr7tMolF5v','nLQLmwReRVIpEPWlf','nMIY5uWCzJd8uRgXH','nG9AXx2FXuknOrP24'].every(id=>allSources.includes(id)));
-check('live analytics not invented',/provider:"none"/.test(read('assets/tov4r-analytics-config.js')));
+const analyticsConfig=read('assets/tov4r-analytics-config.js');
+const analyticsModule=read('assets/tov4r-v3.js');
+check('Umami ID configured and matches owner-provided ID',
+  analyticsConfig.includes('provider:"umami",websiteId:"82bf1d8c-5872-4caa-ac02-0835474a8686"'));
+check('Only one privacy-aware Umami script loader',
+  !html.includes('src="https://cloud.umami.is/script.js"')&&
+  analyticsModule.includes("script.src='https://cloud.umami.is/script.js'")&&
+  analyticsModule.includes("navigator.doNotTrack!=='1'")&&
+  analyticsModule.includes("navigator.globalPrivacyControl!==true"));
+check('Privacy notice and download link exist',
+  exists('privacy.html')&&html.includes('href="/privacy.html"')&&html.includes('href="/downloads/"'));
+check('Steam avatar uses a trusted local photo fallback',
+  html.includes('data-photo-fallback="assets/media/steam-card.jpg"')&&
+  read('assets/tov4r-photo-refresh.js').includes("'assets/media/steam-card.jpg'"));
+check('Analytics does not fabricate visits',
+  html.includes('NO REAL DATA HERE')&&read('assets/tov4r-v5.js').includes('NO REAL VISITOR DATA HERE'));
 // V5: public clip config, five UI modules, privacy and QR integrity.
 const v5js=read('assets/tov4r-v5.js');
 const v3js=read('assets/tov4r-v3.js');

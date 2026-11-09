@@ -150,3 +150,11 @@ Attribution and licensed photo sources:
 - Other photo sources documented in the V5 photo-first refresh section above.
 
 iPhone QA: check /#highlights for correctly filled posters and one unobstructed play button, then inspect photo-rich CS2, Loadout, Achievements and Discord. MORE expands the audio progress controls. Safari bottom-toolbar behavior varies by device.
+
+
+## 9 November 2026 — Analytics + navigation fixes
+- Umami public Website ID is configured in `assets/tov4r-analytics-config.js`. The only loader is in `assets/tov4r-v3.js`, gated by Do Not Track and Global Privacy Control. Never add a second hardcoded tracking script.
+- Visit counts remain in the owner's Umami dashboard. `/privacy.html` provides a readable notice.
+- `/downloads/` is linked from the quick navigation and footer. External game photos remain credited and original Medal gameplay stays linked.
+- Remote Steam avatar has a local fallback; service worker no longer serves the homepage when an unrelated offline path fails.
+- Run `node scripts/verify-site.cjs` after edits.

@@ -5,7 +5,8 @@
   var fallbackFiles=new Set([
     'assets/media/pc-setup.jpg',
     'assets/media/game-card-3.jpg',
-    'assets/media/game-card-2.jpg'
+    'assets/media/game-card-2.jpg',
+    'assets/media/steam-card.jpg'
   ]);
   function failover(img){
     if(img.dataset.fallbackApplied==='true')return;
