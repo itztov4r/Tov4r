@@ -119,9 +119,10 @@ check('photo-first sections include five actual photo covers',
   (html.match(/class="tov-photo-story /g)||[]).length===5 &&
   (html.match(/class="tov-photo-cover"/g)||[]).length===5);
 check('real photos are attributed and never framed as personal gameplay',
-  html.includes('PHOTO RÉELLE · UNSPLASH') && html.includes('Unsplash') &&
-  html.includes('not a real device')===false ?
-  html.includes("ce setup n’est pas présenté comme le tien"):true);
+  (html.match(/PHOTO RÉELLE · UNSPLASH/g)||[]).length===5 &&
+  html.includes('pas le setup personnel de TOV4R') &&
+  html.includes('Les images de cette collection sont de vraies photographies') &&
+  html.includes('pas une capture de tes matchs'));
 check('setup keeps its existing local photo and adds two licensed inspiration photos',
   html.includes('data-v5-gallery-src="assets/media/pc-setup.jpg"') &&
   (html.match(/data-v5-gallery-src="https:\/\/images\.unsplash\.com\//g)||[]).length===2);
