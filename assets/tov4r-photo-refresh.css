@@ -80,3 +80,7 @@
  .tov-photo-story>.tov-photo-cover,.tov-v5-setup-tile img{transition:none!important}
  .tov-photo-story:hover>.tov-photo-cover,.tov-v5-setup-tile:hover img{transform:none!important}
 }
+
+.tov-photo-license{font-size:.76rem;line-height:1.6;color:#c5b8c4;margin:16px 0 0}
+.tov-photo-license a{color:#ffbecd;text-decoration:underline;text-underline-offset:3px}
+.tov-photo-license a:focus-visible{outline:2px solid #fff;outline-offset:3px}
