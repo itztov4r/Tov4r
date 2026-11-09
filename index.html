@@ -4,13 +4,30 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TOV4R — CS2 Gaming Portfolio · Crosshair Studio & Highlights</title>
-<meta name="description" content="Explore TOV4R's CS2 highlights, Crosshair Studio, PC setup, Discord 1729 community, and clip showcase.">
+<meta name="description" content="TOV4R gaming portfolio: Medal CS2 clips, weekly highlight, Crosshair Studio, gaming journey, setup, Discord 1729 and installable mobile app.">
 <link rel="canonical" href="https://tov4r.xyz/">
+<link rel="manifest" href="/manifest.webmanifest?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TOV4R">
+<meta name="color-scheme" content="dark">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
 <link rel="shortcut icon" href="/favicon.ico">
 <meta name="theme-color" content="#090609">
 <meta property="og:title" content="TOV4R — Gaming Portfolio">
-<meta property="og:description" content="Gaming, setup et communauté TOV4R.">
+<meta property="og:description" content="Original TOV4R gaming portfolio: linked Medal clips, CS2 visual presets, hardware, community and gaming journey.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tov4r.xyz/">
+<meta property="og:site_name" content="TOV4R">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://tov4r.xyz/assets/media/hero-visual.jpg">
+<meta property="og:image:alt" content="TOV4R original gaming hero artwork">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TOV4R — CS2 Gaming Portfolio">
+<meta name="twitter:description" content="Medal highlights, visual Crosshair Studio, gaming journey, PC setup and 1729 community.">
+<meta name="twitter:image" content="https://tov4r.xyz/assets/media/hero-visual.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TOV4R Gaming Portfolio","url":"https://tov4r.xyz/","inLanguage":"fr","description":"Gaming portfolio featuring CS2 videos, visual crosshair demos and community links."}</script>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Permanent+Marker&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#070405;--p:rgba(16,8,10,.8);--ln:rgba(227,22,43,.16);--red:#e0141f;--tx:#f2eded;--mu:#a29596;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -378,15 +395,17 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 <link rel="stylesheet" href="assets/tov4r-pro.css?v=2">
 <link rel="stylesheet" href="assets/tov4r-hub.css?v=1">
 <link rel="stylesheet" href="assets/tov4r-v2.css?v=1">
+<link rel="stylesheet" href="assets/tov4r-v3.css?v=1">
 </head>
 <body>
 <a class="tov-skip" href="#player-profile">Skip to CS2 Dashboard</a>
 <div class="tov-page-progress" aria-hidden="true"><span></span></div>
 <div id="intro" aria-hidden="true"><span>Tov4r</span></div>
 <div id="glow"></div>
-<header>
+<header class="tov-header-v3" data-menu-open="false">
  <a class="lg tov-brand" href="#home" aria-label="TOV4R — Accueil"><img src="/favicon.svg?v=2" alt="" width="37" height="37"><span>TOV<span class="tov-brand-four">4</span>R</span></a>
- <nav><a href="#home" class="on">HOME</a><a href="#games">GAMES</a><a href="#highlights">HIGHLIGHTS</a><a href="#player-profile">CS2 HUB</a><a href="#cs2-loadout">LOADOUT</a><a href="#crosshair-studio">CROSSHAIR</a><a href="#setup">SETUP</a><a href="#achievements">PLAYS</a><a href="#discord-hub">1729</a><a href="#about">ABOUT</a><a href="#connect">CONNECT</a></nav>
+ <button type="button" id="tov-menu-toggle" class="tov-menu-toggle" aria-controls="tov-main-nav" aria-expanded="false"><span class="tov-menu-icon" aria-hidden="true">☰</span><span class="tov-menu-label">MENU</span></button>
+ <nav id="tov-main-nav" aria-label="Main navigation"><a href="#home" class="on">HOME</a><a href="#featured-clip">FEATURED</a><a href="#games">GAMES</a><a href="#highlights">HIGHLIGHTS</a><a href="#player-profile">CS2 HUB</a><a href="#cs2-loadout">LOADOUT</a><a href="#crosshair-studio">CROSSHAIR</a><a href="#setup">SETUP</a><a href="#achievements">PLAYS</a><a href="#journey">JOURNEY</a><a href="#discord-hub">1729</a><a href="#about">ABOUT</a><a href="#connect">CONNECT</a></nav>
 </header>
 <main>
 <div class="hero" id="home">
@@ -415,6 +434,40 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
   <a href="#discord-hub">COMMUNITY 1729 <span aria-hidden="true">↗</span></a>
   <button id="tov-visual-mode" type="button" aria-pressed="false" title="Switch visual mode">◆ REDLINE MODE</button>
 </div>
+
+<div class="tov-install-strip" aria-labelledby="tov-install-title">
+  <div><strong id="tov-install-title">TOV4R / ON YOUR PHONE</strong><p>Pin this gaming portfolio to your home screen. Works as a lightweight web app on supported browsers.</p></div>
+  <div class="tov-install-controls">
+    <button id="tov-install-app" class="tov-install-btn" type="button">INSTALL / ADD TO HOME SCREEN</button>
+    <button id="tov-install-help" class="tov-install-help" type="button">HOW TO INSTALL?</button>
+  </div>
+  <span id="tov-install-status" role="status" aria-live="polite">No account needed. Browser installation support varies.</span>
+</div>
+<section id="featured-clip" class="tov-featured" aria-labelledby="tov-featured-title">
+  <div class="sh rv"><i></i><div><h2 id="tov-featured-title">FEATURED CLIP OF THE WEEK</h2><span>CURATED WEEKLY ROTATION · EXISTING MEDAL CLIPS</span></div></div>
+  <div class="tov-featured-grid rv">
+    <div class="tov-featured-poster">
+      <img src="assets/media/tov4r-premium-art.svg" width="1440" height="810" loading="lazy" decoding="async" alt="Original TOV4R red and black gaming artwork; not a gameplay screenshot">
+      <div class="tov-featured-over"><div><span>CURATED MEDAL SPOTLIGHT</span><br><strong id="tov-weekly-clip-map">MIRAGE / LINKED MEDAL CLIP</strong></div><div class="tov-featured-icon" aria-hidden="true">▶</div></div>
+    </div>
+    <div class="tov-featured-body">
+      <span class="tov-featured-kicker">WEEKLY WEBSITE PICK · NOT A LIVE GAME STATISTIC</span>
+      <h3 id="tov-weekly-clip-title">ACE — MIRAGE</h3>
+      <p>A rotating showcase selected from the four Medal clips already linked in this portfolio. The selection rotates each Monday (UTC); it does not imply a recent recording, an award, or a match result.</p>
+      <div class="tov-featured-actions">
+        <button type="button" id="tov-weekly-play">▶ PLAY HERE</button>
+        <button type="button" id="tov-weekly-share">SHARE CLIP</button>
+        <a id="tov-weekly-original" target="_blank" rel="noopener noreferrer" href="https://medal.tv/clips/nMMeT2Agr7tMolF5v">OPEN MEDAL ↗</a>
+      </div>
+      <span class="tov-featured-foot" id="tov-weekly-status" role="status" aria-live="polite">Original Medal video may require opening on Medal if embedding is blocked.</span>
+    </div>
+  </div>
+  <div class="tov-featured-player" id="tov-weekly-player" hidden>
+    <div class="tov-featured-player-head"><span>MEDAL · IN-PAGE VIDEO PLAYER</span><button type="button" id="tov-weekly-close">✕ CLOSE PLAYER</button></div>
+    <div class="tov-featured-frame"><iframe id="tov-weekly-iframe" src="about:blank" title="Featured Medal clip" loading="lazy" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    <p class="tov-featured-disclaimer">If Medal doesn't permit embedding, use OPEN MEDAL to watch the original clip.</p>
+  </div>
+</section>
 
 <section id="games">
  <div class="sh rv"><i></i><div><h2>MY GAMES</h2><span>THE GAMES I PLAY</span></div></div>
@@ -641,6 +694,18 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
      <div><small>INTEGRATED GRAPHICS</small><strong>INTEL UHD GRAPHICS 630</strong></div>
    </div>
  </details>
+</section>
+
+<section id="journey" class="tov-journey" aria-labelledby="tov-journey-title">
+  <div class="sh rv"><i></i><div><h2 id="tov-journey-title">MY GAMING JOURNEY</h2><span>KNOWN MILESTONES · NO INVENTED GAME HISTORY</span></div></div>
+  <p class="tov-journey-lead rv">A timeline built from information already shown in this portfolio. Unverified dates and match statistics are intentionally left out.</p>
+  <ol class="tov-timeline rv">
+    <li><small>10 JULY 2026 · PROFILE DATE SHOWN ON SITE</small><h3>XPLAY.GG MEMBER SINCE</h3><p>The public XPLAY member-since date is shown in the existing player profile. It is not a claim about your first CS2 match.</p><a href="https://xplay.gg/profile/1883896539" target="_blank" rel="noopener noreferrer">VIEW XPLAY PROFILE ↗</a></li>
+    <li><small>RECORDING DATES NOT PROVIDED</small><h3>MEDAL HIGHLIGHTS COLLECTION</h3><p>Four existing links — Ace, 2K and Headshot on Mirage, plus 3K on Dust II — gathered in the site's Highlights gallery. No recording chronology is assumed.</p><a href="#highlights">EXPLORE MEDAL CLIPS ↑</a></li>
+    <li><small>NOVEMBER 2026 · WEBSITE MILESTONE</small><h3>TOV4R REDLINE WEBSITE</h3><p>The gaming portfolio now includes the CS2 dashboard, Crosshair Studio, original redline artwork and a dedicated community hub.</p><a href="#player-profile">VIEW CS2 HUB ↑</a></li>
+    <li class="tov-future"><small>FUTURE IDEA · NOT A COMPLETED MILESTONE</small><h3>MORE CLIPS &amp; COMMUNITY MOMENTS</h3><p>Room for new confirmed highlights and dates when you choose to share them. Nothing here represents an already scheduled event.</p><a href="#discord-hub">VISIT COMMUNITY ↑</a></li>
+  </ol>
+  <p class="tov-journey-note">Last-mile dates are shown only where they come from the existing linked portfolio or its GitHub updates. No ranks, trophies or match wins are made up.</p>
 </section>
 
 <section id="achievements" class="tov-v2-section" aria-labelledby="tov-achievements-title">
@@ -887,5 +952,7 @@ header .tov-brand:hover{filter:brightness(1.2);transform:translateY(-1px)}
 <script src="assets/tov4r-pro.js?v=2" defer></script>
 <script src="assets/tov4r-hub.js?v=1" defer></script>
 <script src="assets/tov4r-v2.js?v=1" defer></script>
+<script src="assets/tov4r-analytics-config.js" defer></script>
+<script src="assets/tov4r-v3.js?v=1" defer></script>
 </body>
 </html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tov4r.xyz/sitemap.xml
