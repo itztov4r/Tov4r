@@ -21,14 +21,14 @@
  }
  var dlg=document.getElementById('tov-medal-modal'),frame=document.getElementById('tov-medal-iframe'),title=document.getElementById('tov-medal-name'),external=document.getElementById('tov-medal-direct'),music=document.getElementById('tov-bg-track'),resume=false;
  if(dlg&&frame&&title&&external&&typeof dlg.showModal==='function'){
-   document.querySelectorAll('#highlights a.tov-clip-card').forEach(function(card){
-     card.setAttribute('aria-label','Watch highlight in the on-site Medal player');
+   document.querySelectorAll('#highlights .tov-clip-video-btn').forEach(function(card){
+     var poster=card.closest('.tov-clip-card').querySelector('.tov-clip-poster');if(poster)poster.addEventListener('click',function(e){if(e.target.closest('button,a'))return;card.click();});
      card.addEventListener('click',function(event){
        if(event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||event.defaultPrevented)return;
-       var href=card.getAttribute('href')||'',match=/^https:\/\/medal\.tv\/clips\/([A-Za-z0-9_-]+)$/.exec(href);
+       var href=card.getAttribute('data-medal-url')||'',match=/^https:\/\/medal\.tv\/clips\/([A-Za-z0-9_-]+)$/.exec(href);
        if(!match)return;
        event.preventDefault();
-       var clipTitle=card.querySelector('.tov-clip-info strong');
+       var clipTitle=card.closest('.tov-clip-card').querySelector('.tov-clip-info strong');
        title.textContent=clipTitle?clipTitle.textContent:'TOV4R HIGHLIGHT';
        external.href=href;frame.title='Medal video '+title.textContent;
        resume=!!music&&!music.paused;if(resume)music.pause();
