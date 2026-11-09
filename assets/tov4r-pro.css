@@ -66,3 +66,14 @@
 @media(max-width:560px){.tov-pro-panel{padding:17px}.tov-setting-item{padding:13px}.tov-loadout-grid{gap:10px}.tov-loadout-slot{padding:13px}.tov-loadout-art{height:90px;font-size:2.9rem}.tov-loadout-slot h3{font-size:.85rem}.tov-loadout-slot strong{font-size:.72rem}.tov-medal-bottom a{width:100%;text-align:center}}
 @media(max-width:350px){.tov-loadout-grid,.tov-xhair-inputs{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.tov-loadout-slot{transition:none}}
+
+/* Explicit in-site play and external-original actions */
+#highlights .tov-clip-card{display:flex;flex-direction:column}
+#highlights .tov-clip-poster{cursor:pointer}
+#highlights .tov-clip-actions{display:flex;gap:8px;margin-top:auto;padding:0 12px 15px}
+#highlights .tov-clip-video-btn,#highlights .tov-clip-medal-link{display:inline-flex;align-items:center;justify-content:center;flex:1;min-width:0;min-height:41px;border-radius:8px;font:700 .66rem 'Chakra Petch',system-ui,sans-serif;letter-spacing:.035em;text-align:center;text-decoration:none;cursor:pointer;padding:9px 7px}
+#highlights .tov-clip-video-btn{background:#c52846;color:white;border:1px solid #ed5571}
+#highlights .tov-clip-video-btn:hover{background:#f23c61}
+#highlights .tov-clip-medal-link{background:#1c131d;color:#f3b4c2;border:1px solid #8e4057}
+#highlights .tov-clip-medal-link:hover{background:#402032}
+@media(max-width:580px){#highlights .tov-clip-actions{flex-direction:column;padding:0 9px 12px;gap:6px}#highlights .tov-clip-video-btn,#highlights .tov-clip-medal-link{min-height:38px;font-size:.62rem}}
