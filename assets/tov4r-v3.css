@@ -69,7 +69,7 @@ body.tov-stealth{--v3-accent:#8bd4e7;--v3-border:rgba(139,212,231,.35)}
  .tov-featured-icon{width:45px;height:45px;border-radius:12px}
  .tov-journey{padding:55px 16px}.tov-timeline{padding-left:15px}.tov-timeline li{padding:17px}.tov-timeline li:before{left:-23px}
  .tov-featured-actions>*{flex:1 1 45%}
- .tov-featured-frame{aspect-ratio:9/12}
+ .tov-featured-frame{aspect-ratio:16/9}
 }
 @media(max-width:375px){
  header.tov-header-v3 .tov-brand{font-size:1rem!important}
