@@ -74,10 +74,18 @@
   var originalUrl='https://medal.tv/clips/'+chosen.id;
   if(title)title.textContent=chosen.title;
   if(caption)caption.textContent=chosen.label;
+  // Curated real gaming photographs for known Medal links. These are mood photos,
+  // not frames taken from the linked gameplay. Unknown clips use a local photo.
+  var coverPhotos={
+    'nMMeT2Agr7tMolF5v':'https://images.unsplash.com/photo-1603481588273-2f908a9a7a1b?auto=format&fit=crop&w=1200&q=78',
+    'nLQLmwReRVIpEPWlf':'https://images.unsplash.com/photo-1703031971880-482e4814c6a3?auto=format&fit=crop&w=1200&q=78',
+    'nMIY5uWCzJd8uRgXH':'https://images.unsplash.com/photo-1733945761533-727f49908d70?auto=format&fit=crop&w=1200&q=78',
+    'nG9AXx2FXuknOrP24':'https://images.unsplash.com/photo-1674621701732-7997b7aaae38?auto=format&fit=crop&w=1200&q=78'
+  };
   var weeklyPoster=get('tov-weekly-poster');
   if(weeklyPoster){
-    weeklyPoster.src='assets/media/'+chosen.poster;
-    weeklyPoster.alt='Original TOV4R illustration for '+chosen.title+', not a screenshot from the game';
+    weeklyPoster.src=coverPhotos[chosen.id]||'assets/media/pc-setup.jpg';
+    weeklyPoster.alt='Real gaming mood photograph for '+chosen.title+'; the actual gameplay is on Medal';
   }
   if(original)original.href=originalUrl;
   function stopPlayback(){

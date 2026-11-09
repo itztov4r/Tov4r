@@ -1,6 +1,6 @@
 /* TOV4R PWA V3 — static local-shell caching, no third-party requests. */
 'use strict';
-const VERSION='tov4r-shell-v9-20261109-1';
+const VERSION='tov4r-shell-v9-20261109-2';
 const ESSENTIALS=[
   '/', '/index.html', '/favicon.svg', '/manifest.webmanifest',
   '/icons/tov4r-192.png', '/icons/tov4r-512.png',
