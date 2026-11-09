@@ -20,6 +20,7 @@
     if(restoreFocus)toggle.focus();
   }
   if(header&&toggle&&nav){
+    header.dataset.jsReady='true';
     setMenu(false,false);
     toggle.addEventListener('click',function(){setMenu(header.dataset.menuOpen!=='true',false);});
     nav.querySelectorAll('a[href^="#"]').forEach(function(link){
