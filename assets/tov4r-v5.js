@@ -241,7 +241,7 @@
       var bits=parseInt(hex,16).toString(2).padStart(25,'0').slice(-25);
       for(var col=0;col<25;col++)if(bits[col]==='1')dQr+='M'+(col+3)+' '+(row+3)+'h1v1h-1z';
     });
-    path.setAttribute('fill','#151015');path.setAttribute('d',dQr);svg.appendChild(path);qrBox.appendChild(svg);
+    path.setAttribute('fill','#151015');path.setAttribute('d',dQr);svg.appendChild(path);qrBox.replaceChildren(svg);
   }
   if(byId('tov-profile-copy'))byId('tov-profile-copy').addEventListener('click',function(){clipboard(SITE,'tov-profile-status');});
   if(byId('tov-profile-share'))byId('tov-profile-share').addEventListener('click',function(){
