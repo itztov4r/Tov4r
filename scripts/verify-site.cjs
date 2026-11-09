@@ -108,7 +108,7 @@ check('V5 QR is local and has 25 compact data rows',(() => {
   return !!m&&(m[1].match(/'[0-9a-f]{8}'/g)||[]).length===25&&
     v5js.includes("SITE='https://tov4r.xyz/'")&&!v5js.includes('qrserver.com');
 })());
-check('V5 public config is network first for offline clients',sw.includes("tov4r-shell-v7")&&
+check('V5 public config is network first for offline clients',sw.includes("tov4r-shell-v8")&&
   sw.includes("url.pathname==='/assets/tov4r-clips.js'")&&sw.includes("cache:'no-cache'"));
 check('V5 avoids untrusted HTML insertion and eval',!v5js.includes('.innerHTML')&&!/\beval\s*\(/.test(v5js));
 
@@ -136,6 +136,38 @@ check('PWA refresh caches new photo CSS and JS',
   sw.includes("'/assets/tov4r-photo-refresh.css?v=1'") &&
   sw.includes("'/assets/tov4r-photo-refresh.js?v=1'") &&
   sw.includes("'/assets/tov4r-v5.js?v=2'"));
+
+// iPhone screenshot fixes: photo-based site sections, live Medal URLs and compact soundtrack.
+const photoV6css=read('assets/tov4r-mobile-photo-v6.css');
+const photoV6js=read('assets/tov4r-mobile-photo-v6.js');
+check('all original Medal card posters are full-frame real photos',
+  (html.match(/class="tov-thumb" src="https:\/\/images\.unsplash\.com\//g)||[]).length===4&&
+  html.includes('data-photo-fallback="assets/media/game-card-3.jpg"'));
+check('no duplicate ARTWORK caption overlay can appear in Highlights',
+  photoV6css.includes('tov-real-thumb::after{content:none!important;display:none!important}')&&
+  photoV6css.includes('tov-clip-ornament{display:none!important}'));
+check('photo-led player, crosshair and achievements preserve game honesty',
+  html.includes('Photographie réelle d\'un bureau gaming RGB')&&
+  html.includes('The crosshair appears over a real gaming desk photograph')&&
+  html.includes('REAL GAMING PHOTOGRAPHY · NOT AN AWARD'));
+check('loadout, achievements and Discord show actual hardware backgrounds',
+  photoV6css.includes('#cs2-loadout .tov-loadout-slot:nth-child(1)')&&
+  photoV6css.includes('#achievements .tov-achievement-card:nth-child(1)')&&
+  photoV6css.includes('#discord-hub .tov-discord-main'));
+check('iPhone audio dock offers accessible compact expand/collapse',
+  html.includes('id="tov-dock-expand"')&&html.includes('aria-controls="tov-music-options"')&&
+  html.includes('id="tov-music-options"')&&photoV6js.includes("Escape")&&
+  photoV6css.includes('data-expanded="true"'));
+check('original audio element, mute, pause and seek remain',
+  ['id="tov-bg-track"','id="tov-music-mute"','id="tov-music-toggle"','id="tov-progress"','id="tov-music-volume"'].every(v=>html.includes(v)));
+check('updated PWA precaches all screenshot fix modules',
+  sw.includes('tov4r-shell-v8')&&
+  sw.includes("'/assets/tov4r-mobile-photo-v6.css?v=1'")&&
+  sw.includes("'/assets/tov4r-mobile-photo-v6.js?v=1'"));
+check('Unsplash photography is attributed as illustration',
+  html.includes('Real gaming photography for visual atmosphere')&&
+  html.includes('not actual video frames, game inventories or personal hardware')&&
+  html.includes('https://unsplash.com/license'));
 
 console.log('\n'+successes.length+' passed; '+failures.length+' failed');
 if(failures.length){
