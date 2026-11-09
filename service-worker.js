@@ -29,6 +29,15 @@ self.addEventListener('fetch',event=>{
   if(req.method!=='GET'||url.origin!==self.location.origin)return;
   // Never cache music streaming, requests with byte ranges, or any third-party content.
   if(req.headers.has('range')||/\.(?:mp3|mp4|wav|m4a)$/i.test(url.pathname))return;
+  // Read public site configuration from the network first, so owner-edited
+  // clip/analytics config is not indefinitely stale after GitHub publishing.
+  if(url.pathname==='/assets/tov4r-clips.js'||url.pathname==='/assets/tov4r-analytics-config.js'){
+    event.respondWith(fetch(req,{cache:'no-cache'}).then(res=>{
+      if(res.ok){const copy=res.clone();event.waitUntil(caches.open(VERSION).then(c=>c.put(req,copy)));}
+      return res;
+    }).catch(()=>caches.match(req).then(cached=>cached||Response.error())));
+    return;
+  }
   if(req.mode==='navigate'){
     event.respondWith(fetch(req).then(res=>{
       if(res.ok){const clone=res.clone();event.waitUntil(caches.open(VERSION).then(c=>c.put('/index.html',clone)));}
