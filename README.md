@@ -106,3 +106,29 @@ Clips must be valid \`https://medal.tv/clips/<clip-id>\` or their official Count
 - Check desktop and mobile navigation and PWA service-worker version, including network-first updates of public clip/analytics configuration.
 
 GitHub CI runs \`node scripts/verify-site.cjs\` on PRs and \`main\`.
+
+
+## V5 Photo-first refresh (November 2026)
+
+The V5 sections use genuine gaming hardware photography, not synthetic screenshots. Each section has a real licensed full-width image and typography overlays. Clip Manager uses real gaming atmosphere pictures, clearly labeled as not actual Medal frames; all original videos remain unchanged.
+
+- Clip Manager: authentic RGB desktop photo.
+- CS2 Progress: red-backlit mechanical keyboard photo.
+- Share Profile: real gaming desk photo; QR/copy/share preserved.
+- Setup Gallery: keeps the site's original pc-setup.jpg and adds two inspiration photographs, never claimed to be TOV4R-owned equipment.
+- Analytics: actual RGB desktop photograph; tracking remains disabled pending genuine Umami connection.
+
+Photo license: https://unsplash.com/license . Original photo source pages:
+
+- https://unsplash.com/photos/a-desktop-computer-sitting-on-top-of-a-wooden-desk-Ie9BekWw_Uk
+- https://unsplash.com/photos/a-close-up-of-a-red-and-black-keyboard-h7h_0TSQcRM
+- https://unsplash.com/photos/a-desktop-computer-sitting-on-top-of-a-wooden-desk-wvqOnlLZn2o
+- https://unsplash.com/photos/a-desk-with-a-laptop-and-a-computer-monitor-DdiwOzeqkDU
+- https://unsplash.com/photos/a-desktop-computer-sitting-on-top-of-a-desk-2rQoMZLVXHc
+- https://unsplash.com/photos/a-desktop-computer-sitting-on-top-of-a-wooden-desk-Eogh68FBB7c (Luca Hooijer)
+
+Photos use image sizing parameters on images.unsplash.com, lazy loading and a fallback to existing local photos where available. External photo hosting receives standard image requests. No unlicensed Pinterest imagery was copied.
+
+Privacy and honesty: references do not imply the pictured setup belongs to TOV4R. Existing CS2 demo settings, player data and Medal links are preserved. Site visitor counts remain unconnected until an authentic Umami Website ID is committed.
+
+Regression: original setup photo, CS2 controls, soundtrack, QR, featured clip, setup gallery and PWA remain. Cache version was incremented and CI checks licensing labels, gallery sources and fallbacks.

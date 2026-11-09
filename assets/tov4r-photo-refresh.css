@@ -1,0 +1,86 @@
+/* TOV4R REAL PHOTO EDITION
+   Authentic, license-checked Unsplash gaming photography takes visual priority.
+   Existing redline identity is a supporting accent, not a substitute for pictures. */
+.tov-v5-section{background:#09090d;border-top:1px solid rgba(255,255,255,.095)}
+.tov-v5-section>.sh,.tov-v5-section>.tov-v5-lead{position:relative;z-index:1}
+.tov-v5-section>.sh h2{text-wrap:balance}
+.tov-photo-story{
+  position:relative;max-width:1240px;margin:26px auto 22px;
+  height:clamp(285px,38vw,465px);overflow:hidden;border-radius:19px;
+  background:#141117 url(media/pc-setup.jpg) center / cover no-repeat;
+  border:1px solid rgba(255,255,255,.14);
+  isolation:isolate;box-shadow:0 25px 60px rgba(0,0,0,.27)
+}
+.tov-photo-story>.tov-photo-cover{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center center;
+  filter:saturate(.95) contrast(1.1);transition:transform .65s ease;
+}
+.tov-photo-story:hover>.tov-photo-cover{transform:scale(1.025)}
+.tov-photo-story:after{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(3,4,8,.78),rgba(3,4,8,.34) 52%,rgba(3,4,8,.08)),
+    linear-gradient(0deg,rgba(2,4,10,.76),transparent 55%)
+}
+.tov-photo-story figcaption{position:absolute;z-index:1;left:clamp(20px,5vw,60px);bottom:clamp(24px,4.5vw,58px);max-width:min(740px,78%)}
+.tov-photo-story figcaption small{display:inline-flex;align-items:center;margin-bottom:12px;padding:7px 12px;background:rgba(10,11,16,.46);backdrop-filter:blur(5px);border:1px solid rgba(255,255,255,.28);border-radius:5px;color:#ffe0e8;font:700 clamp(.62rem,1.3vw,.75rem) 'Chakra Petch',sans-serif;letter-spacing:.15em}
+.tov-photo-story figcaption strong{display:block;color:#fff;font:700 clamp(2rem,6.8vw,5.2rem)/.99 'Chakra Petch',sans-serif;letter-spacing:-.055em;text-wrap:balance;text-shadow:0 5px 24px rgba(0,0,0,.55)}
+.tov-photo-story figcaption span{display:block;margin-top:15px;max-width:65ch;color:#eee6ec;font-size:clamp(.78rem,1.5vw,.93rem);line-height:1.5;text-shadow:0 2px 9px #000}
+.tov-photo-source{position:absolute;right:17px;top:17px;z-index:2;display:inline-flex;align-items:center;min-height:39px;padding:9px 11px;border:1px solid rgba(255,255,255,.28);border-radius:8px;backdrop-filter:blur(9px);background:rgba(7,7,12,.66);color:#fff;text-decoration:none;font:700 .64rem 'Chakra Petch',sans-serif;letter-spacing:.06em;transition:background .2s}
+.tov-photo-source:hover{background:rgba(155,35,63,.85)}
+.tov-v5-shell{background:#111017;border-color:rgba(255,255,255,.11);box-shadow:0 15px 40px rgba(0,0,0,.19)}
+.tov-v5-list{gap:13px}
+.tov-v5-clip{background:#111017;border:1px solid rgba(255,255,255,.14);border-radius:13px}
+.tov-v5-clip img{aspect-ratio:16/10;object-fit:cover;filter:saturate(.96) contrast(1.08)}
+.tov-v5-clip>div{padding:15px}
+.tov-v5-clip small{color:#b6adba}
+.tov-v5-clip small.tov-photo-label{color:#eec2ce;font-size:.63rem;letter-spacing:.04em}
+.tov-v5-clip a{color:#fff}
+.tov-v5-progress-summary{gap:14px}
+.tov-v5-metric{background:#1c171f;border:1px solid rgba(255,255,255,.13)}
+.tov-v5-metric strong{color:#fff}
+.tov-v5-metric small{color:#ded3dc}
+.tov-v5-profile-card{background:linear-gradient(90deg,rgba(6,7,11,.9),rgba(6,7,11,.57)),url('https://images.unsplash.com/photo-1703031971880-482e4814c6a3?auto=format&fit=crop&w=1300&q=74') center / cover no-repeat;min-height:320px;display:flex;flex-direction:column;justify-content:center}
+.tov-v5-profile-card h3{letter-spacing:.09em}
+.tov-v5-setup-tile{border-color:rgba(255,255,255,.17);background:#151118}
+.tov-v5-setup-tile img{aspect-ratio:4/3;object-fit:cover;filter:saturate(.97);transition:transform .35s ease}
+.tov-v5-setup-tile:hover img{transform:scale(1.035)}
+.tov-v5-setup-tile strong{color:#fff}
+.tov-v5-setup-tile small{color:#d7c5d1}
+.tov-v5-banner-note a{color:#ffd1dc;text-decoration:underline;text-underline-offset:3px}
+#tov-v5-setup-dialog{background:#0c0b10}
+#tov-v5-setup-dialog img{background:#141119}
+.tov-v5-section .tov-v5-btn{border-radius:8px}
+.tov-v5-section .tov-v5-btn:focus-visible,.tov-photo-source:focus-visible{outline:2px solid #fff;outline-offset:3px}
+@media(min-width:1100px){
+ .tov-photo-story-progress-tracker .tov-photo-cover{object-position:center 56%}
+ .tov-photo-story-analytics-dashboard .tov-photo-cover{object-position:center 54%}
+}
+@media(max-width:760px){
+ .tov-photo-story{height:clamp(310px,65vw,420px);margin:18px auto 18px}
+ .tov-photo-story figcaption{left:23px;bottom:27px;max-width:calc(100% - 44px)}
+ .tov-photo-story figcaption strong{font-size:clamp(2rem,7.4vw,3.5rem);max-width:18ch}
+ .tov-photo-story figcaption span{font-size:.8rem;margin-top:11px}
+ .tov-photo-source{top:10px;right:10px;font-size:.58rem}
+ .tov-v5-profile-card{min-height:280px}
+}
+@media(max-width:540px){
+ .tov-photo-story{height:365px;border-radius:12px}
+ .tov-photo-story>.tov-photo-cover{object-position:58% center}
+ .tov-photo-story:after{background:linear-gradient(0deg,rgba(2,3,7,.88),rgba(2,3,7,.16) 75%)}
+ .tov-photo-story figcaption{left:17px;bottom:21px;max-width:calc(100% - 34px)}
+ .tov-photo-story figcaption strong{font-size:clamp(1.8rem,8.9vw,2.8rem);letter-spacing:-.035em}
+ .tov-photo-story figcaption small{font-size:.56rem;letter-spacing:.08em}
+ .tov-photo-story figcaption span{font-size:.74rem}
+ .tov-photo-source{top:10px;right:10px;padding:6px 8px;min-height:33px;font-size:.53rem}
+ .tov-v5-profile-card{padding:21px;min-height:285px;background-position:60% center}
+ .tov-v5-clip img{aspect-ratio:16/9}
+}
+@media(prefers-reduced-motion:reduce){
+ .tov-photo-story>.tov-photo-cover,.tov-v5-setup-tile img{transition:none!important}
+ .tov-photo-story:hover>.tov-photo-cover,.tov-v5-setup-tile:hover img{transform:none!important}
+}
+
+.tov-photo-license{font-size:.76rem;line-height:1.6;color:#c5b8c4;margin:16px 0 0}
+.tov-photo-license a{color:#ffbecd;text-decoration:underline;text-underline-offset:3px}
+.tov-photo-license a:focus-visible{outline:2px solid #fff;outline-offset:3px}

@@ -1,15 +1,15 @@
 /* TOV4R PWA V3 — static local-shell caching, no third-party requests. */
 'use strict';
-const VERSION='tov4r-shell-v6-20261109-1';
+const VERSION='tov4r-shell-v7-20261109-1';
 const ESSENTIALS=[
   '/', '/index.html', '/favicon.svg', '/manifest.webmanifest',
   '/icons/tov4r-192.png', '/icons/tov4r-512.png',
   '/assets/tov4r-core.css?v=4', '/assets/tov4r-music.css?v=4',
   '/assets/tov4r-pro.css?v=2', '/assets/tov4r-hub.css?v=1',
-  '/assets/tov4r-v2.css?v=1', '/assets/tov4r-v3.css?v=1', '/assets/tov4r-visuals.css?v=1', '/assets/tov4r-v4.css?v=1', '/assets/tov4r-v5.css?v=1',
+  '/assets/tov4r-v2.css?v=1', '/assets/tov4r-v3.css?v=1', '/assets/tov4r-visuals.css?v=1', '/assets/tov4r-v4.css?v=1', '/assets/tov4r-v5.css?v=1', '/assets/tov4r-photo-refresh.css?v=1',
   '/assets/tov4r-player-data.js?v=1', '/assets/tov4r-pro.js?v=2',
   '/assets/tov4r-hub.js?v=1', '/assets/tov4r-v2.js?v=1',
-  '/assets/tov4r-clips.js?v=1', '/assets/tov4r-v3.js?v=3', '/assets/tov4r-visuals.js?v=1', '/assets/tov4r-v5.js?v=1', '/assets/tov4r-analytics-config.js',
+  '/assets/tov4r-clips.js?v=1', '/assets/tov4r-v3.js?v=3', '/assets/tov4r-visuals.js?v=1', '/assets/tov4r-v5.js?v=2', '/assets/tov4r-photo-refresh.js?v=1', '/assets/tov4r-analytics-config.js',
   '/assets/media/clip-ace.svg', '/assets/media/clip-2k.svg', '/assets/media/clip-headshot.svg', '/assets/media/clip-3k.svg',
   '/assets/media/hero-visual.jpg', '/assets/media/hero-overlay.jpg', '/assets/media/bg-ambient.jpg',
   '/assets/media/tov4r-premium-art.svg', '/assets/media/tov4r-discord-art.svg', '/assets/media/tov4r-crosshair-art.svg', '/assets/media/tov4r-achievements-art.svg',

@@ -57,16 +57,28 @@
     publishedCfg.clips.map(sanitizeClip).filter(Boolean).slice(0,40):[];
   var uniq=new Set();
   publicClips=publicClips.filter(function(c){if(uniq.has(c.id))return false;uniq.add(c.id);return true;});
+  // Genuine licensed mood photos. These are deliberately not represented as
+  // gameplay frames or photographs of TOV4R's own equipment.
+  var publishedPhotoIds=[
+    'photo-1636489948870-058e57b5f7d9',
+    'photo-1687583326917-530d867c8b2b',
+    'photo-1696710257827-75e2e5954059',
+    'photo-1703031971880-482e4814c6a3'
+  ];
   var publicArea=byId('tov-public-clip-list');
   if(publicArea){
     publicArea.replaceChildren();
-    publicClips.forEach(function(c){
+    publicClips.forEach(function(c,index){
       var card=create('article','tov-v5-clip');
-      var image=create('img');image.src='assets/media/'+c.poster;image.alt='Original illustration for '+c.title+', not a gameplay screenshot';
-      image.width=1200;image.height=675;image.loading='lazy';image.decoding='async';
+      var image=create('img');
+      image.src='https://images.unsplash.com/'+publishedPhotoIds[index%publishedPhotoIds.length]+'?auto=format&fit=crop&w=850&q=77';
+      image.alt='Real gaming atmosphere photo; not an actual frame from '+c.title;
+      image.setAttribute('data-photo-fallback','assets/media/game-card-3.jpg');
+      image.width=850;image.height=530;image.loading='lazy';image.decoding='async';
       var body=create('div');
       body.appendChild(create('strong',null,c.title));
       body.appendChild(create('small',null,c.map+' · Medal link'));
+      body.appendChild(create('small','tov-photo-label','REAL AMBIENCE PHOTO · NOT GAMEPLAY'));
       body.appendChild(link('https://medal.tv/clips/'+c.id,'WATCH ON MEDAL ↗'));
       card.append(image,body);publicArea.appendChild(card);
     });
@@ -253,7 +265,11 @@
   });
 
   // Gallery enlarges only the site's existing, allowed images; never claims concept art is owned gear.
-  var galleryAllow=new Set(['assets/media/pc-setup.jpg','assets/media/tov4r-premium-art.svg','assets/media/tov4r-crosshair-art.svg']);
+  var galleryAllow=new Set([
+    'assets/media/pc-setup.jpg',
+    'https://images.unsplash.com/photo-1733945761533-727f49908d70?auto=format&fit=crop&w=1600&q=84',
+    'https://images.unsplash.com/photo-1687583326917-530d867c8b2b?auto=format&fit=crop&w=1600&q=84'
+  ]);
   var galleryDialog=byId('tov-v5-setup-dialog'),galleryImg=byId('tov-v5-gallery-image'),galleryText=byId('tov-v5-gallery-caption');
   document.querySelectorAll('[data-v5-gallery-src]').forEach(function(button){
     button.addEventListener('click',function(){

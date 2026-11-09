@@ -98,7 +98,7 @@ check('V5 public library preserves four verified Medal clips',!!clipCfg&&['nMMeT
 check('V5 feature sections all exist',['clip-manager','progress-tracker','setup-gallery','share-profile','analytics-dashboard'].every(id=>idSet.has(id)));
 check('V5 clip data loads before weekly video',html.indexOf('src="assets/tov4r-clips.js?v=1"')<
   html.indexOf('src="assets/tov4r-v3.js?v=3"')&&html.indexOf('src="assets/tov4r-v3.js?v=3"')<
-  html.indexOf('src="assets/tov4r-v5.js?v=1"'));
+  html.indexOf('src="assets/tov4r-v5.js?v=2"'));
 check('V5 clip management supports local draft and file export',v5js.includes('tov4r-clip-draft-v5')&&
   v5js.includes("tov4r-clips.js")&&v5js.includes('canonicalClip'));
 check('V5 progress tracker starts without fake stats',v5js.includes('tov4r-progress-v5')&&
@@ -108,9 +108,34 @@ check('V5 QR is local and has 25 compact data rows',(() => {
   return !!m&&(m[1].match(/'[0-9a-f]{8}'/g)||[]).length===25&&
     v5js.includes("SITE='https://tov4r.xyz/'")&&!v5js.includes('qrserver.com');
 })());
-check('V5 public config is network first for offline clients',sw.includes("tov4r-shell-v6")&&
+check('V5 public config is network first for offline clients',sw.includes("tov4r-shell-v7")&&
   sw.includes("url.pathname==='/assets/tov4r-clips.js'")&&sw.includes("cache:'no-cache'"));
 check('V5 avoids untrusted HTML insertion and eval',!v5js.includes('.innerHTML')&&!/\beval\s*\(/.test(v5js));
+
+// Photo-first refresh: real licensed images, honest context, local fallback.
+const photoCss=read('assets/tov4r-photo-refresh.css');
+const photoJs=read('assets/tov4r-photo-refresh.js');
+check('photo-first sections include five actual photo covers',
+  (html.match(/class="tov-photo-story /g)||[]).length===5 &&
+  (html.match(/class="tov-photo-cover"/g)||[]).length===5);
+check('real photos are attributed and never framed as personal gameplay',
+  (html.match(/PHOTO RÉELLE · UNSPLASH/g)||[]).length===5 &&
+  html.includes('pas le setup personnel de TOV4R') &&
+  html.includes('Les images de cette collection sont de vraies photographies') &&
+  html.includes('pas une capture de tes matchs'));
+check('setup keeps its existing local photo and adds two licensed inspiration photos',
+  html.includes('data-v5-gallery-src="assets/media/pc-setup.jpg"') &&
+  (html.match(/data-v5-gallery-src="https:\/\/images\.unsplash\.com\//g)||[]).length===2);
+check('photo fallbacks cannot use arbitrary external paths',
+  photoJs.includes("fallbackFiles=new Set") && !photoJs.includes('.innerHTML') &&
+  photoJs.includes("assets/media/pc-setup.jpg"));
+check('V5 source covers real mood photos and preserves Media IDs',
+  v5js.includes("publishedPhotoIds") && v5js.includes('REAL AMBIENCE PHOTO') &&
+  v5js.includes('nMMeT2Agr7tMolF5v')===false && clipText.includes('nMMeT2Agr7tMolF5v'));
+check('PWA refresh caches new photo CSS and JS',
+  sw.includes("'/assets/tov4r-photo-refresh.css?v=1'") &&
+  sw.includes("'/assets/tov4r-photo-refresh.js?v=1'") &&
+  sw.includes("'/assets/tov4r-v5.js?v=2'"));
 
 console.log('\n'+successes.length+' passed; '+failures.length+' failed');
 if(failures.length){
