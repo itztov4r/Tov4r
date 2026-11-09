@@ -142,7 +142,7 @@ const photoV6css=read('assets/tov4r-mobile-photo-v6.css');
 const photoV6js=read('assets/tov4r-mobile-photo-v6.js');
 check('all original Medal card posters are full-frame real photos',
   (html.match(/class="tov-thumb" src="https:\/\/images\.unsplash\.com\//g)||[]).length===4&&
-  html.includes('data-photo-fallback="assets/media/game-card-3.jpg"'));
+  html.includes('data-photo-fallback="assets/media/pc-setup.jpg"'));
 check('no duplicate ARTWORK caption overlay can appear in Highlights',
   photoV6css.includes('tov-real-thumb::after{content:none!important;display:none!important}')&&
   photoV6css.includes('tov-clip-ornament{display:none!important}'));
