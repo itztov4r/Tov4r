@@ -71,3 +71,24 @@ body.tov-stealth .tov-achievement-filter[aria-pressed="true"]{background:#25566b
 @media(max-width:650px){.tov-v2-rail{padding:15px 5vw}.tov-v2-rail a{flex:1 1 42%;font-size:.67rem;min-height:48px}.tov-v2-rail button{flex:1 1 100%;min-height:43px}.tov-achievement-grid{grid-template-columns:1fr}.tov-achievement-card{padding:19px}.tov-studio-tools{padding:14px}.tov-preset-row button{flex:1 1 44%}.tov-studio-actions button{flex:1 1 46%}.tov-achievement-controls .tov-achievement-filter{flex:1 1 42%}}
 @media(max-width:375px){.tov-v2-rail a{flex:1 1 100%}.tov-discord-buttons>*{width:100%}}
 @media(prefers-reduced-motion:reduce){.tov-v2-rail a,.tov-achievement-card{transition:none!important}.tov-v2-rail a:hover,.tov-achievement-card:hover{transform:none}}
+
+
+/* TOV4R original illustration pack / lightweight SVGs authored for this site */
+.tov-premium-strip{position:relative;max-width:1240px;height:145px;overflow:hidden;margin:0 auto 24px;border:1px solid var(--v2-edge);border-radius:16px;background:#0e0a10;isolation:isolate}
+.tov-premium-strip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%;opacity:.81}
+.tov-premium-strip:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(7,7,12,.83),transparent 62%)}
+.tov-premium-strip span{position:absolute;left:clamp(16px,4vw,38px);bottom:clamp(14px,2vw,24px);z-index:1;max-width:70%;font:700 clamp(.86rem,2vw,1.16rem)/1.3 'Chakra Petch',system-ui,sans-serif;letter-spacing:.14em;text-shadow:0 2px 14px #000}
+#crosshair-studio .tov-xhair-stage{isolation:isolate;background:#15131b}
+#crosshair-studio .tov-crosshair-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% center;opacity:.82;pointer-events:none}
+#crosshair-studio .tov-xhair-stage:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(7,10,16,.13),rgba(9,5,13,.3))}
+#crosshair-studio #tov-xhair-mark{z-index:2;filter:drop-shadow(0 2px 2px #000) drop-shadow(0 0 8px #000)}
+#crosshair-studio .tov-xhair-label{z-index:2;text-shadow:0 2px 9px #000}
+.tov-art-banner{position:relative;max-width:1240px;height:clamp(170px,24vw,265px);margin:0 auto 24px;border-radius:18px;border:1px solid var(--v2-edge);overflow:hidden;background:#120b13;isolation:isolate}
+.tov-art-banner>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:68% 50%}
+.tov-art-banner:after{content:"";pointer-events:none;position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,7,12,.96),rgba(8,7,12,.64) 46%,rgba(8,7,12,.10) 80%)}
+.tov-art-banner-text{position:absolute;z-index:1;inset:auto auto 19px clamp(18px,4vw,36px);display:flex;flex-direction:column;gap:8px;max-width:55%;text-shadow:0 2px 8px #000}
+.tov-art-banner-text small{font:700 .64rem 'Chakra Petch',system-ui,sans-serif;letter-spacing:.12em;color:#ff8da4}
+.tov-art-banner-text strong{font:700 clamp(1.15rem,3.5vw,2rem)/1.18 'Chakra Petch',system-ui,sans-serif;letter-spacing:.08em;color:#fff}
+.tov-art-banner-text span{font-size:clamp(.7rem,1.5vw,.83rem);color:#f0d4dd}
+.tov-discord-main{background-image:url(media/tov4r-discord-art.svg);background-position:58% center;background-repeat:no-repeat;background-size:cover}
+@media(max-width:600px){.tov-premium-strip{height:110px}.tov-premium-strip span{letter-spacing:.07em;max-width:80%}.tov-art-banner{height:185px}.tov-art-banner-text{max-width:70%;bottom:16px}.tov-art-banner:after{background:linear-gradient(90deg,rgba(8,7,12,.95),rgba(8,7,12,.55) 70%,rgba(8,7,12,.22))}}
