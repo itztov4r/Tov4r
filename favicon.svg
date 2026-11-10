@@ -1,8 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-<title>TOV4R Gaming</title>
-<defs><linearGradient id="red" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff5263"/><stop offset="1" stop-color="#bd102c"/></linearGradient></defs>
-<rect x="2" y="2" width="60" height="60" rx="16" fill="#0b080c" stroke="#ee293e" stroke-width="3"/>
-<path d="M11 18h24v7h-8v23h-8V25h-8z" fill="#f7f2f3"/>
-<path d="M42 16 30 37h12v-8h7v8h5v7h-5v5h-7v-5H28v-7L40 16z" fill="url(#red)"/>
-<path d="M11 54h42" stroke="#ed253e" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+<title id="title">TOV4R</title>
+<desc id="desc">Monogramme T4 blanc et rouge sur fond noir.</desc>
+<defs>
+ <linearGradient id="face" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#16131a"/><stop offset="1" stop-color="#09080c"/></linearGradient>
+ <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff6979"/><stop offset="1" stop-color="#df172d"/></linearGradient>
+</defs>
+<rect x="2" y="2" width="60" height="60" rx="15" fill="url(#face)" stroke="#a83345" stroke-width="2"/>
+<path d="M11 17h24v8h-8v23h-8V25h-8z" fill="#f8f5f6"/>
+<path d="M47 16 34 38h21M48 16v33" fill="none" stroke="url(#accent)" stroke-width="7" stroke-linecap="square" stroke-linejoin="bevel"/>
+<path d="M15 55h34" fill="none" stroke="#ff6677" stroke-width="2" stroke-linecap="round" opacity=".68"/>
 </svg>
