@@ -100,6 +100,48 @@ h1 span{color:var(--red)}
 @media(max-width:720px){html{scroll-padding-top:130px}.wrap{width:min(100% - 28px,1120px)}.header-inner{flex-direction:column;align-items:stretch;gap:0;padding-top:12px;padding-bottom:7px}.brand{font-size:22px}.brand img{width:30px;height:30px}.nav{overflow:auto;gap:4px;scrollbar-width:none;margin-top:5px}.nav::-webkit-scrollbar{display:none}.nav a{padding:8px 11px;min-height:40px;font-size:13px}.hero{grid-template-columns:1fr;padding-block:48px 50px;gap:30px}.hero-copy{font-size:16px}.hero-visual{min-height:240px;aspect-ratio:1.55}.section{padding:53px 0}.section-heading{align-items:flex-start;flex-direction:column;gap:9px;margin-bottom:23px}.setup-box{grid-template-columns:1fr;padding:21px}.contact-box{align-items:flex-start;flex-direction:column}.footer .wrap{flex-direction:column;align-items:flex-start;gap:8px}}
 @media(max-width:510px){h1{font-size:clamp(47px,13vw,65px)}.hero-visual{min-height:225px}.game-grid{gap:10px}.game-card div{padding:12px}.game-card h3{font-size:15px}.game-card p{font-size:12px}.clip-grid,.link-grid{grid-template-columns:1fr}.link-grid .link-card:last-child{grid-column:auto}.clip-card{padding:17px;gap:13px}.spec{padding:12px}.spec strong{font-size:13px}.specs{gap:9px}.btn{width:100%}.hero .actions{display:grid;grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.clip-card,.btn{transition:none}}
+
+/* Restore original TOV4R cinematic background, without restoring the crowded layout. */
+body{background:#070405}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(rgba(7,4,5,.42),rgba(7,4,5,.76)),url("assets/media/bg-ambient.jpg") center/cover no-repeat}
+main,.footer{position:relative;z-index:1}
+.header{background:rgba(8,4,6,.92);border-bottom-color:rgba(227,22,43,.21)}
+.hero{position:relative;isolation:isolate;display:flex;align-items:center;min-height:min(800px,calc(100svh - 76px));padding:90px 0 100px;overflow:hidden;background:#070405}
+.hero-backdrop,.hero-art,.hero-glow,.hero-grid{position:absolute;pointer-events:none}
+.hero-backdrop{inset:0 0 0 26%;background:url("assets/media/hero-visual.jpg") center/cover no-repeat;filter:grayscale(1) contrast(1.15) brightness(1.05);opacity:.88;-webkit-mask-image:linear-gradient(90deg,transparent,#000 38%);mask-image:linear-gradient(90deg,transparent,#000 38%)}
+.hero-art{inset:0 0 0 38%;background:radial-gradient(circle at 50% 58%,rgba(227,22,43,.3),transparent 58%),url("assets/media/hero-overlay.jpg") center/contain no-repeat;filter:contrast(1.12) brightness(1.08);-webkit-mask-image:radial-gradient(ellipse 40% 60% at 50% 50%,#000 58%,transparent 100%);mask-image:radial-gradient(ellipse 40% 60% at 50% 50%,#000 58%,transparent 100%)}
+.hero-glow{left:55%;top:8%;width:46vw;aspect-ratio:1;max-width:640px;border-radius:50%;background:radial-gradient(circle,rgba(227,22,43,.22),transparent 65%)}
+.hero-grid{left:-30%;right:-30%;bottom:0;height:52%;background:linear-gradient(rgba(227,22,43,.24) 1px,transparent 1px) 0 0/100% 46px,linear-gradient(90deg,rgba(227,22,43,.24) 1px,transparent 1px) 0 0/70px 100%;transform:perspective(520px) rotateX(64deg);transform-origin:bottom;-webkit-mask-image:linear-gradient(180deg,transparent,#000 75%);mask-image:linear-gradient(180deg,transparent,#000 75%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(5,5,7,.88) 18%,rgba(5,5,7,.48) 48%,transparent 78%),linear-gradient(0deg,rgba(5,5,7,.90),transparent 30%)}
+.hero-inner{position:relative;z-index:2}
+.hero-content{max-width:610px}
+.hero h1{max-width:11ch;text-shadow:0 5px 36px rgba(0,0,0,.6)}
+.hero .hero-copy{max-width:510px;color:#e2dce0;text-shadow:0 2px 15px #000}
+.hero .eyebrow{color:#ffadb7;text-shadow:0 2px 12px #000}
+.hero .btn{background:rgba(10,6,9,.80);border-color:rgba(251,174,185,.44);backdrop-filter:blur(5px)}
+.hero .btn.primary{background:#e83d53;border-color:#e83d53;color:#fff}
+.hero .btn.primary:hover{background:#ff6378}
+.section{background:rgba(7,6,10,.47)}
+.section h2{color:#fff}
+.game-card,.clip-card,.link-card,.setup-box,.contact-box{background:rgba(19,15,21,.93);border-color:rgba(244,90,114,.22)}
+@media(max-width:900px){
+ .hero{min-height:650px;padding-block:78px}
+ .hero-backdrop{inset:0 0 0 20%;opacity:.7}
+ .hero-art{inset:0 0 0 24%;opacity:.65}
+ .hero::before{background:linear-gradient(90deg,rgba(5,5,7,.94),rgba(5,5,7,.62) 55%,rgba(5,5,7,.22)),linear-gradient(0deg,rgba(5,5,7,.94),transparent 35%)}
+}
+@media(max-width:720px){
+ .hero{min-height:590px;padding:72px 0 85px}
+ .hero-backdrop{inset:0;background-position:65% center;opacity:.52;-webkit-mask-image:none;mask-image:none}
+ .hero-art{inset:12% -22% 8% 12%;opacity:.44}
+ .hero-glow{left:15%;top:22%;width:75vw}
+ .hero-grid{height:35%}
+ .hero::before{background:linear-gradient(90deg,rgba(5,5,7,.83),rgba(5,5,7,.62)),linear-gradient(0deg,rgba(5,5,7,.94),transparent 38%)}
+ .hero h1{font-size:clamp(46px,11.5vw,72px)}
+ .hero .hero-copy{color:#f1eaed}
+}
+@media(max-width:510px){.hero{min-height:540px}.hero h1{max-width:10ch}.hero-content{width:100%}}
+
 </style>
 </head>
 <body>
@@ -111,14 +153,19 @@ h1 span{color:var(--red)}
  </div>
 </header>
 <main id="main">
- <section class="hero wrap" id="home" aria-labelledby="home-title">
-  <div>
-   <span class="eyebrow">Mon univers gaming</span>
-   <h1 id="home-title">Salut, moi c'est <span>TOV4R.</span></h1>
-   <p class="hero-copy">Je joue surtout à Counter-Strike 2, mais aussi à Valorant, GTA V / FiveM et Minecraft. Ici, tu peux découvrir mes jeux, regarder mes clips et retrouver mes liens.</p>
-   <div class="actions"><a class="btn primary" href="#clips">Regarder mes clips</a><a class="btn" href="#games">Découvrir mes jeux</a></div>
+ <section class="hero" id="home" aria-labelledby="home-title">
+  <div class="hero-backdrop" aria-hidden="true"></div>
+  <div class="hero-art" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+   <div class="hero-content">
+    <span class="eyebrow">Mon univers gaming</span>
+    <h1 id="home-title">Salut, moi c'est <span>TOV4R.</span></h1>
+    <p class="hero-copy">Bienvenue sur mon site gaming ! Découvre les jeux auxquels je joue, regarde mes clips CS2 et retrouve mes réseaux.</p>
+    <div class="actions"><a class="btn primary" href="#clips">Voir mes clips CS2</a><a class="btn" href="#games">Mes jeux</a></div>
+   </div>
   </div>
-  <div class="hero-visual"><img src="assets/media/hero-visual.jpg" alt="Illustration gaming utilisée sur le site TOV4R" width="960" height="960" fetchpriority="high"><span class="hero-sticker">TOV4R / GAMING</span></div>
  </section>
  <section class="section" id="games" aria-labelledby="games-title">
   <div class="wrap">
