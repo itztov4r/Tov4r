@@ -1,0 +1,81 @@
+/* TOV4R CINEMATIC EXPERIENCE v2 — progressive enhancement, zero dependencies. */
+:root{--cine-red:#fa305e;--cine-ice:#f7e4ec;--cine-ease:cubic-bezier(.18,.79,.24,1)}
+.tov-cine-stage{position:fixed;inset:0;z-index:120;display:grid;place-items:center;isolation:isolate;background:#090508;overflow:hidden;color:#fff;transition:opacity .55s ease,visibility .55s ease}
+.tov-cine-stage::before,.tov-cine-stage::after{content:"";position:absolute;pointer-events:none;inset:-40%;z-index:-1}
+.tov-cine-stage::before{background:repeating-linear-gradient(90deg,transparent 0 100px,rgba(255,60,100,.12) 101px,transparent 102px),repeating-linear-gradient(0deg,transparent 0 100px,rgba(255,60,100,.07) 101px,transparent 102px);transform:perspective(600px) rotateX(35deg) scale(1.2);animation:cineGrid 12s linear infinite}
+.tov-cine-stage::after{background:radial-gradient(circle at 50% 50%,rgba(240,33,68,.28),transparent 44%);animation:cineBreath 3s ease-in-out infinite alternate}
+.tov-cine-stage.tov-cine-leaving{opacity:0;visibility:hidden;pointer-events:none}
+.tov-cine-intro-panel{width:min(90vw,850px);display:grid;justify-items:center;text-align:center;gap:13px;position:relative;padding:28px}
+.tov-cine-intro-kicker{font:700 clamp(.58rem,1vw,.75rem) 'Chakra Petch',system-ui,sans-serif;letter-spacing:.56em;color:#ff829a;animation:cineIntroRise .65s both}
+.tov-cine-intro-title{font:900 clamp(5rem,18vw,12rem)/.95 'Chakra Petch',system-ui,sans-serif;letter-spacing:-.08em;margin:0;white-space:nowrap;text-shadow:0 0 30px rgba(255,40,80,.52),0 0 100px rgba(255,40,80,.2);animation:cineIntroImpact .96s var(--cine-ease) both}
+.tov-cine-intro-title span{color:#ff4269}
+.tov-cine-intro-tagline{font:700 clamp(.68rem,1.5vw,.94rem) 'Chakra Petch',system-ui,sans-serif;letter-spacing:.27em;animation:cineIntroRise .8s .25s both}
+.tov-cine-intro-progress{margin-top:24px;width:min(370px,70vw);height:2px;background:rgba(255,255,255,.15);overflow:hidden}
+.tov-cine-intro-progress i{display:block;width:100%;height:100%;background:linear-gradient(90deg,#f32952,#ffd0db,#f32952);transform-origin:left;animation:cineLoading 2.05s var(--cine-ease) both}
+.tov-cine-skip{margin-top:18px;border:1px solid rgba(255,255,255,.27);border-radius:3px;padding:9px 18px;background:#211016;color:#ffe7ed;font:700 .7rem 'Chakra Petch',system-ui,sans-serif;letter-spacing:.19em;cursor:pointer;transition:background .25s,border-color .25s}
+.tov-cine-skip:hover,.tov-cine-skip:focus-visible{background:#a92343;border-color:#ff8ba0;outline-offset:3px}
+@keyframes cineIntroImpact{0%{opacity:0;transform:scale(1.36) skewX(-9deg);filter:blur(17px)}60%{opacity:1;filter:blur(0)}75%{transform:scale(.96) skewX(1deg)}100%{opacity:1;transform:scale(1) skewX(0);filter:blur(0)}}
+@keyframes cineIntroRise{from{opacity:0;translate:0 25px}to{opacity:1;translate:0 0}}
+@keyframes cineLoading{from{scale:0 1}to{scale:1 1}}
+@keyframes cineGrid{to{background-position:0 165px,0 165px}}
+@keyframes cineBreath{to{opacity:.45;transform:scale(1.16)}}
+body.tov-cine-active #intro,body.tov-cine-active .tov-intro{opacity:0!important;visibility:hidden!important;animation:none!important}
+.tov-cine-hero{position:relative;isolation:isolate;--cine-mouse-x:50%;--cine-mouse-y:40%}
+.tov-cine-hero .tov-cine-aurora{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.tov-cine-aurora::before,.tov-cine-aurora::after{content:"";position:absolute;width:52vmin;height:52vmin;border-radius:50%;filter:blur(60px);opacity:.24;mix-blend-mode:screen}
+.tov-cine-aurora::before{left:15%;top:0;background:radial-gradient(circle,rgba(255,23,76,.8),transparent 68%);animation:cineOrbOne 14s ease-in-out infinite alternate}
+.tov-cine-aurora::after{right:-10%;bottom:-17%;background:radial-gradient(circle,rgba(166,37,130,.55),transparent 70%);animation:cineOrbTwo 16s ease-in-out infinite alternate}
+.tov-cine-hero canvas.tov-cine-particles{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;opacity:.68}
+.tov-cine-hero :is(.hero-inner,.hc,.hero-grid){position:relative;z-index:3}
+.tov-cine-hero :is(#home-title,#t,#hero-title){filter:drop-shadow(0 0 15px rgba(240,48,78,.26));transition:filter .6s ease}
+.tov-cine-hero:hover :is(#home-title,#t,#hero-title){filter:drop-shadow(0 0 24px rgba(240,48,78,.5))}
+@keyframes cineOrbOne{from{transform:translate(-14%,5%) scale(.9)}to{transform:translate(60%,-10%) scale(1.25)}}
+@keyframes cineOrbTwo{from{transform:translate(20%,-18%) scale(1)}to{transform:translate(-70%,25%) scale(1.2)}}
+.tov-cine-marquee{position:relative;overflow:hidden;white-space:nowrap;padding:13px 0;border-top:1px solid rgba(255,75,108,.22);border-bottom:1px solid rgba(255,75,108,.22);background:linear-gradient(95deg,#170a11,#0d070c,#200915);color:#fff;isolation:isolate}
+.tov-cine-marquee-track{width:max-content;display:flex;animation:cineMarquee 26s linear infinite}
+.tov-cine-marquee-copy{flex:none;display:flex;gap:24px;align-items:center;padding-right:24px;font:800 clamp(.7rem,1.25vw,.94rem) 'Chakra Petch',system-ui,sans-serif;letter-spacing:.23em}
+.tov-cine-marquee-copy b{color:#ff466e;font-size:1.25em;font-weight:900}
+@keyframes cineMarquee{to{transform:translateX(-50%)}}
+.tov-cine-section{position:relative}
+.tov-cine-trace{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#e53760 25%,#ffa2b4 50%,#e53760 75%,transparent);transform:scaleX(0);transform-origin:center;transition:transform 1.35s var(--cine-ease);pointer-events:none;z-index:3;opacity:.7}
+.tov-cine-section.tov-cine-seen>.tov-cine-trace{transform:scaleX(1)}
+.tov-cine-section.tov-cine-seen :is(.section-heading h2,.section-top h2,.sh h2){animation:cineHeadline 1s var(--cine-ease) both}
+@keyframes cineHeadline{0%{filter:blur(6px);letter-spacing:.075em;text-shadow:0 0 16px rgba(255,95,134,.6)}100%{filter:blur(0);letter-spacing:inherit;text-shadow:none}}
+@media(min-width:761px) and (hover:hover) and (pointer:fine){
+  body.tov4r-motion-enabled .tov4r-motion-target:not(.tov4r-motion-in){scale:.95;filter:blur(3px)}
+  body.tov4r-motion-enabled .tov4r-motion-target.tov4r-motion-in{scale:1;filter:blur(0)}
+  body.tov4r-motion-enabled .tov4r-motion-target{transition-property:opacity,translate,scale,filter;transition-duration:.78s,.78s,.95s,.85s}
+  body.tov4r-motion-enabled .tov4r-motion-card.tov4r-motion-target{transition-property:opacity,translate,scale,filter,transform,box-shadow,border-color;transition-duration:.78s,.78s,.9s,.82s,.3s,.3s,.3s}
+  body.tov4r-motion-enabled .tov4r-motion-card.tov-cine-tilt:is(:hover,:focus-within){
+   transform:perspective(1000px) rotateX(var(--cine-rx,0deg)) rotateY(var(--cine-ry,0deg)) translate3d(0,-7px,0)!important;
+   box-shadow:0 19px 56px rgba(0,0,0,.38),0 0 34px rgba(248,45,85,.2);
+   border-color:rgba(255,92,126,.64);
+  }
+  .tov-cine-tilt :is(img,.tov-thumb){transition:transform .65s var(--cine-ease),filter .5s ease;transform:translateZ(0);will-change:auto}
+  .tov-cine-tilt:is(:hover,:focus-within) img{transform:scale(1.055)}
+  .tov-cine-magnet{translate:var(--cine-btn-x,0px) var(--cine-btn-y,0px);transition:translate .24s var(--cine-ease)!important}
+  .tov-cine-magnet:is(:hover,:focus-visible){filter:drop-shadow(0 0 12px rgba(240,41,77,.4))}
+  .tov-cine-cursor{position:fixed;top:0;left:0;width:35px;height:35px;border-radius:50%;border:1px solid rgba(255,107,141,.6);box-shadow:0 0 23px rgba(250,49,87,.17);background:rgba(255,48,94,.03);pointer-events:none;z-index:99;opacity:0;transform:translate3d(-100px,-100px,0) translate(-50%,-50%);transition:width .28s,height .28s,background .28s,opacity .3s}
+  .tov-cine-cursor.on{opacity:1}
+  .tov-cine-cursor.hot{width:56px;height:56px;background:rgba(244,47,85,.08);border-color:rgba(255,160,183,.88)}
+  .tov-cine-cursor::after{content:"";position:absolute;inset:calc(50% - 2px);border-radius:50%;background:#ff5277;box-shadow:0 0 9px #ff5277}
+}
+.tov-cine-sheen{position:absolute;inset:-2px;pointer-events:none;border-radius:inherit;overflow:hidden;z-index:4}
+.tov-cine-sheen::after{content:"";position:absolute;top:-40%;bottom:-40%;left:-70%;width:32%;transform:skew(-24deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transition:left .7s var(--cine-ease)}
+.tov-cine-magnet:is(:hover,:focus-visible)>.tov-cine-sheen::after{left:145%}
+body.tov-cine-scrolled :is(.header,.tov-header-v3,.topbar){border-bottom-color:rgba(250,66,102,.51)!important;box-shadow:0 9px 35px rgba(0,0,0,.25)}
+@media(max-width:760px){
+ .tov-cine-aurora::before,.tov-cine-aurora::after{opacity:.15;filter:blur(42px)}
+ .tov-cine-hero canvas.tov-cine-particles{display:none}
+ .tov-cine-intro-title{font-size:clamp(4.6rem,19vw,7rem)}
+ .tov-cine-marquee{padding:10px 0}
+ .tov-cine-marquee-track{animation-duration:34s}
+}
+@media(prefers-reduced-motion:reduce){
+ .tov-cine-stage,.tov-cine-aurora,.tov-cine-particles,.tov-cine-cursor,.tov-cine-sheen{display:none!important}
+ .tov-cine-marquee-track{animation:none!important}
+ .tov-cine-trace{transform:scaleX(1)!important;transition:none!important}
+ .tov-cine-section :is(h1,h2,h3){animation:none!important}
+ .tov-cine-magnet{translate:none!important;transition:none!important}
+ body.tov4r-motion-enabled .tov4r-motion-target{opacity:1!important;scale:1!important;filter:none!important;translate:0 0!important}
+}
