@@ -12,9 +12,10 @@ body.tov4r-motion-enabled .tov4r-motion-heading.tov4r-motion-in{translate:0 0}
 body.tov4r-motion-enabled .tov4r-motion-card{
   position:relative;
   isolation:isolate;
-  transition-property:transform,box-shadow,border-color,filter;
-  transition-duration:.42s;
+  transition-property:opacity,translate,transform,box-shadow,border-color,filter;
+  transition-duration:.78s,.78s,.42s,.42s,.32s,.32s;
   transition-timing-function:var(--tov4r-ease);
+  transition-delay:var(--tov4r-delay,0ms);
 }
 body.tov4r-motion-enabled .tov4r-motion-card:is(:hover,:focus-within){
   border-color:rgba(255,95,125,.64);
