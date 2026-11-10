@@ -1,0 +1,91 @@
+/* TOV4R Motion System — additive effects; existing design, backgrounds and controls stay intact. */
+body.tov4r-motion-enabled{--tov4r-ease:cubic-bezier(.2,.72,.2,1);--tov4r-red:rgba(244,61,90,.68)}
+body.tov4r-motion-enabled .tov4r-motion-target{
+  opacity:0;
+  translate:0 24px;
+  transition:opacity .78s var(--tov4r-ease),translate .78s var(--tov4r-ease);
+  transition-delay:var(--tov4r-delay,0ms);
+}
+body.tov4r-motion-enabled .tov4r-motion-target.tov4r-motion-in{opacity:1;translate:0 0}
+body.tov4r-motion-enabled .tov4r-motion-heading.tov4r-motion-target{translate:0 16px}
+body.tov4r-motion-enabled .tov4r-motion-heading.tov4r-motion-in{translate:0 0}
+body.tov4r-motion-enabled .tov4r-motion-card{
+  position:relative;
+  isolation:isolate;
+  transition-property:transform,box-shadow,border-color,filter;
+  transition-duration:.42s;
+  transition-timing-function:var(--tov4r-ease);
+}
+body.tov4r-motion-enabled .tov4r-motion-card:is(:hover,:focus-within){
+  border-color:rgba(255,95,125,.64);
+  box-shadow:0 18px 48px rgba(0,0,0,.32),0 0 27px rgba(225,38,72,.16);
+}
+body.tov4r-motion-enabled .tov4r-motion-card>.tov4r-motion-shine{
+  position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:4;
+  opacity:0;
+  background:radial-gradient(290px circle at var(--tov4r-x,50%) var(--tov4r-y,50%),rgba(250,108,132,.19),transparent 71%);
+  transition:opacity .35s ease;
+}
+body.tov4r-motion-enabled .tov4r-motion-card:is(:hover,:focus-within)>.tov4r-motion-shine{opacity:1}
+body.tov4r-motion-enabled .tov4r-motion-card:is(:hover,:focus-within) :is(.link-icon,.contact-arrow,.tov-clip-play,.tov-v5-metric strong,.game .tag){
+  animation:tov4rMotionPop .46s var(--tov4r-ease) both;
+}
+@keyframes tov4rMotionPop{0%{scale:1}45%{scale:1.085}100%{scale:1}}
+body.tov4r-motion-enabled :is(.brand-icon,.tov-brand img,.brand-mark){
+  animation:tov4rMotionLogo 4.2s ease-in-out infinite alternate;
+}
+@keyframes tov4rMotionLogo{
+  from{filter:drop-shadow(0 0 0 rgba(240,53,78,0))}
+  to{filter:drop-shadow(0 0 11px rgba(240,53,78,.48))}
+}
+body.tov4r-motion-enabled .tov4r-motion-click{position:relative;overflow:hidden;isolation:isolate}
+body.tov4r-motion-enabled .tov4r-motion-click>.tov4r-motion-ripple{
+  position:absolute;left:var(--tov4r-ripple-x);top:var(--tov4r-ripple-y);
+  width:18px;height:18px;border-radius:50%;pointer-events:none;z-index:5;
+  background:rgba(255,255,255,.28);transform:translate(-50%,-50%) scale(0);
+  animation:tov4rMotionRipple .62s ease-out forwards;
+}
+@keyframes tov4rMotionRipple{
+  0%{opacity:.8;transform:translate(-50%,-50%) scale(0)}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(19)}
+}
+.tov4r-motion-progress{
+  position:fixed;top:0;left:0;right:0;height:3px;z-index:95;
+  pointer-events:none;transform-origin:left center;transform:scaleX(var(--tov4r-progress,0));
+  background:linear-gradient(90deg,#ed1e45,#ff8495 65%,#fff0f4);
+  box-shadow:0 0 14px rgba(243,52,84,.6);
+}
+body.tov4r-motion-enabled.tov4r-motion-downloads .hero-content>*{
+  animation:tov4rMotionHero .82s var(--tov4r-ease) both;
+  animation-delay:var(--tov4r-hero-delay,0ms);
+}
+@keyframes tov4rMotionHero{
+  from{opacity:0;translate:0 27px}
+  to{opacity:1;translate:0 0}
+}
+body.tov4r-motion-enabled :is(.nav,.topbar nav,#tov-main-nav) a{
+  transition:color .24s ease,text-shadow .24s ease;
+}
+body.tov4r-motion-enabled :is(.nav,.topbar nav,#tov-main-nav) a:is(:hover,:focus-visible){
+  text-shadow:0 0 14px rgba(255,93,119,.45);
+}
+body.tov4r-motion-enabled :is(.btn,.primary,.secondary,.tov-v5-btn,.tab,.card-actions button,.card-actions a){
+  transition:transform .26s var(--tov4r-ease),box-shadow .3s ease,background .3s ease,border-color .3s ease;
+}
+body.tov4r-motion-enabled :is(.btn,.primary,.secondary,.tov-v5-btn,.tab,.card-actions button,.card-actions a):is(:hover,:focus-visible){
+  box-shadow:0 9px 28px rgba(229,38,70,.22);
+}
+@media(max-width:760px){
+  body.tov4r-motion-enabled .tov4r-motion-target{translate:0 14px;transition-duration:.55s}
+  body.tov4r-motion-enabled .tov4r-motion-heading.tov4r-motion-target{translate:0 10px}
+  body.tov4r-motion-enabled .tov4r-motion-target.tov4r-motion-in{translate:0 0}
+  body.tov4r-motion-enabled .tov4r-motion-card>.tov4r-motion-shine{display:none}
+  body.tov4r-motion-enabled .tov4r-motion-card:is(:hover,:focus-within){box-shadow:0 7px 22px rgba(0,0,0,.22)}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  body .tov4r-motion-target{opacity:1!important;translate:none!important;transition:none!important}
+  body .tov4r-motion-shine,body .tov4r-motion-progress,body .tov4r-motion-ripple{display:none!important}
+  body .tov4r-motion-card,body .tov4r-motion-click{animation:none!important;transition:none!important}
+  body .hero-content>*{animation:none!important}
+}
