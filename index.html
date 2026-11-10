@@ -300,6 +300,68 @@ html.tov-motion .contact-card.tov-visible:nth-child(5){transition-delay:.24s}
  html.tov-motion .contact-card.tov-reveal{transition:none!important;opacity:1!important;transform:none!important}
 }
 
+
+/* TOV4R Cards V2 — unified interactive motion for every card on the homepage. */
+.tov-anim-card{
+ --tov-x:50%;--tov-y:50%;--tov-rx:0deg;--tov-ry:0deg;
+ position:relative;isolation:isolate;
+ border-color:rgba(244,99,118,.25);
+ transition:transform .44s cubic-bezier(.2,.7,.18,1),box-shadow .44s ease,border-color .3s ease,filter .3s ease;
+ transform-origin:center center;
+ backface-visibility:hidden;
+}
+.tov-anim-card::before{
+ content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+ background:radial-gradient(270px circle at var(--tov-x) var(--tov-y),rgba(255,87,119,.16),transparent 72%);
+ opacity:0;transition:opacity .35s ease;
+}
+.tov-anim-card:is(:hover,:focus-within)::before{opacity:1}
+.game-card,.clip-card,.link-card,.contact-card,.spec,.setup-box{overflow:hidden}
+.clip-card,.spec,.setup-box{isolation:isolate}
+.game-card:hover h3,.clip-card:hover h3,.link-card:hover h3{color:#ffb0ba}
+.game-card h3,.clip-card h3,.link-card h3{transition:color .28s ease}
+.clip-card .clip-number{transition:transform .35s ease,box-shadow .35s ease,background .3s ease}
+.clip-card:hover .clip-number,.clip-card:focus-visible .clip-number{transform:scale(1.1) rotate(-5deg);background:#632334;box-shadow:0 0 18px rgba(246,67,98,.3)}
+.link-card .link-icon{transition:transform .42s cubic-bezier(.2,.8,.2,1),background .3s ease,box-shadow .3s ease}
+.link-card:hover .link-icon,.link-card:focus-within .link-icon{transform:translateY(-3px) rotate(-7deg) scale(1.09);background:#522034;box-shadow:0 0 17px rgba(239,56,86,.2)}
+.spec strong{transition:color .25s ease}
+.spec:hover strong{color:#ffe0e5}
+.setup-box{transition:border-color .4s ease,box-shadow .4s ease,transform .4s ease}
+.contact-card .contact-chip{transition:background .3s ease,border-color .3s ease,transform .3s ease}
+.contact-card:hover .contact-chip{background:#5e2032;border-color:#ff8999;transform:translateY(-3px)}
+/* CSS reveal: clear and readable without JS; JS adds the stagger only when supported. */
+html.tov-motion .tov-anim-card.tov-reveal{
+ opacity:0;transform:translateY(28px) scale(.975);
+ transition:opacity .68s ease,transform .68s cubic-bezier(.18,.75,.23,1),border-color .3s ease,box-shadow .4s ease;
+}
+html.tov-motion .tov-anim-card.tov-reveal.tov-visible{
+ opacity:1;transform:translateY(0) scale(1);
+ transition-delay:var(--tov-stagger,0ms),var(--tov-stagger,0ms),0ms,0ms;
+}
+@media(hover:hover) and (pointer:fine){
+ html.tov-motion .tov-anim-card.tov-reveal.tov-visible:is(:hover,:focus-within),
+ .tov-anim-card:is(:hover,:focus-within){
+  transform:perspective(1050px) translateY(-8px) rotateX(var(--tov-rx,0deg)) rotateY(var(--tov-ry,0deg));
+  border-color:rgba(255,100,126,.8);
+  box-shadow:0 18px 38px rgba(0,0,0,.35),0 0 0 1px rgba(255,92,120,.16),0 0 24px rgba(230,30,66,.12);
+  transition-delay:0ms,0ms,0ms,0ms;
+ }
+ .tov-anim-card:is(:hover,:focus-within) .contact-cover img,
+ .tov-anim-card:is(:hover,:focus-within).game-card img{transform:scale(1.065)}
+}
+@media(max-width:720px){
+ .tov-anim-card::before{display:none}
+ html.tov-motion .tov-anim-card.tov-reveal{transform:translateY(15px) scale(.985)}
+ html.tov-motion .tov-anim-card.tov-reveal.tov-visible{transform:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .tov-anim-card,.tov-anim-card::before,.tov-anim-card img,
+ .tov-anim-card :is(h3,.clip-number,.link-icon,.contact-chip,.contact-arrow,.spec strong),
+ .setup-box{transition:none!important;animation:none!important}
+ .tov-anim-card:is(:hover,:focus-within),html.tov-motion .tov-anim-card.tov-reveal.tov-visible:is(:hover,:focus-within){transform:none!important}
+ .tov-anim-card::before{display:none!important}
+ html.tov-motion .tov-anim-card.tov-reveal{transform:none!important;opacity:1!important}
+}
 </style>
 </head>
 <body>
@@ -417,15 +479,45 @@ html.tov-motion .contact-card.tov-visible:nth-child(5){transition-delay:.24s}
 <script>
 (function(){
  "use strict";
- if(!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
- var nodes=document.querySelectorAll(".section-heading,.game-card,.clip-card,.setup-box,.link-card,.contact-card");
- var observer=new IntersectionObserver(function(entries){
+ var selector=".game-card,.clip-card,.link-card,.contact-card,.spec,.setup-box";
+ var cards=Array.prototype.slice.call(document.querySelectorAll(selector));
+ var reduced=window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ cards.forEach(function(card){
+  card.classList.add("tov-anim-card");
+  var group=card.closest(".game-grid,.clip-grid,.link-grid,.contact-grid,.specs");
+  var position=group ? Array.prototype.indexOf.call(group.children,card) : 0;
+  card.style.setProperty("--tov-stagger",Math.min(position*70,280)+"ms");
+ });
+ if(!reduced && "IntersectionObserver" in window){
+  var nodes=document.querySelectorAll(".section-heading,.game-card,.clip-card,.setup-box,.link-card,.contact-card,.spec");
+  var observer=new IntersectionObserver(function(entries){
    entries.forEach(function(entry){
-     if(entry.isIntersecting){entry.target.classList.add("tov-visible");observer.unobserve(entry.target);}
+    if(entry.isIntersecting){
+     entry.target.classList.add("tov-visible");
+     observer.unobserve(entry.target);
+    }
    });
- },{rootMargin:"0px 0px -35px 0px",threshold:0.05});
- nodes.forEach(function(node){node.classList.add("tov-reveal");observer.observe(node)});
- document.documentElement.classList.add("tov-motion");
+  },{rootMargin:"0px 0px -35px 0px",threshold:0.05});
+  nodes.forEach(function(node){node.classList.add("tov-reveal");observer.observe(node)});
+  document.documentElement.classList.add("tov-motion");
+ }
+ if(reduced || !window.matchMedia || !window.matchMedia("(hover:hover) and (pointer:fine)").matches)return;
+ cards.forEach(function(card){
+  card.addEventListener("pointermove",function(event){
+   var rect=card.getBoundingClientRect();
+   if(!rect.width || !rect.height)return;
+   var x=Math.max(0,Math.min(1,(event.clientX-rect.left)/rect.width));
+   var y=Math.max(0,Math.min(1,(event.clientY-rect.top)/rect.height));
+   card.style.setProperty("--tov-x",(x*100).toFixed(1)+"%");
+   card.style.setProperty("--tov-y",(y*100).toFixed(1)+"%");
+   card.style.setProperty("--tov-rx",((.5-y)*3.5).toFixed(2)+"deg");
+   card.style.setProperty("--tov-ry",((x-.5)*3.5).toFixed(2)+"deg");
+  },{passive:true});
+  card.addEventListener("pointerleave",function(){
+   card.style.setProperty("--tov-rx","0deg");
+   card.style.setProperty("--tov-ry","0deg");
+  });
+ });
 })();
 </script>
 </body>
