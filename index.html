@@ -277,12 +277,24 @@ html.tov-motion .tov-reveal.tov-visible{opacity:1;transform:translateY(0)}
 .game-card:hover,.link-card:hover{transform:translateY(-7px);border-color:rgba(244,91,113,.64);box-shadow:0 18px 35px rgba(0,0,0,.27),0 0 16px rgba(233,50,77,.1)}
 .clip-card:hover{transform:translateY(-6px) scale(1.008)}
 html.tov-motion .contact-card.tov-reveal{transition:opacity .7s ease,transform .7s ease,border-color .35s ease,box-shadow .35s ease}
+
+/* Revealed cards must keep their hover/focus lift instead of being locked at translateY(0). */
+html.tov-motion .tov-reveal.tov-visible.contact-card:is(:hover,:focus-visible){transform:translateY(-8px)}
+html.tov-motion .tov-reveal.tov-visible.game-card:hover,
+html.tov-motion .tov-reveal.tov-visible.link-card:hover{transform:translateY(-7px)}
+html.tov-motion .tov-reveal.tov-visible.clip-card:hover{transform:translateY(-6px) scale(1.008)}
+html.tov-motion .contact-card.tov-visible:nth-child(2){transition-delay:.06s}
+html.tov-motion .contact-card.tov-visible:nth-child(3){transition-delay:.12s}
+html.tov-motion .contact-card.tov-visible:nth-child(4){transition-delay:.18s}
+html.tov-motion .contact-card.tov-visible:nth-child(5){transition-delay:.24s}
+
 @media(max-width:1100px){.contact-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:720px){.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.contact-details{min-height:84px;padding:14px 30px 14px 12px}.contact-details strong{font-size:15px}.contact-chip{font-size:10px;left:9px;bottom:9px}.contact-arrow{right:10px;top:12px}}
 @media(max-width:420px){.contact-details strong{font-size:14px}.contact-cover{aspect-ratio:1/1.1}.contact-details small{font-size:11px}}
 @media(prefers-reduced-motion:reduce){
  .contact-card,.contact-card img,.contact-arrow,.game-card,.game-card img,.link-card,.clip-card{transition:none!important}
  .contact-card:hover,.contact-card:focus-visible,.game-card:hover,.link-card:hover,.clip-card:hover{transform:none!important}
+ html.tov-motion .tov-reveal.tov-visible:is(.contact-card,.game-card,.link-card,.clip-card):is(:hover,:focus-visible){transform:none!important}
  .contact-card:hover img,.contact-card:focus-visible img,.game-card:hover img{transform:none!important}
  .contact-card::after,.game-card::after,.link-card::after{display:none!important}
  html.tov-motion .contact-card.tov-reveal{transition:none!important;opacity:1!important;transform:none!important}
