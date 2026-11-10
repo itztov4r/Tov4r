@@ -185,9 +185,78 @@ main,.footer{position:relative;z-index:1}
  .hero-tagline{letter-spacing:.07em}
 }
 
+
+/* Classic TOV4R animation restored on top of the clean navigation and original background. */
+.tov-intro{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;background:#070405;z-index:100;pointer-events:none;animation:tov-intro-out .65s ease 1.65s forwards}
+.tov-intro-name{display:block;white-space:nowrap;overflow:hidden;width:0;border-right:3px solid #ed2d48;color:#fff;font:400 clamp(70px,16vw,155px)/1 "Permanent Marker",cursive;letter-spacing:-.06em;animation:tov-type .95s steps(5,end) .18s forwards,tov-caret .4s step-end 3}
+.tov-intro-name span{color:#f13b52}
+.tov-intro-caption{font:700 12px "Chakra Petch",system-ui,sans-serif;letter-spacing:.35em;color:#c8a4ad;opacity:0;animation:tov-fade-up .55s ease 1s forwards}
+@keyframes tov-type{to{width:5.3ch}}
+@keyframes tov-caret{50%{border-right-color:transparent}}
+@keyframes tov-intro-out{to{opacity:0;visibility:hidden}}
+@keyframes tov-fade-up{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+@keyframes tov-kenburns{from{transform:scale(1.025)}to{transform:scale(1.13)}}
+@keyframes tov-grid-flow{to{background-position:0 46px,0 0}}
+@keyframes tov-pulse{from{opacity:.45;transform:scale(.92)}to{opacity:.98;transform:scale(1.08)}}
+@keyframes tov-drift{0%{transform:translate3d(0,0,0);opacity:0}15%{opacity:.8}90%{opacity:.55}100%{transform:translate3d(var(--drift-x,20px),-90vh,0);opacity:0}}
+@keyframes tov-hero-glitch{
+  0%,93%,100%{transform:translate3d(0,0,0);opacity:0}
+  94%{transform:translate3d(-5px,0,0);opacity:.75;clip-path:inset(6% 0 65% 0)}
+  95%{transform:translate3d(5px,-2px,0);opacity:.55;clip-path:inset(53% 0 12% 0)}
+  96%{transform:translate3d(0,0,0);opacity:0}
+}
+@keyframes tov-hero-arrive{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.hero-backdrop{animation:tov-kenburns 26s ease-in-out infinite alternate}
+.hero-grid{animation:tov-grid-flow 3s linear infinite}
+.hero-glow{animation:tov-pulse 6s ease-in-out infinite alternate}
+.hero-particles{position:absolute;inset:0;overflow:hidden;z-index:1;pointer-events:none}
+.hero-particles i{position:absolute;bottom:-8px;left:var(--particle-left);height:3px;width:3px;border-radius:50%;background:#ff5368;box-shadow:0 0 11px #ec2742;animation:tov-drift var(--particle-duration) linear infinite;animation-delay:var(--particle-delay);opacity:0}
+.hero-particles i:nth-child(1){--particle-left:11%;--particle-duration:9s;--particle-delay:-1s;--drift-x:55px}
+.hero-particles i:nth-child(2){--particle-left:22%;--particle-duration:11s;--particle-delay:-5s;--drift-x:-24px}
+.hero-particles i:nth-child(3){--particle-left:39%;--particle-duration:8s;--particle-delay:-2s;--drift-x:38px}
+.hero-particles i:nth-child(4){--particle-left:51%;--particle-duration:13s;--particle-delay:-8s;--drift-x:-63px}
+.hero-particles i:nth-child(5){--particle-left:67%;--particle-duration:10s;--particle-delay:-6s;--drift-x:47px}
+.hero-particles i:nth-child(6){--particle-left:79%;--particle-duration:12s;--particle-delay:-9s;--drift-x:-20px}
+.hero-particles i:nth-child(7){--particle-left:88%;--particle-duration:14s;--particle-delay:-4s;--drift-x:-50px}
+.hero-particles i:nth-child(8){--particle-left:16%;--particle-duration:13s;--particle-delay:-11s;--drift-x:30px}
+.hero-particles i:nth-child(9){--particle-left:59%;--particle-duration:9s;--particle-delay:-7s;--drift-x:-30px}
+.hero-particles i:nth-child(10){--particle-left:96%;--particle-duration:11s;--particle-delay:-10s;--drift-x:-55px}
+.hero-particles i:nth-child(11){--particle-left:31%;--particle-duration:12s;--particle-delay:-3s;--drift-x:60px}
+.hero-particles i:nth-child(12){--particle-left:73%;--particle-duration:15s;--particle-delay:-12s;--drift-x:28px}
+.hero .hero-title{isolation:isolate}
+.hero .hero-title::before,.hero .hero-title::after{content:attr(data-title);position:absolute;inset:0;pointer-events:none;opacity:0;letter-spacing:inherit;font:inherit;transform:skew(0);white-space:nowrap}
+.hero .hero-title::before{color:#68d7eb;animation:tov-hero-glitch 6.3s linear infinite}
+.hero .hero-title::after{color:#f42d46;animation:tov-hero-glitch 6.3s linear -0.08s infinite reverse}
+.hero .eyebrow,.hero .hero-title,.hero .hero-tagline,.hero .hero-copy,.hero .actions{animation:tov-hero-arrive .7s ease both}
+.hero .eyebrow{animation-delay:1.45s}
+.hero .hero-title{animation-delay:1.52s}
+.hero .hero-tagline{animation-delay:1.63s}
+.hero .hero-copy{animation-delay:1.74s}
+.hero .actions{animation-delay:1.85s}
+.brand-icon{transition:transform .25s ease,filter .25s ease}
+.brand:hover .brand-icon{transform:rotate(-6deg) scale(1.07);filter:drop-shadow(0 0 16px rgba(240,47,76,.55))}
+.game-card,.link-card,.clip-card,.spec{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.game-card:hover,.link-card:hover,.clip-card:hover{transform:translateY(-5px);border-color:rgba(243,75,99,.65);box-shadow:0 12px 30px rgba(0,0,0,.24)}
+.spec:hover{border-color:#c04457}
+html.tov-motion .tov-reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
+html.tov-motion .tov-reveal.tov-visible{opacity:1;transform:translateY(0)}
+@media(max-width:720px){
+ .tov-intro-name{font-size:clamp(62px,17vw,98px)}
+ .hero-particles i:nth-child(n+8){display:none}
+ .hero .hero-title::before,.hero .hero-title::after{animation-duration:9s}
+}
+@media(prefers-reduced-motion:reduce){
+ .tov-intro{display:none!important}
+ .hero-backdrop,.hero-grid,.hero-glow,.hero-particles i,.hero .hero-title::before,.hero .hero-title::after,
+ .hero .eyebrow,.hero .hero-title,.hero .hero-tagline,.hero .hero-copy,.hero .actions,.tov-intro-name,.tov-intro-caption{animation:none!important}
+ .hero .eyebrow,.hero .hero-title,.hero .hero-tagline,.hero .hero-copy,.hero .actions{opacity:1!important;transform:none!important}
+ .game-card,.link-card,.clip-card,.spec,.brand-icon,.tov-reveal{transition:none!important;transform:none!important;opacity:1!important}
+}
+
 </style>
 </head>
 <body>
+<div class="tov-intro" aria-hidden="true"><span class="tov-intro-name">TOV<span>4</span>R</span><span class="tov-intro-caption">GAMING PORTFOLIO</span></div>
 <a class="skip" href="#main">Aller au contenu</a>
 <header class="header">
  <div class="wrap header-inner">
@@ -201,10 +270,11 @@ main,.footer{position:relative;z-index:1}
   <div class="hero-art" aria-hidden="true"></div>
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-particles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <div class="wrap hero-inner">
    <div class="hero-content">
     <span class="eyebrow">Bienvenue dans mon univers</span>
-    <h1 id="home-title" class="hero-title">TOV<span>4</span>R</h1>
+    <h1 id="home-title" class="hero-title" data-title="TOV4R">TOV<span>4</span>R</h1>
     <p class="hero-tagline">GAMING <span aria-hidden="true">/</span> CS2 <span aria-hidden="true">/</span> CLIPS</p>
     <p class="hero-copy">Je suis TOV4R, passionné par le gaming. Découvre mes jeux, regarde mes meilleurs moments sur CS2 et retrouve tous mes liens.</p>
     <div class="actions"><a class="btn primary" href="#clips">Voir mes clips CS2</a><a class="btn" href="#games">Mes jeux</a></div>
@@ -280,6 +350,21 @@ main,.footer{position:relative;z-index:1}
  var hash=window.location.hash;
  if(redirects[hash])window.location.replace('/'+redirects[hash]);
  else if(advanced.indexOf(hash)!==-1)window.location.replace('/studio.html'+hash);
+})();
+</script>
+
+<script>
+(function(){
+ "use strict";
+ if(!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+ var nodes=document.querySelectorAll(".section-heading,.game-card,.clip-card,.setup-box,.link-card,.contact-box");
+ var observer=new IntersectionObserver(function(entries){
+   entries.forEach(function(entry){
+     if(entry.isIntersecting){entry.target.classList.add("tov-visible");observer.unobserve(entry.target);}
+   });
+ },{rootMargin:"0px 0px -35px 0px",threshold:0.05});
+ nodes.forEach(function(node){node.classList.add("tov-reveal");observer.observe(node)});
+ document.documentElement.classList.add("tov-motion");
 })();
 </script>
 </body>
