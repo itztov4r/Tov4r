@@ -98,3 +98,24 @@
  #home.hero.hero-flex .hero-flex-claim-line:last-child>span::after{transform:scaleX(1)}
  #home.hero.hero-flex .hero-flex-led,#home.hero.hero-flex .hero-flex-down,#home.hero.hero-flex .hero-flex-edgeflash{animation:none!important}
 }
+
+
+/* Hotfix: the legacy pseudo-element glitch drew a second cyan/red TOV4R word
+   over the real brush lettering. Flex hero must always render one clean title. */
+#home.hero.hero-flex #home-title::before,
+#home.hero.hero-flex #home-title::after{
+  content:none!important;
+  display:none!important;
+  opacity:0!important;
+  animation:none!important;
+}
+#home.hero.hero-flex #home-title{
+  isolation:isolate;
+  overflow:visible;
+  -webkit-text-stroke:0;
+  text-shadow:0 8px 35px rgba(0,0,0,.75),0 0 23px rgba(241,36,74,.16);
+}
+@media(prefers-reduced-motion:reduce){
+  #home.hero.hero-flex #home-title{filter:none!important;opacity:1!important}
+  #home.hero.hero-flex .hero-flex-claim-line>span{opacity:1!important}
+}
