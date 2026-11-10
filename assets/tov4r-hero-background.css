@@ -1,4 +1,4 @@
-/* TOV4R / Living Hero v1
+/* TOV4R / Living Hero v2
    Slow pan + Ken Burns zoom on the ORIGINAL hero artwork.
    Uses CSS transforms for ambient motion and independent translate for mouse parallax. */
 #home.hero.hero-flex .hero-backdrop{
@@ -6,7 +6,7 @@
   backface-visibility:hidden;
   translate:var(--tov-bg-x,0px) var(--tov-bg-y,0px);
   transition:translate 1050ms cubic-bezier(.2,.75,.2,1);
-  animation:tovLivingBackdrop 23s ease-in-out infinite alternate !important;
+  animation:tovLivingBackdrop 14s ease-in-out infinite alternate !important;
   will-change:transform;
 }
 #home.hero.hero-flex .hero-art{
@@ -14,24 +14,24 @@
   backface-visibility:hidden;
   translate:var(--tov-art-x,0px) var(--tov-art-y,0px);
   transition:translate 1300ms cubic-bezier(.18,.7,.2,1);
-  animation:tovLivingArt 25s ease-in-out infinite alternate !important;
+  animation:tovLivingArt 18s ease-in-out infinite alternate !important;
   will-change:transform;
 }
 #home.hero.hero-flex .hero-flex-edgeflash{
-  animation:tovLivingLight 11s ease-in-out infinite alternate !important;
+  animation:tovLivingLight 9s ease-in-out infinite alternate !important;
   pointer-events:none;
 }
 @keyframes tovLivingBackdrop{
-  0%{transform:translate3d(-1.2%,-.5%,0) scale(1.10)}
-  25%{transform:translate3d(.7%,-1%,0) scale(1.14)}
-  50%{transform:translate3d(1.7%,.8%,0) scale(1.17)}
-  75%{transform:translate3d(.5%,1.1%,0) scale(1.13)}
-  100%{transform:translate3d(-1.1%,-.2%,0) scale(1.12)}
+  0%{transform:translate3d(-3.4%,-1.6%,0) scale(1.17)}
+  24%{transform:translate3d(-.8%,-2.2%,0) scale(1.20)}
+  52%{transform:translate3d(3.1%,.8%,0) scale(1.23)}
+  76%{transform:translate3d(1.2%,2%,0) scale(1.19)}
+  100%{transform:translate3d(-3%,.4%,0) scale(1.18)}
 }
 @keyframes tovLivingArt{
-  0%{transform:translate3d(1.0%,-.8%,0) scale(1.04);opacity:.82}
-  50%{transform:translate3d(-1.2%,1.1%,0) scale(1.09);opacity:.95}
-  100%{transform:translate3d(1%,-.6%,0) scale(1.05);opacity:.8}
+  0%{transform:translate3d(2.4%,-1.4%,0) scale(1.06);opacity:.75}
+  50%{transform:translate3d(-2.4%,1.8%,0) scale(1.11);opacity:.88}
+  100%{transform:translate3d(1.8%,-.8%,0) scale(1.07);opacity:.75}
 }
 @keyframes tovLivingLight{
   0%{opacity:.34;transform:translate3d(-6%,-4%,0) scale(.87)}
@@ -47,7 +47,7 @@
 }
 @media(max-width:760px){
   #home.hero.hero-flex .hero-backdrop{
-    animation-duration:28s !important;
+    animation-duration:22s !important;
     translate:0 0;
   }
   #home.hero.hero-flex .hero-art{
