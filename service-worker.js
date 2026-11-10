@@ -1,6 +1,6 @@
 /* TOV4R PWA V3 — static local-shell caching, no third-party requests. */
 'use strict';
-const VERSION='tov4r-shell-v10-20261111-living-hero1';
+const VERSION='tov4r-shell-v9-20261111-living-hero1';
 const ESSENTIALS=[
   '/', '/index.html', '/favicon.svg', '/manifest.webmanifest',
   '/assets/tov4r-motion.css?v=1', '/assets/tov4r-motion.js?v=1',
