@@ -362,10 +362,13 @@ html.tov-motion .tov-anim-card.tov-reveal.tov-visible{
  .tov-anim-card::before{display:none!important}
  html.tov-motion .tov-anim-card.tov-reveal{transform:none!important;opacity:1!important}
 }
+
+/* Homepage hotfix: legacy offset glitch duplicates the TOV4R heading. */
+#home.hero-flex #home-title::before,#home.hero-flex #home-title::after{display:none!important;content:none!important;animation:none!important}
 </style>
 <link rel="stylesheet" href="assets/tov4r-motion.css?v=1">
 <link rel="stylesheet" href="assets/tov4r-cinematic.css?v=2">
-<link rel="stylesheet" href="assets/tov4r-hero-flex.css?v=1">
+<link rel="stylesheet" href="assets/tov4r-hero-flex.css?v=2">
 </head>
 <body>
 <div class="tov-intro" aria-hidden="true"><span class="tov-intro-name">TOV<span>4</span>R</span><span class="tov-intro-caption">GAMING PORTFOLIO</span></div>
@@ -387,7 +390,7 @@ html.tov-motion .tov-anim-card.tov-reveal.tov-visible{
   <div class="wrap hero-inner">
    <div class="hero-content">
     <div class="hero-flex-kicker"><span class="hero-flex-kicker-index">T4 / 001</span><span class="hero-flex-led" aria-hidden="true"></span><span>BIENVENUE DANS MON UNIVERS</span></div>
-    <h1 id="home-title" class="hero-title" data-title="TOV4R">TOV<span>4</span>R</h1>
+    <h1 id="home-title" class="hero-title">TOV<span>4</span>R</h1>
     <p class="hero-tagline hero-flex-kode"><span>CS2</span><b aria-hidden="true">✦</b><span>CLIPS</span><b aria-hidden="true">✦</b><span>GAMING</span></p>
     <p class="hero-flex-claim"><span class="hero-flex-claim-line"><span>JE PARLE PEU.</span></span><span class="hero-flex-claim-line"><span>LES CLIPS <em>FONT LE BRUIT.</em></span></span></p>
     <p class="hero-copy hero-flex-copy">Mes games, mes clips CS2 et mon univers. <strong>Pas de grandes promesses : regarde et juge par toi-même.</strong></p>
