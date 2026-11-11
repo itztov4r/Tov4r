@@ -1,0 +1,137 @@
+/* TOV4R FULL-SITE LIVING WALLPAPER — one cinematic backdrop follows the whole page.
+   No actual heavyweight GIF: the original verified photo is animated continuously with
+   GPU-friendly transforms. All functional cards, text and links remain HTML. */
+body.tov-world-motion{
+  isolation:isolate;
+  background:#070405 !important;
+}
+body.tov-world-motion::before{display:none !important}
+body.tov-world-motion>.tov-world-scene{
+  position:fixed;inset:0;overflow:hidden;isolation:isolate;
+  pointer-events:none;z-index:0;background:#070405;
+  contain:paint;
+}
+.tov-world-scene .tov-world-photo{
+  position:absolute;inset:-11%;
+  background:#080508 url("/assets/media/hero-visual.jpg") 68% 44% / cover no-repeat;
+  opacity:.88;filter:grayscale(.18) contrast(1.12) brightness(.85);
+  transform-origin:65% 48%;
+  animation:tovWorldPan 19s cubic-bezier(.48,0,.52,1) infinite alternate;
+  will-change:transform;
+}
+.tov-world-scene .tov-world-vignette{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(5,3,7,.87),rgba(5,3,7,.62) 30%,rgba(7,2,8,.28) 70%,rgba(5,3,7,.6)),
+    linear-gradient(0deg,rgba(5,3,8,.77),transparent 23%,transparent 72%,rgba(5,3,8,.47));
+}
+.tov-world-scene .tov-world-aura{
+  position:absolute;inset:-35%;pointer-events:none;
+  background:radial-gradient(ellipse 35% 34% at 69% 54%,rgba(229,17,64,.3),transparent 70%);
+  animation:tovWorldAura 12s ease-in-out infinite alternate;opacity:.82;
+}
+.tov-world-scene .tov-world-film{
+  position:absolute;inset:0;pointer-events:none;opacity:.21;
+  background:repeating-linear-gradient(0deg,transparent 0px,rgba(255,203,214,.06) 1px,transparent 3px,transparent 5px);
+}
+@keyframes tovWorldPan{
+  0%{transform:translate3d(-4%,-2%,0) scale(1.06)}
+  25%{transform:translate3d(-1.5%,-3%,0) scale(1.10)}
+  50%{transform:translate3d(2.4%,.5%,0) scale(1.14)}
+  75%{transform:translate3d(3%,2%,0) scale(1.11)}
+  100%{transform:translate3d(-1.5%,1.5%,0) scale(1.08)}
+}
+@keyframes tovWorldAura{
+  0%{transform:translate3d(-4%,-4%,0) scale(.85);opacity:.45}
+  55%{transform:translate3d(4%,2%,0) scale(1.15);opacity:.85}
+  100%{transform:translate3d(-2%,7%,0) scale(.95);opacity:.5}
+}
+body.tov-world-motion>main,
+body.tov-world-motion>footer,
+body.tov-world-motion>.footer{
+  position:relative;z-index:1;
+}
+body.tov-world-motion>header{
+  z-index:30;
+}
+body.tov-world-motion-home #home.hero.hero-flex{
+  background:transparent!important;
+}
+body.tov-world-motion-home #home.hero.hero-flex .hero-backdrop,
+body.tov-world-motion-home #home.hero.hero-flex .hero-art{
+  display:none!important;
+}
+body.tov-world-motion-home #home.hero.hero-flex::after{
+  background:linear-gradient(90deg,rgba(4,2,6,.67),rgba(4,2,6,.35) 42%,transparent 78%)!important;
+  opacity:1!important;
+}
+body.tov-world-motion-home main>.section{
+  background:rgba(7,4,11,.36)!important;
+  border-top:1px solid rgba(246,93,121,.18);
+}
+body.tov-world-motion-home main>.section:nth-of-type(odd){
+  background:rgba(18,7,18,.48)!important;
+}
+body.tov-world-motion-home main>.contact-section{
+  background:linear-gradient(180deg,rgba(12,6,14,.48),rgba(22,6,17,.46))!important;
+}
+body.tov-world-motion-home .footer{
+  background:rgba(5,3,8,.65)!important;
+}
+body.tov-world-motion-studio #home.hero{
+  background-color:transparent!important;
+}
+body.tov-world-motion-studio main>section{
+  background-color:rgba(8,5,14,.57)!important;
+  background-image:none!important;
+  border-top-color:rgba(254,112,135,.15)!important;
+}
+body.tov-world-motion-studio main>section:nth-of-type(odd){
+  background-color:rgba(18,8,22,.68)!important;
+}
+body.tov-world-motion-studio #hbg{opacity:.3}
+body.tov-world-motion-downloads main>section.hero{
+  background:transparent!important;
+}
+body.tov-world-motion-downloads main>.catalog,
+body.tov-world-motion-downloads main>.guide,
+body.tov-world-motion-downloads main>.faq{
+  background:rgba(7,5,12,.48)!important;
+}
+body.tov-world-motion-downloads main>.editorial{
+  background:linear-gradient(130deg,rgba(35,12,25,.78),rgba(11,6,14,.59))!important;
+  backdrop-filter:blur(4px);
+}
+body.tov-world-motion-privacy main{
+  background:rgba(7,4,12,.69)!important;
+  border-radius:12px;
+}
+body.tov-world-motion-privacy .tov-world-scene .tov-world-photo{
+  opacity:.52;
+}
+body.tov-world-motion .tov-world-scene *,
+body.tov-world-motion>.tov-world-scene{
+  user-select:none;
+}
+body.tov-world-sleeping .tov-world-photo,
+body.tov-world-sleeping .tov-world-aura{
+  animation-play-state:paused!important;
+}
+@media(max-width:760px){
+  .tov-world-scene .tov-world-photo{
+    inset:-15%;background-position:61% 50%;
+    opacity:.73;animation-duration:26s;filter:grayscale(.2) brightness(.68);
+  }
+  .tov-world-scene .tov-world-vignette{
+    background:linear-gradient(90deg,rgba(4,2,8,.83),rgba(4,2,8,.53)),
+               linear-gradient(0deg,rgba(3,2,5,.75),transparent 34%,rgba(3,2,5,.25));
+  }
+  .tov-world-scene .tov-world-aura{opacity:.5;animation-duration:18s}
+  .tov-world-scene .tov-world-film{display:none}
+  body.tov-world-motion-studio main>section{background-color:rgba(8,5,14,.73)!important}
+  body.tov-world-motion-home main>.section{background-color:rgba(8,4,13,.59)!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .tov-world-photo,.tov-world-aura{animation:none!important;transform:none!important;will-change:auto!important}
+ .tov-world-film{display:none!important}
+}
