@@ -173,3 +173,76 @@ body.tov-world-sleeping .tov-world-aura{
    animation:none!important;transform:none!important;will-change:auto!important;
  }
 }
+
+
+/* UNIVERSE v3 — one continuous animated theme, with the original TOV4R
+   hooded character. Studio hero keeps a prominent copy on the right;
+   other pages have a subtle non-interactive portrait in their wallpaper. */
+.tov-world-scene .tov-world-figure{
+  position:absolute;
+  top:3%;right:-8%;height:95%;width:min(69vw,850px);
+  pointer-events:none;opacity:0;
+  background:url("/assets/media/hero-overlay.jpg") center 46%/contain no-repeat;
+  -webkit-mask-image:radial-gradient(ellipse 59% 70% at 50% 48%,#000 36%,rgba(0,0,0,.92) 60%,transparent 98%);
+  mask-image:radial-gradient(ellipse 59% 70% at 50% 48%,#000 36%,rgba(0,0,0,.92) 60%,transparent 98%);
+  transform-origin:50% 50%;
+  animation:tovUniverseFigureFloat 11s ease-in-out infinite alternate;
+  filter:contrast(1.18) brightness(.92);
+}
+@keyframes tovUniverseFigureFloat{
+  from{transform:translate3d(0,1%,0) scale(1)}
+  to{transform:translate3d(-2%,-1.5%,0) scale(1.045)}
+}
+body.tov-world-motion-studio .tov-world-figure{opacity:.2;right:-12%}
+body.tov-world-motion-downloads .tov-world-figure{opacity:.31;right:-14%;width:min(75vw,900px)}
+body.tov-world-motion-privacy .tov-world-figure{opacity:.11}
+body.tov-world-motion-studio #home.hero{position:relative;isolation:isolate;background:transparent!important}
+body.tov-world-motion-studio #home.hero .hbg{
+  display:block!important;position:absolute!important;inset:0 -2% -1% 43%!important;
+  z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 52%,rgba(231,22,65,.16),transparent 60%),
+    url("/assets/media/hero-overlay.jpg") center 48%/contain no-repeat!important;
+  opacity:.96!important;filter:contrast(1.2) brightness(1.08)!important;
+  -webkit-mask-image:radial-gradient(ellipse 59% 72% at 50% 48%,#000 38%,rgba(0,0,0,.92) 61%,transparent 100%)!important;
+  mask-image:radial-gradient(ellipse 59% 72% at 50% 48%,#000 38%,rgba(0,0,0,.92) 61%,transparent 100%)!important;
+  animation:tovCharacterHover 10s ease-in-out infinite alternate!important;
+  will-change:transform;
+}
+body.tov-world-motion-studio #home.hero .hc{z-index:4;position:relative}
+body.tov-world-motion-studio #home.hero .hc p{text-shadow:0 2px 12px #000}
+body.tov-world-motion-studio main>.tov-v5-section{
+  background:linear-gradient(155deg,rgba(14,8,19,.68),rgba(7,5,13,.57))!important;
+}
+body.tov-world-motion-studio main>.tov-v5-section:nth-of-type(even){
+  background:linear-gradient(150deg,rgba(22,8,19,.62),rgba(8,5,12,.6))!important;
+}
+body.tov-world-motion-downloads:not(.tov-world-motion-privacy) .hero-grid{
+  background:linear-gradient(125deg,rgba(24,16,22,.91),rgba(14,10,18,.70))!important;
+  border-color:rgba(255,82,121,.28);
+}
+body.tov-world-motion-downloads .hero-content{position:relative;z-index:2}
+body.tov-world-motion-downloads main>.catalog,
+body.tov-world-motion-downloads main>.faq,
+body.tov-world-motion-downloads main>.guide{background-color:rgba(8,5,12,.54)!important}
+body.tov-world-sleeping .tov-world-figure,
+body.tov-world-sleeping #home.hero .hbg{animation-play-state:paused!important}
+@media(max-width:900px){
+  body.tov-world-motion-studio #home.hero .hbg{inset:4% -24% 0 30%!important;opacity:.54!important}
+  body.tov-world-motion-studio .tov-world-figure{opacity:.12}
+  body.tov-world-motion-downloads .tov-world-figure{opacity:.22;right:-34%;width:105vw}
+}
+@media(max-width:600px){
+  body.tov-world-motion-studio #home.hero .hbg{
+    inset:4% -35% 7% 17%!important;opacity:.27!important;
+    filter:brightness(.72) contrast(1.1)!important;
+  }
+  body.tov-world-motion-downloads .tov-world-figure{opacity:.13;right:-39%;width:130vw}
+  body.tov-world-motion-studio main>.tov-v5-section{
+    background:linear-gradient(165deg,rgba(12,6,18,.76),rgba(7,5,13,.71))!important
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .tov-world-figure,body.tov-world-motion-studio #home.hero .hbg{
+    animation:none!important;transform:none!important;will-change:auto!important;
+  }
+}
