@@ -1,13 +1,13 @@
 /* TOV4R PWA V3 — static local-shell caching, no third-party requests. */
 'use strict';
-const VERSION='tov4r-shell-v9-20261111-worldwall-char-v2';
+const VERSION='tov4r-shell-v9-20261111-universe-v3';
 const ESSENTIALS=[
   '/', '/index.html', '/favicon.svg', '/manifest.webmanifest',
   '/assets/tov4r-motion.css?v=1', '/assets/tov4r-motion.js?v=1',
   '/assets/tov4r-cinematic.css?v=2', '/assets/tov4r-cinematic.js?v=2',
   '/assets/tov4r-hero-flex.css?v=2', '/assets/tov4r-hero-flex.js?v=1',
   '/assets/tov4r-hero-background.css?v=2', '/assets/tov4r-hero-background.js?v=2',
-  '/assets/tov4r-world-motion.css?v=2', '/assets/tov4r-world-motion.js?v=1',
+  '/assets/tov4r-world-motion.css?v=3', '/assets/tov4r-world-motion.js?v=2',
   '/icons/tov4r-192.png', '/icons/tov4r-512.png',
   '/assets/tov4r-core.css?v=4', '/assets/tov4r-music.css?v=4',
   '/assets/tov4r-pro.css?v=2', '/assets/tov4r-hub.css?v=1',
