@@ -12,7 +12,7 @@
  var scene=document.createElement('div');
  scene.className='tov-world-scene';
  scene.setAttribute('aria-hidden','true');
- ['tov-world-photo','tov-world-vignette','tov-world-aura','tov-world-film'].forEach(function(name){
+ ['tov-world-photo','tov-world-figure','tov-world-vignette','tov-world-aura','tov-world-film'].forEach(function(name){
   var node=document.createElement('div');node.className=name;scene.appendChild(node);
  });
  body.insertBefore(scene,body.firstChild);
