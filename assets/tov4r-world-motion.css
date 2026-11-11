@@ -57,9 +57,34 @@ body.tov-world-motion>header{
 body.tov-world-motion-home #home.hero.hero-flex{
   background:transparent!important;
 }
-body.tov-world-motion-home #home.hero.hero-flex .hero-backdrop,
-body.tov-world-motion-home #home.hero.hero-flex .hero-art{
+/* The global wallpaper owns the texture. Restore the original hooded
+   TOV4R character as a dedicated visual on the RIGHT side of the hero. */
+body.tov-world-motion-home #home.hero.hero-flex .hero-backdrop{
   display:none!important;
+}
+body.tov-world-motion-home #home.hero.hero-flex .hero-art{
+  display:block!important;
+  position:absolute;
+  inset:0 2% -2% 44%;
+  z-index:3;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 51% 53%,rgba(235,25,68,.18),transparent 58%),
+    url("/assets/media/hero-overlay.jpg") center 49% / contain no-repeat;
+  background-color:transparent;
+  opacity:.96;
+  filter:contrast(1.16) brightness(1.10);
+  -webkit-mask-image:radial-gradient(ellipse 58% 70% at 52% 48%,#000 38%,rgba(0,0,0,.95) 58%,transparent 98%);
+  mask-image:radial-gradient(ellipse 58% 70% at 52% 48%,#000 38%,rgba(0,0,0,.95) 58%,transparent 98%);
+  transform-origin:50% 52%;
+  translate:0 0;
+  transition:none!important;
+  animation:tovCharacterHover 9s ease-in-out infinite alternate!important;
+  will-change:transform;
+}
+@keyframes tovCharacterHover{
+  from{transform:translate3d(0,0,0) scale(1)}
+  to{transform:translate3d(-.6%,-1.2%,0) scale(1.025)}
 }
 body.tov-world-motion-home #home.hero.hero-flex::after{
   background:linear-gradient(90deg,rgba(4,2,6,.67),rgba(4,2,6,.35) 42%,transparent 78%)!important;
@@ -130,8 +155,21 @@ body.tov-world-sleeping .tov-world-aura{
   .tov-world-scene .tov-world-film{display:none}
   body.tov-world-motion-studio main>section{background-color:rgba(8,5,14,.73)!important}
   body.tov-world-motion-home main>.section{background-color:rgba(8,4,13,.59)!important}
+  body.tov-world-motion-home #home.hero.hero-flex .hero-art{
+    inset:4% -34% 2% 24%;
+    background-position:60% 45%;
+    background-size:contain;
+    opacity:.33;
+    filter:contrast(1.2) brightness(.77);
+    animation-duration:14s!important;
+    -webkit-mask-image:radial-gradient(ellipse 60% 72% at 58% 44%,#000 35%,transparent 97%);
+    mask-image:radial-gradient(ellipse 60% 72% at 58% 44%,#000 35%,transparent 97%);
+  }
 }
 @media(prefers-reduced-motion:reduce){
  .tov-world-photo,.tov-world-aura{animation:none!important;transform:none!important;will-change:auto!important}
  .tov-world-film{display:none!important}
+ body.tov-world-motion-home #home.hero.hero-flex .hero-art{
+   animation:none!important;transform:none!important;will-change:auto!important;
+ }
 }
