@@ -1,18 +1,18 @@
 {
   "id": "/",
-  "name": "TOV4R — Gaming Portfolio",
-  "short_name": "TOV4R",
-  "description": "TOV4R gaming portfolio, CS2 highlights, crosshair demos, setup and community.",
-  "lang": "fr",
+  "name": "TOV4R STUDIO — Themes & Templates",
+  "short_name": "TOV4R STUDIO",
+  "description": "Independent Discord theme and website template releases by TOV4R.",
+  "lang": "en",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "orientation": "any",
-  "background_color": "#070405",
-  "theme_color": "#090609",
+  "background_color": "#08090c",
+  "theme_color": "#08090c",
   "categories": [
-    "games",
-    "entertainment"
+    "design",
+    "developer tools",
+    "productivity"
   ],
   "icons": [
     {
