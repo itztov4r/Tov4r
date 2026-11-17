@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Noirfolio — a responsive, editable single-file portfolio template from TOV4R STUDIO.">
+<title>Noirfolio — One-file Portfolio Template</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1019;--panel:#151c28;--line:#303c4f;--text:#f5f7fb;--muted:#a0aabc;--accent:#88aeff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;font-size:16px;line-height:1.65}
+body:before{content:"";position:absolute;top:0;right:0;width:48vw;height:55vw;background:radial-gradient(ellipse,#263e6669,transparent 65%);pointer-events:none}
+.wrap{width:min(1050px,calc(100% - 40px));margin:auto}a{color:inherit;text-decoration:none}a:hover{color:var(--accent)}a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+header{height:80px;display:flex;align-items:center;justify-content:space-between;gap:15px;position:relative}header strong{letter-spacing:-.06em;font-size:25px}header strong span,.accent{color:var(--accent)}
+nav{display:flex;gap:26px;font-size:13px;font-weight:700;color:#c3cddd}
+h1,h2,h3{line-height:1.12;letter-spacing:-.065em}h1{font-size:clamp(55px,8vw,108px);margin:16px 0 22px}h2{font-size:clamp(33px,5vw,49px);margin:0 0 22px}
+.kicker{font-size:11px;color:var(--accent);font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+.hero{padding:95px 0 115px;position:relative}.hero p{max-width:570px;font-size:18px;color:var(--muted)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:12px 18px;border-radius:10px;font-size:13px;font-weight:800;border:1px solid #5b6980}
+.btn.primary{background:var(--accent);color:#111622;border-color:var(--accent)}.btn:hover{transform:translateY(-2px)}
+section{padding:70px 0;border-top:1px solid #283242}.section-desc{color:var(--muted);max-width:600px;margin:0 0 26px}
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.preview{aspect-ratio:1.65;background:linear-gradient(135deg,#1f385b,#0e1724);display:flex;align-items:center;justify-content:center;color:#8cbbff;font-size:70px;font-weight:800;letter-spacing:-.1em}
+.card:nth-child(2) .preview{background:linear-gradient(135deg,#26324b,#452c5c);color:#d3adfb}.card .info{padding:22px}
+.card h3{margin:0 0 5px;font-size:22px}.card p{margin:0;color:var(--muted);font-size:14px}
+.skills{display:flex;gap:10px;flex-wrap:wrap}.skill{border:1px solid #465772;border-radius:60px;padding:10px 17px;background:#151c28;font-size:13px}
+.contact{background:linear-gradient(140deg,#1c2a40,#131c2b);padding:38px;border:1px solid #425572;border-radius:20px}
+.contact p{color:#b9c4d7}.contact a{color:#aecaff;text-decoration:underline;text-underline-offset:3px}
+footer{padding:30px 0;color:#8e9cae;font-size:12px}
+@media(max-width:650px){header{height:72px}nav{gap:12px;font-size:12px}.hero{padding:62px 0 80px}.projects{grid-template-columns:1fr}h1{font-size:55px}.contact{padding:25px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn:hover{transform:none}}
+</style></head>
+<body>
+<div class="wrap">
+<header><a href="#top"><strong>YOUR<span>NAME.</span></strong></a><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav></header>
+<main id="top">
+<section class="hero" style="border:0"><span class="kicker">Developer · Designer · Creator</span><h1>Work that<br><span class="accent">speaks.</span></h1><p>I'm Your Name — a creative developer crafting thoughtful digital experiences. This text is a sample: replace it with your own story.</p>
+<div class="actions"><a class="btn primary" href="#work">Explore my work ↗</a><a class="btn" href="#contact">Get in touch →</a></div></section>
+<section id="work"><span class="kicker">Selected projects</span><h2>What I've made.</h2><p class="section-desc">Replace these sample cards with real work before publishing your portfolio.</p><div class="projects">
+<article class="card"><div class="preview" aria-hidden="true">01</div><div class="info"><h3>Project One</h3><p>Describe the problem you solved and the tools you used.</p></div></article>
+<article class="card"><div class="preview" aria-hidden="true">02</div><div class="info"><h3>Project Two</h3><p>Add a real screenshot, demo URL and project details here.</p></div></article>
+</div></section>
+<section id="skills"><span class="kicker">My toolkit</span><h2>Skills & tools.</h2><div class="skills"><span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">JavaScript</span><span class="skill">UI Design</span><span class="skill">Accessibility</span></div></section>
+<section id="contact"><div class="contact"><span class="kicker">Let's build something</span><h2>Have a project in mind?</h2><p>Change this placeholder email address to your own before publishing.</p><a href="mailto:hello@example.com">hello@example.com ↗</a></div></section>
+</main><footer>© <span id="year">2026</span> Your Name. Template by TOV4R STUDIO.</footer>
+</div>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body></html>
