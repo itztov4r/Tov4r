@@ -1,0 +1,213 @@
+/**
+ * @name TOV4R Death Note
+ * @author TOV4R
+ * @description Notebook-inspired, crimson-on-black Discord theme with subtle ruled-paper details, readable chat and angular panels.
+ * @version 1.1.0
+ * @source https://github.com/itztov4r/Tov4r/blob/betterdiscord-deathnote/themes/TOV4R-DeathNote.theme.css
+ */
+
+/*
+ * TOV4R DEATH NOTE — public, artwork-free edition
+ * Personal anime art is intentionally NOT redistributed.
+ *
+ * Optional background: replace "none" in --tov4r-dn-wallpaper with
+ * url("https://your-permitted-image.example/background.jpg").
+ * Use artwork that you have permission to redistribute.
+ *
+ * Dark appearance recommended.
+ */
+
+/* Palette / customization */
+:root,
+.theme-dark,
+.theme-darker,
+.theme-midnight {
+  --tov4r-dn-wallpaper: none;
+  --tov4r-dn-ink: #09080c;
+  --tov4r-dn-ink-2: #100b10;
+  --tov4r-dn-panel: #160d12;
+  --tov4r-dn-crimson: #b01d2c;
+  --tov4r-dn-crimson-light: #e84958;
+  --tov4r-dn-paper: #f5ebe7;
+  --tov4r-dn-quiet: #beb0b5;
+  --tov4r-dn-line: rgba(229, 64, 83, .22);
+  --tov4r-dn-glow: rgba(175, 21, 42, .22);
+  --tov4r-dn-radius: 7px;
+
+  /* Discord legacy + current surfaces; untouched areas remain readable. */
+  --background-primary: var(--tov4r-dn-ink-2);
+  --background-secondary: var(--tov4r-dn-panel);
+  --background-secondary-alt: #1a0f15;
+  --background-tertiary: var(--tov4r-dn-ink);
+  --background-floating: #1d1119;
+  --background-base-lowest: var(--tov4r-dn-ink);
+  --background-base-lower: var(--tov4r-dn-ink-2);
+  --background-base-low: #140d12;
+  --background-surface-high: #20141b;
+  --background-surface-higher: #281820;
+  --background-surface-highest: #302027;
+  --bg-base-primary: var(--tov4r-dn-ink-2);
+  --bg-base-secondary: var(--tov4r-dn-panel);
+  --bg-base-tertiary: var(--tov4r-dn-ink);
+  --bg-surface-overlay: #21131b;
+  --bg-surface-raised: #21131b;
+
+  --text-normal: var(--tov4r-dn-paper);
+  --text-primary: var(--tov4r-dn-paper);
+  --text-default: var(--tov4r-dn-paper);
+  --text-muted: var(--tov4r-dn-quiet);
+  --header-primary: var(--tov4r-dn-paper);
+  --header-secondary: var(--tov4r-dn-quiet);
+  --interactive-normal: #d6c9cc;
+  --interactive-hover: #fff5f3;
+  --interactive-active: #ffffff;
+  --interactive-muted: #91838a;
+  --channels-default: #bbaeb4;
+  --channel-icon: #bcafb4;
+
+  --brand-experiment: var(--tov4r-dn-crimson);
+  --brand-500: var(--tov4r-dn-crimson);
+  --brand-560: #8f1825;
+  --control-brand-foreground: var(--tov4r-dn-crimson-light);
+  --button-filled-brand-background: var(--tov4r-dn-crimson);
+  --button-filled-brand-background-hover: #c72639;
+  --button-filled-brand-background-active: #851522;
+  --focus-primary: #f17e88;
+  --background-modifier-hover: rgba(190, 40, 59, .16);
+  --background-modifier-selected: rgba(190, 40, 59, .26);
+  --background-modifier-active: rgba(190, 40, 59, .30);
+  --background-mentioned: rgba(172, 36, 48, .12);
+  --background-mentioned-hover: rgba(172, 36, 48, .18);
+  --scrollbar-auto-thumb: #78323d;
+  --scrollbar-thin-thumb: #78323d;
+}
+
+/* Ink-black canvas; layered wallpaper is optional. */
+#app-mount {
+  background-color: var(--tov4r-dn-ink) !important;
+  background-image:
+    linear-gradient(115deg, rgba(5, 4, 7, .88), rgba(26, 8, 15, .86)),
+    var(--tov4r-dn-wallpaper);
+  background-position: center;
+  background-size: cover;
+}
+
+/* Major surfaces are distinct so navigation is never lost. */
+#app-mount [class*="guilds_"],
+#app-mount [class*="scroller_"][class*="none_"] {
+  background-color: var(--tov4r-dn-ink);
+}
+#app-mount [class*="sidebar_"],
+#app-mount [class*="privateChannels_"],
+#app-mount [class*="membersWrap_"],
+#app-mount [class*="members_"] {
+  background-color: var(--tov4r-dn-panel);
+}
+#app-mount [class*="container_"][class*="themed_"],
+#app-mount [class*="title_"][class*="container_"] {
+  border-bottom: 1px solid var(--tov4r-dn-line);
+}
+#app-mount [class*="chatContent_"] {
+  background-color: rgba(12, 8, 13, .94);
+  background-image:
+    repeating-linear-gradient(
+      to bottom, transparent 0px, transparent 46px,
+      rgba(142, 44, 58, .045) 47px,
+      transparent 48px
+    );
+}
+
+/* Angular panels, subtle crimson edges. */
+#app-mount [class*="panels_"],
+#app-mount [class*="channelTextArea_"],
+#app-mount [class*="searchBar_"][class*="container_"] {
+  border: 1px solid var(--tov4r-dn-line);
+  border-radius: var(--tov4r-dn-radius);
+}
+#app-mount [class*="panels_"] {
+  background: #120b11;
+}
+#app-mount [class*="channelTextArea_"] {
+  background: #1a1118;
+}
+#app-mount [class*="scrollableContainer_"] {
+  background: transparent;
+}
+#app-mount [class*="channelTextArea_"]:focus-within {
+  border-color: #d44251;
+  box-shadow: 0 0 0 1px rgba(212, 66, 81, .18);
+}
+
+/* Red notebook edge for active navigation, no hidden actions. */
+#app-mount [class*="modeSelected_"] [class*="link_"],
+#app-mount [class*="modeConnected_"] [class*="link_"] {
+  background: linear-gradient(90deg, rgba(198, 32, 53, .32), rgba(198, 32, 53, .07));
+  box-shadow: inset 3px 0 0 var(--tov4r-dn-crimson-light);
+  border-radius: 4px;
+}
+#app-mount [class*="modeUnread_"] [class*="name_"] {
+  color: #fff2ed;
+}
+
+/* Quieter message separators; hover gives a hand-inked margin. */
+#app-mount [class*="message_"][class*="cozy_"]:hover,
+#app-mount [class*="message_"][class*="compact_"]:hover {
+  background-color: rgba(177, 38, 57, .075);
+  box-shadow: inset 2px 0 0 rgba(216, 52, 69, .55);
+}
+#app-mount [class*="mentioned_"] {
+  background-color: rgba(180, 39, 55, .14);
+  box-shadow: inset 2px 0 0 #d14656;
+}
+
+/* Chapters / headings are serif, messages remain highly legible. */
+#app-mount h1,
+#app-mount h2,
+#app-mount h3,
+#app-mount [class*="title_"] > [class*="text_"] {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: .026em;
+}
+#app-mount [class*="username_"] {
+  font-weight: 650;
+}
+#app-mount a {
+  text-decoration-color: rgba(229, 73, 89, .6);
+}
+
+/* Menus + dialogs stay opaque, avoiding text over art. */
+#app-mount [role="menu"],
+#app-mount [role="dialog"],
+#app-mount [class*="userPopout_"] {
+  background-color: #1b1016;
+  border: 1px solid var(--tov4r-dn-line);
+}
+#app-mount [role="menuitem"]:hover {
+  background-color: rgba(177, 38, 57, .2);
+}
+
+/* A crimson bookmark-style divider without covering controls. */
+#app-mount [class*="sidebar_"] [class*="header_"] {
+  border-bottom: 1px solid var(--tov4r-dn-line);
+}
+
+/* Respect reduced motion and contrast needs. */
+#app-mount button,
+#app-mount [role="button"] {
+  transition: background-color .16s ease, box-shadow .16s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  #app-mount button,
+  #app-mount [role="button"] {
+    transition: none !important;
+  }
+}
+@media (prefers-contrast: more) {
+  #app-mount [class*="chatContent_"] {
+    background-image: none;
+  }
+  :root, .theme-dark {
+    --tov4r-dn-quiet: #eee2e4;
+    --tov4r-dn-line: rgba(255, 134, 146, .65);
+  }
+}
