@@ -179,3 +179,9 @@ dialog .dialog-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
 @media(max-width:790px){.hero-photo{inset:8px 12px 15px 42px}.hero-art .showcase{transform:translate(3%,20%) rotate(-6deg)}.hero-art .hero-badge{right:1%}}
 @media(max-width:560px){.hero-photo{inset:8px 9px 22px 24px}.hero-art .showcase{max-width:210px;width:60%;transform:translate(5%,19%) rotate(-5deg)}.hero-art .showcase-body{grid-template-columns:27px 55px 1fr;min-height:170px}.hero-art .mock-chat{padding:11px 4px}.hero-art .mock-channels{padding:8px 4px}.hero-art .mock-channels span{font-size:8px}.hero-art .mock-channels b{font-size:8px}.hero-art .hero-badge{bottom:0;right:0}.cover-portfolio .browser-mini,.cover-launch .browser-mini{left:29%}.hero-photo figcaption{font-size:8px}}
 @media(prefers-reduced-motion:reduce){.product:hover .cover-photo{transform:none}.product-cover .cover-photo{transition:none}}
+
+/* TOV4R Studio original product artwork — replaces unrelated stock product photos. */
+.product-cover.studio-cover::after{display:none}
+.product-cover.studio-cover .studio-art{filter:none;object-position:center;object-fit:cover}
+.product:hover .product-cover.studio-cover .studio-art{filter:brightness(1.08);transform:scale(1.035)}
+@media(prefers-reduced-motion:reduce){.product:hover .product-cover.studio-cover .studio-art{transform:none}}
