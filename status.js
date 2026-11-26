@@ -1,17 +1,1 @@
-"use strict";
-(async()=>{
-  const status=document.getElementById("bot-online"), servers=document.getElementById("bot-servers"), info=document.getElementById("stats-info");
-  try{
-    const response=await fetch("https://tov4r-bot-production.up.railway.app/public/stats",{cache:"no-store",credentials:"omit",signal:AbortSignal.timeout(8000)});
-    if(!response.ok) throw Error("unavailable");
-    const data=await response.json();
-    if(typeof data.online!=="boolean") throw Error("invalid");
-    status.textContent=data.online?"En ligne":"Connexion en cours"; status.classList.toggle("online",data.online);
-    servers.textContent=data.online&&Number.isSafeInteger(data.servers)&&data.servers>=0?String(data.servers):"—";
-    info.textContent="Données agrégées du bot au chargement de la page.";
-  }catch{
-    status.textContent="Statut indisponible";
-    servers.textContent="—";
-    info.textContent="Les statistiques ne sont pas disponibles actuellement.";
-  }
-})();
+"use strict";(()=>{const status=document.getElementById("bot-online"),servers=document.getElementById("bot-servers"),info=document.getElementById("stats-info");if(!status||!servers||!info)return;let busy=false;async function refresh(){if(busy)return;busy=true;try{const r=await fetch("https://tov4r-bot-production.up.railway.app/public/stats",{cache:"no-store",credentials:"omit",signal:AbortSignal.timeout(8000)});if(!r.ok)throw Error("unavailable");const data=await r.json();if(typeof data.online!=="boolean")throw Error("invalid");status.textContent=data.online?"En ligne":"Connexion en cours";status.classList.toggle("online",data.online);servers.textContent=data.online&&Number.isSafeInteger(data.servers)&&data.servers>=0?String(data.servers):"—";info.textContent="Actualisé à "+new Date().toLocaleTimeString("fr-FR",{hour:"2-digit",minute:"2-digit",second:"2-digit"});}catch{status.textContent="Statut indisponible";status.classList.remove("online");servers.textContent="—";info.textContent="Le service de statistiques ne répond pas actuellement.";}finally{busy=false;}}document.getElementById("refresh-status")?.addEventListener("click",refresh);setInterval(()=>{if(!document.hidden)refresh()},60000);refresh();})();
