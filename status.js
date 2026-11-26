@@ -6,7 +6,7 @@
     if(!response.ok) throw Error("unavailable");
     const data=await response.json();
     if(typeof data.online!=="boolean") throw Error("invalid");
-    status.textContent=data.online?"En ligne":"Connexion en cours";
+    status.textContent=data.online?"En ligne":"Connexion en cours"; status.classList.toggle("online",data.online);
     servers.textContent=data.online&&Number.isSafeInteger(data.servers)&&data.servers>=0?String(data.servers):"—";
     info.textContent="Données agrégées du bot au chargement de la page.";
   }catch{
